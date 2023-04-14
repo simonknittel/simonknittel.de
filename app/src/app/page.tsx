@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { type Metadata } from "next";
 import Link from "next/link";
+import Technology from "./_components/Technology";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -9,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-radial from-slate-800 to-black text-white">
+    <div className="h-screen bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
         className={clsx(
           styles.container,
-          "min-h-screen flex items-center justify-center text-center"
+          "min-h-screen flex items-center justify-center text-center bg-center bg-no-repeat"
         )}
       >
         <div className={clsx(styles.text, "p-4")}>
@@ -76,6 +77,17 @@ export default function Page() {
               </Link>
             </li>
           </ul>
+        </div>
+
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Technology className="2xl:-left-64 2xl:-top-96">Blender</Technology>
+          <Technology className="2xl:left-64 2xl:-top-96">Next.js</Technology>
+          <Technology className="2xl:left-[40rem]">React</Technology>
+          <Technology className="2xl:left-64 2xl:top-96">Terraform</Technology>
+          <Technology className="2xl:-left-64 2xl:top-96">
+            TypeScript
+          </Technology>
+          <Technology className="2xl:-left-[40rem]">Unity</Technology>
         </div>
       </div>
     </div>
