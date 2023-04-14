@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="h-screen bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
+    <div className="h-full bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
         className={clsx(
           styles.container,
-          "min-h-screen flex items-center justify-center text-center bg-center bg-no-repeat"
+          "h-full flex items-center justify-center text-center bg-center bg-no-repeat"
         )}
       >
         <div className={clsx(styles.text, "p-4")}>
@@ -30,7 +30,7 @@ export default function Page() {
             </Link>
           </h2>
 
-          <ul className="flex flex-wrap gap-x-6 justify-center text-xl mt-4 list-disc">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-xl mt-4 max-w-xs md:max-w-none mx-auto">
             <li className="list-none">
               <Link
                 href="https://github.com/simonknittel"
@@ -40,7 +40,7 @@ export default function Page() {
               </Link>
             </li>
 
-            <li>
+            <li className="list-disc">
               <Link
                 href="https://mastodon.social/@simonknittel"
                 className="border-b border-b-white hover:border-b-sky-500"
@@ -50,7 +50,7 @@ export default function Page() {
               </Link>
             </li>
 
-            <li>
+            <li className="list-disc">
               <Link
                 href="https://twitter.com/simknittel"
                 className="border-b border-b-white hover:border-b-sky-500"
@@ -59,7 +59,7 @@ export default function Page() {
               </Link>
             </li>
 
-            <li>
+            <li className="md:list-disc">
               <Link
                 href="https://www.linkedin.com/in/simonknittel/"
                 className="border-b border-b-white hover:border-b-sky-500"
@@ -68,7 +68,7 @@ export default function Page() {
               </Link>
             </li>
 
-            <li>
+            <li className="list-disc">
               <Link
                 href="https://www.xing.com/profile/Simon_Knittel/"
                 className="border-b border-b-white hover:border-b-sky-500"
