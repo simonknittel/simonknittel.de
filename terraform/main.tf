@@ -29,7 +29,7 @@ data "cloudflare_zones" "main" {
 }
 
 resource "cloudflare_record" "root_cname" {
-  zone_id = data.cloudflare_zone_id
+  zone_id = data.cloudflare_zones.main
   name    = "@"
   value   = "76.76.21.21"
   type    = "CNAME"
@@ -37,7 +37,7 @@ resource "cloudflare_record" "root_cname" {
 }
 
 resource "cloudflare_record" "www_cname" {
-  zone_id = data.cloudflare_zone_id
+  zone_id = data.cloudflare_zones.main
   name    = "www"
   value   = "cname.vercel-dns.com"
   type    = "CNAME"
