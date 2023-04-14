@@ -1,0 +1,15 @@
+{
+  "cSpell.words": [
+    "clsx",
+    "nvmrc",
+    "Snyk",
+  ],
+  "eslint.workingDirectories": [
+    {
+      "pattern": "./app/"
+    }
+  ],
+  "dotenv.enableAutocloaking": false,
+  "typescript.tsdk": "app/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
