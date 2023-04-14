@@ -9,7 +9,7 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-black text-white">
+      <body className="min-h-screen">
         {children}
         <AnalyticsContainer />
       </body>

@@ -28,10 +28,10 @@ data "cloudflare_zones" "main" {
   }
 }
 
-resource "cloudflare_record" "frontend_cname" {
+resource "cloudflare_record" "cname" {
   zone_id = data.cloudflare_zone_id
   name    = "@"
-  value   = ""
+  value   = var.vercel_domain
   type    = "CNAME"
   proxied = false
 }
