@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <div className="min-h-screen flex items-center justify-center text-center bg-gradient-radial from-slate-800 to-black text-white">
       <div>
-        <h1 className="text-8xl font-extrabold">Simon Knittel</h1>
+        <h1 className="text-4xl lg:text-8xl font-extrabold">Simon Knittel</h1>
 
         <h2 className="text-2xl mt-4">
           Full-Stack Developer @{" "}
@@ -21,7 +21,7 @@ export default function Page() {
           </Link>
         </h2>
 
-        <ul className="flex gap-6 justify-center text-xl mt-4 list-disc">
+        <ul className="flex flex-wrap gap-x-6 justify-center text-xl mt-4 list-disc">
           <li className="list-none">
             <Link
               href="https://github.com/simonknittel"
