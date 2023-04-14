@@ -15,7 +15,7 @@ export default function Page() {
           Full-Stack Developer @{" "}
           <Link
             href="https://www.hmmh.de/"
-            className="border-b border-b-white hover:border-b-sky-500 "
+            className="border-b border-b-white hover:border-b-sky-500"
           >
             hmmh
           </Link>
@@ -25,7 +25,7 @@ export default function Page() {
           <li className="list-none">
             <Link
               href="https://github.com/simonknittel"
-              className="border-b border-b-white hover:border-b-sky-500 "
+              className="border-b border-b-white hover:border-b-sky-500"
             >
               GitHub
             </Link>
@@ -34,7 +34,8 @@ export default function Page() {
           <li>
             <Link
               href="https://mastodon.social/@simonknittel"
-              className="border-b border-b-white hover:border-b-sky-500 "
+              className="border-b border-b-white hover:border-b-sky-500"
+              rel="me"
             >
               Mastodon
             </Link>
@@ -43,7 +44,7 @@ export default function Page() {
           <li>
             <Link
               href="https://twitter.com/simknittel"
-              className="border-b border-b-white hover:border-b-sky-500 "
+              className="border-b border-b-white hover:border-b-sky-500"
             >
               Twitter
             </Link>
@@ -52,7 +53,7 @@ export default function Page() {
           <li>
             <Link
               href="https://www.linkedin.com/in/simonknittel/"
-              className="border-b border-b-white hover:border-b-sky-500 "
+              className="border-b border-b-white hover:border-b-sky-500"
             >
               LinkedIn
             </Link>
@@ -61,7 +62,7 @@ export default function Page() {
           <li>
             <Link
               href="https://www.xing.com/profile/Simon_Knittel/"
-              className="border-b border-b-white hover:border-b-sky-500 "
+              className="border-b border-b-white hover:border-b-sky-500"
             >
               Xing
             </Link>
