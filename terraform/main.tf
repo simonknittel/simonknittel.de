@@ -28,10 +28,18 @@ data "cloudflare_zones" "main" {
   }
 }
 
-resource "cloudflare_record" "cname" {
+resource "cloudflare_record" "root_cname" {
   zone_id = data.cloudflare_zone_id
   name    = "@"
   value   = var.vercel_domain
   type    = "CNAME"
   proxied = false
+}
+
+resource "cloudflare_record" "www_cname" {
+  zone_id = data.cloudflare_zone_id
+  name    = "www"
+  value   = "simonknittel.de"
+  type    = "CNAME"
+  proxied = true
 }
