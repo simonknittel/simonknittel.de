@@ -2,8 +2,8 @@
   background-image: url("./grid.png");
 }
 
-.text {
-  background: linear-gradient(160.81deg, #ffffff 12.91%, #b8b8b8 96.33%);
+.text * {
+  background: linear-gradient(175deg, #ffffff 0%, #777 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
