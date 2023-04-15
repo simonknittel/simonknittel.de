@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { type ReactNode } from "react";
+import { createElement, type ReactElement, type ReactNode } from "react";
 import styles from "./Hero.module.css";
 import Technology from "./Technology";
 
@@ -29,13 +29,16 @@ const Hero = ({ name, description, links = [], technologies = [] }: Props) => {
 
           {description && (
             <h2 className="text-2xl mt-4">
-              Full-Stack Developer @{" "}
-              <Link
-                href="https://www.hmmh.de/"
-                className="border-b border-b-white hover:border-b-sky-500"
-              >
-                hmmh
-              </Link>
+              {description.props.children.map((child: ReactElement) => {
+                if (child.type === "a") {
+                  return createElement(Link, {
+                    ...child.props,
+                    className: "border-b border-b-white hover:border-b-sky-500",
+                  });
+                }
+
+                return child;
+              })}
             </h2>
           )}
 

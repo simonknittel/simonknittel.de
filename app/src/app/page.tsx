@@ -1,5 +1,4 @@
 import { type Metadata } from "next";
-import Link from "next/link";
 import Hero from "./_components/Hero/Hero";
 
 export const metadata: Metadata = {
@@ -12,13 +11,7 @@ export default function Page() {
       name="Simon Knittel"
       description={
         <>
-          Full-Stack Developer @{" "}
-          <Link
-            href="https://www.hmmh.de/"
-            className="border-b border-b-white hover:border-b-sky-500"
-          >
-            hmmh
-          </Link>
+          Full-Stack Developer @ <a href="https://www.hmmh.de/">hmmh</a>
         </>
       }
       links={[
