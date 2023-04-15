@@ -21,8 +21,9 @@ This project has been setup with the [T3 App](https://create.t3.gg/) stack initi
 
 1. Configure environment variables: Duplicate `app/.env.example` to `app/.env` and fill in the blanks.
 2. Install required Node.js version: `nvm use`
-3. Run the app: `cd app/ && npm run dev`
-4. Access the app at: <http://localhost:3000>
+3. Install dependencies: `cd app && npm ci`
+4. Run the app: `npm run dev`
+5. Access the app at: <http://localhost:3000>
 
 ## License
 
