@@ -68,6 +68,7 @@ const Hero = ({
           )}
         </div>
 
+        {/* TODO */}
         {technologies.length > 0 && (
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <Technology className="2xl:-left-64 2xl:-top-96">
@@ -81,7 +82,7 @@ const Hero = ({
             <Technology className="2xl:-left-64 2xl:top-96">
               TypeScript
             </Technology>
-            <Technology className="2xl:-left-[40rem]">Unity</Technology>
+            <Technology className="2xl:-left-[40rem]">Unity / C#</Technology>
           </div>
         )}
       </div>
