@@ -4,7 +4,7 @@ import { createElement, type ReactElement, type ReactNode } from "react";
 import styles from "./Hero.module.css";
 import Technology from "./Technology";
 
-interface Props {
+export interface HeroProps {
   name: ReactNode;
   description?: ReactNode;
   links?: {
@@ -15,7 +15,12 @@ interface Props {
   technologies?: string[];
 }
 
-const Hero = ({ name, description, links = [], technologies = [] }: Props) => {
+const Hero = ({
+  name,
+  description,
+  links = [],
+  technologies = [],
+}: HeroProps) => {
   return (
     <div className="h-full bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
