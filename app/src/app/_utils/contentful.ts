@@ -2,6 +2,7 @@
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { createClient, type BaseEntry, type EntryFieldTypes } from "contentful";
+import { cache } from "react";
 import { env } from "~/env.mjs";
 import { type ModuleRendererProps } from "../_components/ModuleRenderer";
 import { type HeroProps } from "../_components/modules/Hero/Hero";
@@ -32,6 +33,8 @@ type PageEntrySkeleton = BaseEntry & {
   fields: {
     internalName: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
+    title: EntryFieldTypes.Text;
+    description: EntryFieldTypes.Text;
     modules: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<ModuleHeroEntrySkeleton>
     >;
@@ -45,7 +48,7 @@ const getClient = () => {
   });
 };
 
-export const getPage = async (slug: string) => {
+export const getPage = cache(async (slug: string) => {
   const client = getClient();
 
   const entries = await client.getEntries<PageEntrySkeleton>({
@@ -56,7 +59,7 @@ export const getPage = async (slug: string) => {
   if (!entries.items[0]) return null;
 
   return entries.items[0].fields;
-};
+});
 
 export const getModules = (
   modules: ModuleHeroEntrySkeleton[]
