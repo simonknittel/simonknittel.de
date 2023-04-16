@@ -1,6 +1,39 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { createClient } from "contentful";
+import { createClient, type BaseEntry, type EntryFieldTypes } from "contentful";
 import { env } from "~/env.mjs";
+import { type ModuleRendererProps } from "../_components/ModuleRenderer";
+
+type LinkEntrySkeleton = BaseEntry & {
+  contentTypeId: "link";
+  fields: {
+    internalName: EntryFieldTypes.Text;
+    displayName: EntryFieldTypes.Text;
+    href: EntryFieldTypes.Text;
+    rel: EntryFieldTypes.Text;
+  };
+};
+
+type ModuleHeroEntrySkeleton = BaseEntry & {
+  contentTypeId: "moduleHero";
+  fields: {
+    internalName: EntryFieldTypes.Text;
+    name: EntryFieldTypes.Text;
+    description: EntryFieldTypes.RichText;
+    links: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<LinkEntrySkeleton>>;
+    technologies: EntryFieldTypes.Text;
+  };
+};
+
+type PageEntrySkeleton = BaseEntry & {
+  contentTypeId: "page";
+  fields: {
+    internalName: EntryFieldTypes.Text;
+    slug: EntryFieldTypes.Text;
+    modules: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<ModuleHeroEntrySkeleton>
+    >;
+  };
+};
 
 const getClient = () => {
   return createClient({
@@ -12,16 +45,20 @@ const getClient = () => {
 export const getPage = async (slug: string) => {
   const client = getClient();
 
-  const entries = await client.getEntries({
+  const entries = await client.getEntries<PageEntrySkeleton>({
     content_type: "page",
     "fields.slug": slug,
     include: 10,
   });
   if (!entries.items[0]) return null;
 
-  const page = entries.items[0].fields;
+  return entries.items[0].fields;
+};
 
-  const data = page.modules
+export const getModules = (
+  modules: ModuleHeroEntrySkeleton[]
+): ModuleRendererProps["data"] | null => {
+  const data = modules
     .map((module) => {
       const id = module.sys.id;
       const type = module.sys.contentType.sys.id.replace(/^module/, "");
@@ -31,27 +68,37 @@ export const getPage = async (slug: string) => {
         type,
       };
 
-      if (type === "Hero") {
-        Object.entries(module.fields).map(([fieldId, field]) => {
-          if (fieldId === "description") {
-            rtn[fieldId] = documentToReactComponents(field);
-          } else if (fieldId === "links") {
-            rtn[fieldId] = field.map((link) => {
-              return {
-                ...link.fields,
-                children: link.fields.displayName,
-              };
-            });
-          } else {
-            rtn[fieldId] = field;
-          }
-        });
-      } else {
-        console.warn(
-          `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
-        );
+      // TODO: Fix types
+      switch (type) {
+        case "Hero":
+          Object.entries(module.fields).map(([fieldId, field]) => {
+            switch (fieldId) {
+              case "description":
+                rtn[fieldId] = documentToReactComponents(field);
+                break;
 
-        return null;
+              case "links":
+                rtn[fieldId] = field.map((link) => {
+                  return {
+                    ...link.fields,
+                    children: link.fields.displayName,
+                  };
+                });
+                break;
+
+              default:
+                rtn[fieldId] = field;
+                break;
+            }
+          });
+          break;
+
+        default:
+          console.warn(
+            `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
+          );
+
+          return null;
       }
 
       return rtn;

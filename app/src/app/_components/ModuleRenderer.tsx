@@ -1,7 +1,7 @@
 import Hero, { type HeroProps } from "./modules/Hero/Hero";
 
 export interface ModuleRendererProps {
-  data?: ({ id: string; type: "Hero" } & HeroProps)[];
+  data?: ({ id: string; type: "Hero" | string } & HeroProps)[];
 }
 
 const ModuleRenderer = ({ data = [] }: ModuleRendererProps) => {
