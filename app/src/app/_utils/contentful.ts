@@ -1,7 +1,10 @@
+// TODO: Fix types
+
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { createClient, type BaseEntry, type EntryFieldTypes } from "contentful";
 import { env } from "~/env.mjs";
 import { type ModuleRendererProps } from "../_components/ModuleRenderer";
+import { type HeroProps } from "../_components/modules/Hero/Hero";
 
 type LinkEntrySkeleton = BaseEntry & {
   contentTypeId: "link";
@@ -57,53 +60,65 @@ export const getPage = async (slug: string) => {
 
 export const getModules = (
   modules: ModuleHeroEntrySkeleton[]
-): ModuleRendererProps["data"] | null => {
-  const data = modules
+): ModuleRendererProps["data"] => {
+  return modules
     .map((module) => {
       const id = module.sys.id;
       const type = module.sys.contentType.sys.id.replace(/^module/, "");
 
-      const rtn = {
-        id,
-        type,
-      };
+      let fields = {};
 
-      // TODO: Fix types
       switch (type) {
         case "Hero":
-          Object.entries(module.fields).map(([fieldId, field]) => {
-            switch (fieldId) {
-              case "description":
-                rtn[fieldId] = documentToReactComponents(field);
-                break;
-
-              case "links":
-                rtn[fieldId] = field.map((link) => {
-                  return {
-                    ...link.fields,
-                    children: link.fields.displayName,
-                  };
-                });
-                break;
-
-              default:
-                rtn[fieldId] = field;
-                break;
-            }
-          });
+          fields = transformModuleHeroFields(module.fields);
           break;
 
         default:
           console.warn(
             `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
           );
-
           return null;
       }
 
-      return rtn;
+      return {
+        id,
+        type,
+        ...fields,
+      };
     })
     .filter((module) => module !== null);
-
-  return data;
 };
+
+function transformModuleHeroFields(
+  fields: ModuleHeroEntrySkeleton["fields"]
+): HeroProps {
+  const rtn: HeroProps = {
+    name: "",
+    description: "",
+    links: [],
+    technologies: [],
+  };
+
+  Object.entries(fields).forEach(([fieldId, field]) => {
+    switch (fieldId) {
+      case "description":
+        rtn[fieldId] = documentToReactComponents(field);
+        break;
+
+      case "links":
+        rtn[fieldId] = field.map((link) => {
+          return {
+            ...link.fields,
+            children: link.fields.displayName,
+          };
+        });
+        break;
+
+      default:
+        rtn[fieldId] = field;
+        break;
+    }
+  });
+
+  return rtn;
+}
