@@ -34,16 +34,20 @@ const Hero = ({
 
           {description && (
             <h2 className="text-2xl mt-4">
-              {description.props.children.map((child: ReactElement) => {
-                if (child.type === "a") {
-                  return createElement(Link, {
-                    ...child.props,
-                    className: "border-b border-b-white hover:border-b-sky-500",
-                  });
-                }
+              {description.map((node) =>
+                node.props.children.map((childNode: ReactElement) => {
+                  // TODO: Makes this work for nested children
+                  if (childNode.type === "a") {
+                    return createElement(Link, {
+                      ...childNode.props,
+                      className:
+                        "border-b border-b-white hover:border-b-sky-500",
+                    });
+                  }
 
-                return child;
-              })}
+                  return childNode;
+                })
+              )}
             </h2>
           )}
 

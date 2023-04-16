@@ -8,8 +8,8 @@ This project has been setup with the [T3 App](https://create.t3.gg/) stack initi
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/)
-- [React Icons](https://github.com/react-icons/react-icons)
 - [Terraform](https://www.terraform.io/)
+- [Contentful](https://www.contentful.com/)
 
 ## Usage
 

@@ -1,10 +1,10 @@
 import Hero, { type HeroProps } from "./modules/Hero/Hero";
 
-interface Props {
+export interface ModuleRendererProps {
   data?: ({ id: string; type: "Hero" } & HeroProps)[];
 }
 
-const ModuleRenderer = ({ data = [] }: Props) => {
+const ModuleRenderer = ({ data = [] }: ModuleRendererProps) => {
   return data.map((module) => {
     const { id, type, ...props } = module;
 
@@ -13,6 +13,9 @@ const ModuleRenderer = ({ data = [] }: Props) => {
         return <Hero key={id} {...props} />;
 
       default:
+        console.warn(
+          `ModuleRender has been provided with a module (ID: ${id}) whose type (${type}) is unknown.`
+        );
         return null;
     }
   });

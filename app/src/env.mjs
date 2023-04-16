@@ -5,6 +5,9 @@ import { z } from "zod";
  * built with invalid env vars.
  */
 const server = z.object({
+  CONTENTFUL_SPACE_ID: z.string().min(1),
+  CONTENTFUL_ACCESS_TOKEN: z.string().min(1),
+  CONTENTFUL_PREVIEW_ACCESS_TOKEN: z.string().min(1).optional(),
 });
 
 /**
@@ -21,6 +24,9 @@ const client = z.object({
  * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
  */
 const processEnv = {
+  CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+  CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
 };
 
 // Don't touch the part below
