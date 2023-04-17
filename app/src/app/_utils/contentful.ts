@@ -45,7 +45,7 @@ const getClient = () => {
   return createClient({
     space: env.CONTENTFUL_SPACE_ID,
     accessToken: env.CONTENTFUL_ACCESS_TOKEN,
-  });
+  }).withoutUnresolvableLinks;
 };
 
 export const getPage = cache(async (slug: string) => {
@@ -68,7 +68,6 @@ export const getModules = (
   modules: ModuleHeroEntrySkeleton[]
 ): ModuleRendererProps["data"] => {
   return modules
-    .filter((module) => Boolean(module.sys.createdAt))
     .map((module) => {
       const id = module.sys.id;
       const type = module.sys.contentType.sys.id.replace(/^module/, "");
