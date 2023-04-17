@@ -55,7 +55,10 @@ export const getPage = cache(async (slug: string) => {
     content_type: "page",
     "fields.slug": slug,
     include: 10,
+    order: ["-sys.updatedAt"],
+    limit: 1,
   });
+
   if (!entries.items[0]) return null;
 
   return entries.items[0].fields;
