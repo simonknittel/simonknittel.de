@@ -6,6 +6,7 @@ import {
   type BaseEntry,
   type Entry,
   type EntryFieldTypes,
+  type EntrySkeletonType,
 } from "contentful";
 import { cache } from "react";
 import { env } from "~/env.mjs";
@@ -76,7 +77,36 @@ export const transformContentfulPageModulesToModuleRenderer = (
     string
   >[]
 ): ModulesRendererProps["data"] => {
-  const transformedEntries = modules.map((module) => {
+  const [knownModules, unknownModules] = modules.reduce(
+    (result, module) => {
+      if (
+        ["Hero"].includes(module.sys.contentType.sys.id.replace(/^module/, ""))
+      ) {
+        result[0].push(module);
+      } else {
+        result[1].push(module);
+      }
+
+      return result;
+    },
+    [
+      [] as Entry<
+        ModuleHeroEntrySkeleton,
+        "WITHOUT_UNRESOLVABLE_LINKS",
+        string
+      >[],
+      [] as Entry<EntrySkeletonType, "WITHOUT_UNRESOLVABLE_LINKS", string>[],
+    ]
+  );
+
+  if (unknownModules.length > 0) {
+    console.warn(
+      `Contentful provided modules whose types are unknown to our transpiler.`,
+      unknownModules
+    );
+  }
+
+  const transformedEntries = knownModules.map((module) => {
     const id = module.sys.id;
     const type = module.sys.contentType.sys.id.replace(/^module/, "");
 
@@ -88,10 +118,9 @@ export const transformContentfulPageModulesToModuleRenderer = (
         break;
 
       default:
-        console.warn(
+        throw new Error(
           `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
         );
-        return null;
     }
 
     return {
