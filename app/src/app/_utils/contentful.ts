@@ -68,6 +68,7 @@ export const getModules = (
   modules: ModuleHeroEntrySkeleton[]
 ): ModuleRendererProps["data"] => {
   return modules
+    .filter((module) => Boolean(module.sys.createdAt))
     .map((module) => {
       const id = module.sys.id;
       const type = module.sys.contentType.sys.id.replace(/^module/, "");
