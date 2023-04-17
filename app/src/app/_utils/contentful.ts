@@ -70,34 +70,41 @@ export const getContentfulPage = cache(async (slug: string) => {
   return entries.items[0].fields;
 });
 
-export const transformContentfulPageModulesToModuleRenderer = (
-  modules: Entry<
-    ModuleHeroEntrySkeleton,
-    "WITHOUT_UNRESOLVABLE_LINKS",
-    string
-  >[]
-): ModulesRendererProps["data"] => {
-  const [knownModules, unknownModules] = modules.reduce(
-    (result, module) => {
-      if (
-        ["Hero"].includes(module.sys.contentType.sys.id.replace(/^module/, ""))
-      ) {
-        result[0].push(module);
-      } else {
-        result[1].push(module);
-      }
+// Types which are returned by `entries.items[0].fields.modules`
+type KnownModuleEntry = Entry<
+  ModuleHeroEntrySkeleton,
+  "WITHOUT_UNRESOLVABLE_LINKS",
+  string
+>;
+type UnknownModuleEntry = Entry<
+  EntrySkeletonType,
+  "WITHOUT_UNRESOLVABLE_LINKS",
+  string
+>;
 
-      return result;
-    },
-    [
-      [] as Entry<
-        ModuleHeroEntrySkeleton,
-        "WITHOUT_UNRESOLVABLE_LINKS",
-        string
-      >[],
-      [] as Entry<EntrySkeletonType, "WITHOUT_UNRESOLVABLE_LINKS", string>[],
-    ]
-  );
+export const transformContentfulPageModulesToModuleRenderer = (
+  modules: (KnownModuleEntry | UnknownModuleEntry | undefined)[]
+): ModulesRendererProps["data"] => {
+  const [knownModules, unknownModules] = modules
+    .filter((module): module is KnownModuleEntry | UnknownModuleEntry =>
+      Boolean(module)
+    )
+    .reduce(
+      (result, module) => {
+        if (
+          ["Hero"].includes(
+            module.sys.contentType.sys.id.replace(/^module/, "")
+          )
+        ) {
+          result[0].push(module);
+        } else {
+          result[1].push(module);
+        }
+
+        return result;
+      },
+      [[] as KnownModuleEntry[], [] as UnknownModuleEntry[]]
+    );
 
   if (unknownModules.length > 0) {
     console.warn(
@@ -107,34 +114,19 @@ export const transformContentfulPageModulesToModuleRenderer = (
   }
 
   const transformedEntries = knownModules.map((module) => {
-    const id = module.sys.id;
     const type = module.sys.contentType.sys.id.replace(/^module/, "");
 
-    let fields = {};
-
-    switch (type) {
-      case "Hero":
-        fields = transformModuleHeroFields(module.fields);
-        break;
-
-      default:
-        throw new Error(
-          `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
-        );
-    }
+    const props =
+      type === "Hero" ? transformModuleHeroFields(module.fields) : {};
 
     return {
-      id,
+      id: module.sys.id,
       type,
-      ...fields,
+      props,
     };
   });
 
-  const filteredEntries = transformedEntries.filter((module) =>
-    Boolean(module)
-  );
-
-  return filteredEntries;
+  return transformedEntries;
 };
 
 function transformModuleHeroFields(

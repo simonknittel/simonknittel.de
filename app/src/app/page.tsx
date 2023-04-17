@@ -23,7 +23,6 @@ export default async function Page() {
   const modulesData = transformContentfulPageModulesToModuleRenderer(
     pageData.modules
   );
-  if (!modulesData) return null;
 
   return <ModulesRenderer data={modulesData} />;
 }

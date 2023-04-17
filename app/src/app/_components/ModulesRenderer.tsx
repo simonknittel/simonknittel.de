@@ -1,12 +1,15 @@
 import Hero, { type HeroProps } from "./modules/Hero/Hero";
 
 export interface ModulesRendererProps {
-  data?: ({ id: string; type: "Hero" | string } & HeroProps)[];
+  data?: (
+    | { id: string; type: "Hero"; props: HeroProps }
+    | { id: string; type: string; props: Record<string, unknown> }
+  )[];
 }
 
 const ModulesRenderer = ({ data = [] }: ModulesRendererProps) => {
   return data.map((module) => {
-    const { id, type, ...props } = module;
+    const { id, type, props } = module;
 
     switch (type) {
       case "Hero":
@@ -14,7 +17,7 @@ const ModulesRenderer = ({ data = [] }: ModulesRendererProps) => {
 
       default:
         console.warn(
-          `ModuleRender has been provided with a module (ID: ${id}) whose type (${type}) is unknown.`
+          `ModulesRenderer has been provided with a module (ID: ${id}) whose type (${type}) is unknown.`
         );
         return null;
     }
