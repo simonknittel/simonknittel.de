@@ -1,10 +1,10 @@
 import Hero, { type HeroProps } from "./modules/Hero/Hero";
 
-export interface ModuleRendererProps {
+export interface ModulesRendererProps {
   data?: ({ id: string; type: "Hero" | string } & HeroProps)[];
 }
 
-const ModuleRenderer = ({ data = [] }: ModuleRendererProps) => {
+const ModulesRenderer = ({ data = [] }: ModulesRendererProps) => {
   return data.map((module) => {
     const { id, type, ...props } = module;
 
@@ -21,4 +21,4 @@ const ModuleRenderer = ({ data = [] }: ModuleRendererProps) => {
   });
 };
 
-export default ModuleRenderer;
+export default ModulesRenderer;

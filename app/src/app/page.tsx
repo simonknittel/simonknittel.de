@@ -1,10 +1,13 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import ModuleRenderer from "./_components/ModuleRenderer";
-import { getModules, getPage } from "./_utils/contentful";
+import ModulesRenderer from "./_components/ModulesRenderer";
+import {
+  getContentfulPage,
+  transformContentfulPageModulesToModuleRenderer,
+} from "./_utils/contentful";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getPage("/");
+  const pageData = await getContentfulPage("/");
   if (!pageData) return {};
 
   return {
@@ -14,11 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const pageData = await getPage("/");
+  const pageData = await getContentfulPage("/");
   if (!pageData) notFound();
 
-  const modulesData = getModules(pageData.modules);
+  const modulesData = transformContentfulPageModulesToModuleRenderer(
+    pageData.modules
+  );
   if (!modulesData) return null;
 
-  return <ModuleRenderer data={modulesData} />;
+  return <ModulesRenderer data={modulesData} />;
 }

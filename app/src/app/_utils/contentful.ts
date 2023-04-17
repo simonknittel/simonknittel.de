@@ -1,10 +1,15 @@
 // TODO: Fix types
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { createClient, type BaseEntry, type EntryFieldTypes } from "contentful";
+import {
+  createClient,
+  type BaseEntry,
+  type Entry,
+  type EntryFieldTypes,
+} from "contentful";
 import { cache } from "react";
 import { env } from "~/env.mjs";
-import { type ModuleRendererProps } from "../_components/ModuleRenderer";
+import { type ModulesRendererProps } from "../_components/ModulesRenderer";
 import { type HeroProps } from "../_components/modules/Hero/Hero";
 
 type LinkEntrySkeleton = BaseEntry & {
@@ -48,7 +53,7 @@ const getClient = () => {
   }).withoutUnresolvableLinks;
 };
 
-export const getPage = cache(async (slug: string) => {
+export const getContentfulPage = cache(async (slug: string) => {
   const client = getClient();
 
   const entries = await client.getEntries<PageEntrySkeleton>({
@@ -64,35 +69,43 @@ export const getPage = cache(async (slug: string) => {
   return entries.items[0].fields;
 });
 
-export const getModules = (
-  modules: ModuleHeroEntrySkeleton[]
-): ModuleRendererProps["data"] => {
-  return modules
-    .map((module) => {
-      const id = module.sys.id;
-      const type = module.sys.contentType.sys.id.replace(/^module/, "");
+export const transformContentfulPageModulesToModuleRenderer = (
+  modules: Entry<
+    ModuleHeroEntrySkeleton,
+    "WITHOUT_UNRESOLVABLE_LINKS",
+    string
+  >[]
+): ModulesRendererProps["data"] => {
+  const transformedEntries = modules.map((module) => {
+    const id = module.sys.id;
+    const type = module.sys.contentType.sys.id.replace(/^module/, "");
 
-      let fields = {};
+    let fields = {};
 
-      switch (type) {
-        case "Hero":
-          fields = transformModuleHeroFields(module.fields);
-          break;
+    switch (type) {
+      case "Hero":
+        fields = transformModuleHeroFields(module.fields);
+        break;
 
-        default:
-          console.warn(
-            `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
-          );
-          return null;
-      }
+      default:
+        console.warn(
+          `Contentful provided a module (ID: ${id}) whose type (${type}) is unknown to our transpiler.`
+        );
+        return null;
+    }
 
-      return {
-        id,
-        type,
-        ...fields,
-      };
-    })
-    .filter((module) => module !== null);
+    return {
+      id,
+      type,
+      ...fields,
+    };
+  });
+
+  const filteredEntries = transformedEntries.filter((module) =>
+    Boolean(module)
+  );
+
+  return filteredEntries;
 };
 
 function transformModuleHeroFields(
