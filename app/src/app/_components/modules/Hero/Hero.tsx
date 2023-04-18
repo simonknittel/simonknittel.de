@@ -29,11 +29,13 @@ const Hero = ({
           "h-full flex items-center justify-center text-center bg-center bg-no-repeat"
         )}
       >
-        <div className={clsx(styles.text, "p-4")}>
-          <h1 className="text-6xl lg:text-8xl font-extrabold">{name}</h1>
+        <div className="p-4">
+          <h1 className="text-6xl lg:text-8xl font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+            {name}
+          </h1>
 
           {description && (
-            <h2 className="text-2xl mt-4">
+            <h2 className="text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100">
               {description.map((node) =>
                 node.props.children.map((childNode: ReactElement) => {
                   // TODO: Makes this work for nested children
@@ -41,7 +43,7 @@ const Hero = ({
                     return createElement(Link, {
                       ...childNode.props,
                       className:
-                        "border-b border-b-white hover:border-b-sky-500",
+                        "hover:opacity-50 relative bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:block after:absolute after:bottom-0 after:content-[''] after:h-[1px] after:left-0 after:right-0 after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500",
                     });
                   }
 
@@ -57,7 +59,7 @@ const Hero = ({
                 <li key={href}>
                   <Link
                     href={href}
-                    className="border-b border-b-white hover:border-b-sky-500"
+                    className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
                     rel={rel}
                   >
                     {children}
