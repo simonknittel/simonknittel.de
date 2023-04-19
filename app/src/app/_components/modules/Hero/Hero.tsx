@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { createElement, type ReactElement, type ReactNode } from "react";
+import { type ReactNode } from "react";
+import { componentMapper } from "~/app/_utils/componentMapper";
 import styles from "./Hero.module.css";
 import Technology from "./Technology";
 
@@ -21,6 +22,15 @@ const Hero = ({
   links = [],
   technologies = [],
 }: HeroProps) => {
+  const _description = componentMapper(description, {
+    a: (node) => (
+      <Link
+        {...node.props}
+        className="hover:opacity-50 relative bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:block after:absolute after:bottom-0 after:content-[''] after:h-[1px] after:left-0 after:right-0 after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+      />
+    ),
+  });
+
   return (
     <div className="h-full bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
@@ -36,20 +46,7 @@ const Hero = ({
 
           {description && (
             <h2 className="text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100">
-              {description.map((node) =>
-                node.props.children.map((childNode: ReactElement) => {
-                  // TODO: Makes this work for nested children
-                  if (childNode.type === "a") {
-                    return createElement(Link, {
-                      ...childNode.props,
-                      className:
-                        "hover:opacity-50 relative bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:block after:absolute after:bottom-0 after:content-[''] after:h-[1px] after:left-0 after:right-0 after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500",
-                    });
-                  }
-
-                  return childNode;
-                })
-              )}
+              {_description}
             </h2>
           )}
 
