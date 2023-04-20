@@ -8,6 +8,7 @@ const server = z.object({
   CONTENTFUL_SPACE_ID: z.string().min(1),
   CONTENTFUL_ACCESS_TOKEN: z.string().min(1),
   CONTENTFUL_PREVIEW_ACCESS_TOKEN: z.string().min(1).optional(),
+  CONTENTFUL_WEBHOOK_SECRET: z.string().min(1).optional(),
 });
 
 /**
@@ -27,6 +28,7 @@ const processEnv = {
   CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
   CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
   CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+  CONTENTFUL_WEBHOOK_SECRET: process.env.CONTENTFUL_WEBHOOK_SECRET,
 };
 
 // Don't touch the part below
