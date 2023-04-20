@@ -47,7 +47,7 @@ type PageEntrySkeleton = BaseEntry & {
   };
 };
 
-const getClient = () => {
+export const getClient = () => {
   return createClient({
     space: env.CONTENTFUL_SPACE_ID,
     accessToken: env.CONTENTFUL_ACCESS_TOKEN,

@@ -10,6 +10,7 @@ This project has been setup with the [T3 App](https://create.t3.gg/) stack initi
 - [Vercel](https://vercel.com/)
 - [Terraform](https://www.terraform.io/)
 - [Contentful](https://www.contentful.com/)
+- [Zod](https://github.com/colinhacks/zod)
 
 ## Usage
 
