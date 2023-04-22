@@ -14,7 +14,7 @@ const requestBodySchema = z.union([
     }),
     fields: z.object({
       slug: z.object({
-        "en-US": z.string(),
+        "en-US": z.string().min(1),
       }),
     }),
   }),
@@ -22,10 +22,10 @@ const requestBodySchema = z.union([
     sys: z.object({
       contentType: z.object({
         sys: z.object({
-          id: z.string().regex(/^module\w+$/),
+          id: z.union([z.string().regex(/^module\w+$/), z.string().min(1)]),
         }),
       }),
-      id: z.string(),
+      id: z.string().min(1),
     }),
   }),
 ]);
@@ -66,7 +66,7 @@ export default async function handler(
 
       await res.revalidate(page.items[0].fields.slug);
     } else {
-      return res.status(400).end();
+      await res.revalidate("/");
     }
 
     return res.status(204).end();
