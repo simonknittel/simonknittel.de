@@ -35,14 +35,16 @@ const Globe = ({ className, width = 0, height = 0 }: Props) => {
     const texture = new THREE.TextureLoader().load("./assets/earth.png");
 
     // TODO: Add inner glow
-    // TODO: Fix texture stretching
 
-    const material = new THREE.MeshBasicMaterial({
+    const material = new THREE.MeshStandardMaterial({
       map: texture,
+      emissive: 0xffffff,
+      emissiveMap: texture,
+      emissiveIntensity: 5,
     });
 
     const sphere = new THREE.Mesh(geometry, material);
-    sphere.rotation.y = 4;
+    sphere.rotation.y = 4.4;
     scene.add(sphere);
 
     canvas.appendChild(renderer.domElement);
