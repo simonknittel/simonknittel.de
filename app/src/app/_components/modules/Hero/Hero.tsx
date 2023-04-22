@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { componentMapper } from "~/app/_utils/componentMapper";
+import Globe from "./Globe";
 import styles from "./Hero.module.css";
 import Technology from "./Technology";
 
@@ -36,7 +37,7 @@ const Hero = ({
       <div
         className={clsx(
           styles.container,
-          "h-full flex items-center justify-center text-center bg-center bg-no-repeat"
+          "h-full flex items-center justify-center text-center bg-center bg-no-repeat relative z-10"
         )}
       >
         <div className="p-4">
@@ -85,6 +86,12 @@ const Hero = ({
           </div>
         )}
       </div>
+
+      <Globe
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[512px] w-[3072px]"
+        width={3072}
+        height={512}
+      />
     </div>
   );
 };
