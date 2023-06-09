@@ -1,4 +1,9 @@
 {
+  "cSpell.words": [
+    "clsx",
+    "contentful",
+    "hmmh"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
