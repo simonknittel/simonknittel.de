@@ -41,11 +41,11 @@ const Hero = ({
   });
 
   return (
-    <div className="h-full bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
+    <div className="h-[100dvh] bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
         className={clsx(
           styles.container,
-          "h-full flex items-center justify-center text-center bg-center bg-no-repeat relative z-10"
+          "h-[100dvh] flex items-center justify-center text-center bg-center bg-no-repeat relative z-10"
         )}
       >
         <div className="p-4">
