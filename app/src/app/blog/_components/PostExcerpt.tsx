@@ -1,29 +1,21 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { FaChevronLeft } from "react-icons/fa";
-import styles from "./Header.module.css";
 
 interface Props {
   className?: string;
-  children?: ReactNode;
+  href: string;
+  title: ReactNode;
   date: Date;
   tags?: ReactNode[];
 }
 
-const Header = ({ className, children, date, tags }: Props) => {
+const PostExcerpt = ({ className, href, title, date, tags }: Props) => {
   return (
-    <div className="w-full max-w-3xl">
-      <Link
-        href="/blog"
-        className="flex gap-1 text-neutral-500 hover:text-white items-center mb-2"
-      >
-        <FaChevronLeft /> All blog posts
-      </Link>
-
-      <h1 className={clsx(className, "text-5xl font-extrabold", styles.Header)}>
-        {children}
-      </h1>
+    <article className={clsx(className)}>
+      <h2 className="text-3xl font-extrabold">
+        <Link href={href}>{title}</Link>
+      </h2>
 
       <div className="text-neutral-500 mt-2 flex gap-4 flex-wrap">
         <time dateTime={date.toISOString()}>
@@ -38,8 +30,8 @@ const Header = ({ className, children, date, tags }: Props) => {
           </span>
         ))}
       </div>
-    </div>
+    </article>
   );
 };
 
-export default Header;
+export default PostExcerpt;

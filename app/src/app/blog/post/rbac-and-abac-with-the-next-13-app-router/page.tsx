@@ -1,10 +1,6 @@
 import { type Metadata } from "next";
-import {
-  SiNextdotjs,
-  SiPrisma,
-  SiReacthookform,
-  SiTypescript,
-} from "react-icons/si";
+import { BsFillShieldFill } from "react-icons/bs";
+import { SiNextdotjs, SiPrisma, SiReacthookform } from "react-icons/si";
 import Note from "../_components/Note";
 import Header from "../_components/header/Header";
 
@@ -22,13 +18,13 @@ export default function Page() {
             <SiNextdotjs /> Next.js
           </>,
           <>
+            <BsFillShieldFill /> NextAuth.js
+          </>,
+          <>
             <SiPrisma /> Prisma
           </>,
           <>
             <SiReacthookform /> React Hook Form
-          </>,
-          <>
-            <SiTypescript /> TypeScript
           </>,
         ]}
       >
@@ -46,12 +42,9 @@ export default function Page() {
       {/* TODO: Add table of contents */}
 
       <Note className="w-full max-w-3xl">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
-          voluptatem consequuntur alias facere doloribus quidem rerum
-          consequatur perspiciatis sit suscipit! Autem sunt totam quasi. Iure
-          suscipit voluptates id beatae provident!
-        </p>
+        <p className="font-bold">Side note</p>
+
+        <p>This function has been initially generated with ChatGPT.</p>
       </Note>
 
       <p className="w-full max-w-3xl">The End.</p>
