@@ -8,7 +8,9 @@ interface Props {
 
 const Author = ({ className }: Props) => {
   return (
-    <section className={clsx(className, "flex gap-8 text-lg items-start")}>
+    <section
+      className={clsx(className, "flex gap-4 lg:gap-8 lg:text-lg items-start")}
+    >
       <div className="rounded lg:rounded-3xl overflow-hidden flex-shrink-0 basis-1/5">
         <Image src={picturePortraitImage} alt="Picture of me" width={192} />
       </div>

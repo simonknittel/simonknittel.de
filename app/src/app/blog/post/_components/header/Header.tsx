@@ -41,7 +41,7 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
         </h1>
       </div>
 
-      <div className="text-neutral-500 mt-2 flex gap-4 flex-wrap">
+      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap">
         <time dateTime={date.toISOString()}>
           {date.toLocaleDateString("en", {
             dateStyle: "long",

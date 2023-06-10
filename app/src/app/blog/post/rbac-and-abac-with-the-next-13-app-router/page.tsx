@@ -55,7 +55,7 @@ export default function Page() {
 
       <p className="w-full max-w-3xl">The End.</p>
 
-      <p className="italic w-full max-w-3xl">
+      <p className="italic w-full max-w-3xl text-lg">
         Thanks to my colleagues Cornelia and Henning for reviewing this post
         before posting.
       </p>

@@ -12,7 +12,7 @@ const Note = ({ className, children }: Props) => {
     <div
       className={clsx(
         className,
-        "flex gap-4 rounded border-t-sky-500 border-t-4 bg-sky-950 text-lg p-4"
+        "flex gap-2 lg:gap-4 rounded border-t-sky-500 border-t-4 bg-sky-950 text-lg p-2 lg:p-4"
       )}
     >
       <FaInfoCircle className="text-sky-500 flex-shrink-0 mt-1" />

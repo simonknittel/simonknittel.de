@@ -17,7 +17,7 @@ const PostExcerpt = ({ className, href, title, date, tags }: Props) => {
         <Link href={href}>{title}</Link>
       </h2>
 
-      <div className="text-neutral-500 mt-2 flex gap-4 flex-wrap">
+      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap">
         <time dateTime={date.toISOString()}>
           {date.toLocaleDateString("en", {
             dateStyle: "long",
