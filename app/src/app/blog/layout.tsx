@@ -8,7 +8,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div className="min-h-[100dvh] bg-neutral-800 text-white">
-      <header className="flex justify-between max-w-3xl mx-auto">
+      <header className="flex justify-between max-w-3xl mx-auto px-2">
         <p className="py-2">Simon Knittel</p>
 
         <nav>

@@ -54,6 +54,11 @@ export default function Page() {
       </Note>
 
       <p className="w-full max-w-3xl">The End.</p>
+
+      <p className="italic w-full max-w-3xl">
+        Thanks to my colleagues Cornelia and Henning for reviewing this post
+        before posting.
+      </p>
     </>
   );
 }

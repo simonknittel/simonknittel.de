@@ -22,7 +22,7 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
         <FaChevronLeft /> All blog posts
       </Link>
 
-      <div className="relative overflow-hidden rounded-3xl px-8 pb-8 pt-32 -mx-8">
+      <div className="relative overflow-hidden lg:rounded-3xl px-2 pb-2 lg:px-8 lg:pb-8 pt-16 lg:pt-32 -mx-2 lg:-mx-8">
         <Image
           src={imageSrc}
           alt=""
@@ -33,7 +33,7 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
 
         <h1
           className={clsx(
-            "text-5xl font-extrabold relative z-10",
+            "text-3xl lg:text-5xl font-extrabold relative z-10",
             styles.Header
           )}
         >
