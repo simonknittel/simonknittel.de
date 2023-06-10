@@ -11,7 +11,6 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" className="h-full">
       <body className="h-full">
         {children}
-        <AnalyticsContainer />
       </body>
     </html>
   );
