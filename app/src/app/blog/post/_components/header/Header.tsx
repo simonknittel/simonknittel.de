@@ -17,7 +17,7 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
     <div className="w-full max-w-3xl">
       <Link
         href="/blog"
-        className="flex gap-1 text-neutral-500 hover:text-white items-center mb-2"
+        className="inline-flex gap-1 text-neutral-500 hover:text-white items-center py-2"
       >
         <FaChevronLeft /> All blog posts
       </Link>
