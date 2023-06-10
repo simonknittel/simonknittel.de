@@ -4,7 +4,7 @@ import ModulesRenderer from "./_components/ModulesRenderer";
 import {
   getContentfulPage,
   transformContentfulPageModulesToModuleRenderer,
-} from "./_utils/contentful";
+} from "./_lib/contentful";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getContentfulPage("/");

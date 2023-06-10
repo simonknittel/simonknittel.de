@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { z } from "zod";
-import { getClient } from "~/app/_utils/contentful";
+import { getClient } from "~/app/_lib/contentful";
 import { env } from "~/env.mjs";
 
 const requestBodySchema = z.union([

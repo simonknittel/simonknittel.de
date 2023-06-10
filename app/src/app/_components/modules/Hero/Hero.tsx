@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { componentMapper } from "~/app/_utils/componentMapper";
+import { componentMapper } from "~/app/_lib/componentMapper";
 import Globe from "./Globe";
 import styles from "./Hero.module.css";
 import Technology from "./Technology";
