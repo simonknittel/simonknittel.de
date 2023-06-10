@@ -1,17 +1,18 @@
 import clsx from "clsx";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import styles from "./Header.module.css";
 
 interface Props {
-  className?: string;
   children?: ReactNode;
   date: Date;
   tags?: ReactNode[];
+  imageSrc: StaticImageData;
 }
 
-const Header = ({ className, children, date, tags }: Props) => {
+const Header = ({ children, date, tags, imageSrc }: Props) => {
   return (
     <div className="w-full max-w-3xl">
       <Link
@@ -21,9 +22,24 @@ const Header = ({ className, children, date, tags }: Props) => {
         <FaChevronLeft /> All blog posts
       </Link>
 
-      <h1 className={clsx(className, "text-5xl font-extrabold", styles.Header)}>
-        {children}
-      </h1>
+      <div className="relative overflow-hidden rounded-3xl px-8 pb-8 pt-32 -mx-8">
+        <Image
+          src={imageSrc}
+          alt=""
+          width={832}
+          height={128}
+          className="absolute inset-0 z-0"
+        />
+
+        <h1
+          className={clsx(
+            "text-5xl font-extrabold relative z-10",
+            styles.Header
+          )}
+        >
+          {children}
+        </h1>
+      </div>
 
       <div className="text-neutral-500 mt-2 flex gap-4 flex-wrap">
         <time dateTime={date.toISOString()}>

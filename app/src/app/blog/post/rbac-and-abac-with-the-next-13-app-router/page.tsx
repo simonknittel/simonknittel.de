@@ -3,6 +3,7 @@ import { BsFillShieldFill } from "react-icons/bs";
 import { SiNextdotjs, SiPrisma, SiReacthookform } from "react-icons/si";
 import Note from "../_components/Note";
 import Header from "../_components/header/Header";
+import imageSrc from "./image.jpg";
 
 export const metadata: Metadata = {
   title: "RBAC and ABAC with the Next.js 13 App Router - Blog | Simon Knittel",
@@ -27,9 +28,14 @@ export default function Page() {
             <SiReacthookform /> React Hook Form
           </>,
         ]}
+        imageSrc={imageSrc}
       >
         RBAC and ABAC with the Next.js 13 App Router
       </Header>
+
+      {/* <div className="aspect-[6/1] relative w-full max-w-3xl rounded-3xl overflow-hidden">
+        <Image src={imageSrc} alt="" width={768} height={128} />
+      </div> */}
 
       <p className="font-bold w-full max-w-3xl text-lg">
         {/* TODO: Add introduction */}
