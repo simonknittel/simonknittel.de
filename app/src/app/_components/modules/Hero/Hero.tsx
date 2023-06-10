@@ -1,7 +1,14 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { componentMapper } from "~/app/_utils/componentMapper";
+import {
+  SiBlender,
+  SiNextdotjs,
+  SiReact,
+  SiTerraform,
+  SiTypescript,
+  SiUnity,
+} from "react-icons/si";
 import { componentMapper } from "~/app/_lib/componentMapper";
 import Globe from "./Globe";
 import styles from "./Hero.module.css";
@@ -73,17 +80,24 @@ const Hero = ({
         {technologies.length > 0 && (
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <Technology className="2xl:-left-64 2xl:-top-96">
-              Blender
+              <SiBlender /> Blender
             </Technology>
-            <Technology className="2xl:left-64 2xl:-top-96">Next.js</Technology>
-            <Technology className="2xl:left-[40rem]">React</Technology>
+            <Technology className="2xl:left-64 2xl:-top-96">
+              <SiNextdotjs /> Next.js
+            </Technology>
+            <Technology className="2xl:left-[40rem]">
+              <SiReact />
+              React
+            </Technology>
             <Technology className="2xl:left-64 2xl:top-96">
-              Terraform
+              <SiTerraform /> Terraform
             </Technology>
             <Technology className="2xl:-left-64 2xl:top-96">
-              TypeScript
+              <SiTypescript /> TypeScript
             </Technology>
-            <Technology className="2xl:-left-[40rem]">Unity / C#</Technology>
+            <Technology className="2xl:-left-[40rem]">
+              <SiUnity /> Unity / C#
+            </Technology>
           </div>
         )}
       </div>
