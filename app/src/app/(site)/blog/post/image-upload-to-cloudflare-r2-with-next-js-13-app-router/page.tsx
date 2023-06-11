@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import { SiNextdotjs, SiPrisma } from "react-icons/si";
+import ShareButton from "../_components/ShareButton";
 import Header from "../_components/header/Header";
 import imageSrc from "./image.jpg";
 
@@ -29,7 +30,11 @@ export default function Page() {
         Image upload to Cloudflare R2 with Next.js 13 App Router
       </Header>
 
-      <p className="font-bold w-full max-w-3xl text-lg">TODO: Introduction</p>
+      <p className="font-bold w-full max-w-3xl text-lg">
+        In this post we are implementing the ability to upload images from a
+        Next.js 13 App Router application to Cloudflare&apos;s R2 object storage
+        service.
+      </p>
 
       <div className="w-full max-w-3xl rounded bg-neutral-900 p-4 lg:p-8 mx-auto text-lg">
         <p className="font-bold">Table of contents</p>
@@ -37,10 +42,10 @@ export default function Page() {
         <ol className="list-decimal list-inside mt-2">
           <li>
             <Link
-              href="#section-1"
+              href="#preparing-the-database"
               className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
             >
-              Section 1
+              Preparing the database
             </Link>
           </li>
 
@@ -73,25 +78,34 @@ export default function Page() {
         </ol>
       </div>
 
-      <h2 id="section-1" className="font-bold text-lg w-full max-w-3xl">
-        Section 1
+      <h2
+        id="preparing-the-database"
+        className="font-bold text-lg w-full max-w-3xl"
+      >
+        Preparing the database
       </h2>
 
-      <p className="w-full max-w-3xl text-lg">TODO: Body</p>
-
-      <h2 id="section-2" className="font-bold text-lg w-full max-w-3xl">
-        Section 2
+      <h2
+        id="preparing-cloudflare-r2"
+        className="font-bold text-lg w-full max-w-3xl"
+      >
+        Preparing the Cloudflare R2
       </h2>
-
-      <p className="w-full max-w-3xl text-lg">TODO: Body</p>
 
       <h2 id="wrapping-up" className="font-bold text-lg w-full max-w-3xl">
         Wrapping up
       </h2>
 
-      <p className="w-full max-w-3xl text-lg">TODO: GitHub Repository</p>
+      {/* TODO: Add GitHub repository with full example */}
 
       <p className="w-full max-w-3xl italic text-lg">The End.</p>
+
+      {/* TODO: Show mentions from Twitter */}
+
+      <ShareButton
+        title="Image upload to Cloudflare R2 with Next.js 13 App Router"
+        text="In this post we are implementing the ability to upload images from a Next.js 13 App Router application to Cloudflare's R2 object storage service."
+      />
     </>
   );
 }
