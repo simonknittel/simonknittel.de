@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { type ReactNode } from "react";
+import styles from "./PostExcerpt.module.css";
 
 interface Props {
   className?: string;
@@ -13,8 +14,10 @@ interface Props {
 const PostExcerpt = ({ className, href, title, date, tags }: Props) => {
   return (
     <article className={clsx(className)}>
-      <h2 className="text-3xl font-extrabold">
-        <Link href={href}>{title}</Link>
+      <h2 className={clsx("text-3xl font-extrabold", styles.PostExcerpt)}>
+        <Link href={href} className="hover:opacity-50">
+          {title}
+        </Link>
       </h2>
 
       <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap">

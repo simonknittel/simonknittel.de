@@ -47,6 +47,14 @@ type PageEntrySkeleton = BaseEntry & {
   };
 };
 
+type FooterEntrySkeleton = BaseEntry & {
+  contentTypeId: "Footer";
+  fields: {
+    internalName: EntryFieldTypes.Text;
+    links: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<LinkEntrySkeleton>>;
+  };
+};
+
 export const getClient = () => {
   return createClient({
     space: env.CONTENTFUL_SPACE_ID,
@@ -162,3 +170,18 @@ function transformModuleHeroFields(
 
   return rtn;
 }
+
+export const getFooter = cache(async () => {
+  const client = getClient();
+
+  const entries = await client.getEntries<FooterEntrySkeleton>({
+    content_type: "footer",
+    include: 10,
+    order: ["-sys.updatedAt"],
+    limit: 1,
+  });
+
+  if (!entries.items[0]) return null;
+
+  return entries.items[0].fields;
+});

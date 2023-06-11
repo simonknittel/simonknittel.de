@@ -33,10 +33,6 @@ export default function Page() {
         RBAC and ABAC with the Next.js 13 App Router
       </Header>
 
-      {/* <div className="aspect-[6/1] relative w-full max-w-3xl rounded-3xl overflow-hidden">
-        <Image src={imageSrc} alt="" width={768} height={128} />
-      </div> */}
-
       <p className="font-bold w-full max-w-3xl text-lg">
         {/* TODO: Add introduction */}
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta aut

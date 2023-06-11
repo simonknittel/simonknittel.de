@@ -18,12 +18,7 @@ const Author = ({ className }: Props) => {
       <div className="basis-4/5">
         <p className="font-bold">About me</p>
 
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-          deleniti dolorem veritatis assumenda corporis unde voluptatum, sunt
-          aspernatur quis doloremque similique nihil at dolores laudantium
-          nesciunt sint eveniet ipsam nam.
-        </p>
+        <p>TODO: About me</p>
       </div>
     </section>
   );
