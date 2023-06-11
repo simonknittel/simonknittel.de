@@ -27,7 +27,6 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
           src={imageSrc}
           alt=""
           width={832}
-          height={128}
           className="absolute inset-0 z-0"
         />
 
