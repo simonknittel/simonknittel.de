@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { SiNextdotjs, SiPrisma } from "react-icons/si";
+import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
 import PostExcerpt from "./_components/PostExcerpt";
 import imageSrc from "./post/image-upload-to-cloudflare-r2-with-next-js-13-app-router/image.jpg";
 
@@ -23,6 +23,9 @@ export default function Page() {
         tags={[
           <>
             <SiNextdotjs /> Next.js
+          </>,
+          <>
+            <SiCloudflare /> Cloudflare
           </>,
           <>
             <SiPrisma /> Prisma

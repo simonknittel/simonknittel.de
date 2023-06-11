@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 import Link from "next/link";
-import { SiNextdotjs, SiPrisma } from "react-icons/si";
+import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
 import ShareButton from "../_components/ShareButton";
 import Header from "../_components/header/Header";
 import imageSrc from "./image.jpg";
@@ -20,6 +20,9 @@ export default function Page() {
         tags={[
           <>
             <SiNextdotjs /> Next.js
+          </>,
+          <>
+            <SiCloudflare /> Cloudflare
           </>,
           <>
             <SiPrisma /> Prisma
@@ -42,6 +45,15 @@ export default function Page() {
         <ol className="list-decimal list-inside mt-2">
           <li>
             <Link
+              href="#prerequisites"
+              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+            >
+              Prerequisites
+            </Link>
+          </li>
+
+          <li>
+            <Link
               href="#preparing-the-database"
               className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
             >
@@ -60,10 +72,10 @@ export default function Page() {
 
           <li>
             <Link
-              href="#testing"
+              href="#testing-our-work"
               className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
             >
-              Testing
+              Testing our work
             </Link>
           </li>
 
@@ -78,6 +90,15 @@ export default function Page() {
         </ol>
       </div>
 
+      <h2 id="prerequisites" className="font-bold text-lg w-full max-w-3xl">
+        Prerequisites
+      </h2>
+
+      <p className="mx-auto max-w-3xl text-lg">
+        This post assumes that you already have setup a Next.js 13 App Router
+        project and Cloudflare account.
+      </p>
+
       <h2
         id="preparing-the-database"
         className="font-bold text-lg w-full max-w-3xl"
@@ -89,7 +110,11 @@ export default function Page() {
         id="preparing-cloudflare-r2"
         className="font-bold text-lg w-full max-w-3xl"
       >
-        Preparing the Cloudflare R2
+        Preparing Cloudflare R2
+      </h2>
+
+      <h2 id="testing-our-work" className="font-bold text-lg w-full max-w-3xl">
+        Testing our work
       </h2>
 
       <h2 id="wrapping-up" className="font-bold text-lg w-full max-w-3xl">
@@ -97,6 +122,17 @@ export default function Page() {
       </h2>
 
       {/* TODO: Add GitHub repository with full example */}
+
+      <p className="w-full max-w-3xl text-lg">
+        You can find the full example on GitHub:{" "}
+        <Link
+          href="https://github.com/simonknittel/???"
+          className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+        >
+          simonknittel/???
+        </Link>
+        .
+      </p>
 
       <p className="w-full max-w-3xl italic text-lg">The End.</p>
 
