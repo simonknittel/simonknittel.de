@@ -1,7 +1,8 @@
 import { type Metadata } from "next";
-import Link from "next/link";
 import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
+import InlineLink from "../_components/InlineLink";
 import ShareButton from "../_components/ShareButton";
+import TableOfContents from "../_components/TableOfContents";
 import Header from "../_components/header/Header";
 import imageSrc from "./image.jpg";
 
@@ -33,108 +34,70 @@ export default function Page() {
         Image upload to Cloudflare R2 with Next.js 13 App Router
       </Header>
 
-      <p className="font-bold w-full max-w-3xl text-lg">
-        In this post we are implementing the ability to upload images from a
-        Next.js 13 App Router application to Cloudflare&apos;s R2 object storage
-        service.
+      <p>
+        <strong>
+          In this post we are implementing the ability to upload images from a
+          Next.js 13 App Router application to Cloudflare&apos;s R2 object
+          storage service.
+        </strong>
       </p>
 
-      <div className="w-full max-w-3xl rounded bg-neutral-900 p-4 lg:p-8 mx-auto text-lg">
-        <p className="font-bold">Table of contents</p>
+      <TableOfContents
+        className="max-w-3xl w-full"
+        links={{
+          "#prerequisites": "Prerequisites",
+          "#preparing-the-database": "Preparing the database",
+          "#preparing-cloudflare-r2": "Preparing Cloudflare R2",
+          "#integration": "Integration",
+          "#testing-our-work": "Testing our work",
+          "#wrapping-up": "Wrapping up",
+        }}
+      />
 
-        <ol className="list-decimal list-inside mt-2">
-          <li>
-            <Link
-              href="#prerequisites"
-              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Prerequisites
-            </Link>
-          </li>
+      <h2 id="prerequisites">Prerequisites</h2>
 
-          <li>
-            <Link
-              href="#preparing-the-database"
-              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Preparing the database
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="#preparing-cloudflare-r2"
-              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Preparing Cloudflare R2
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="#testing-our-work"
-              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Testing our work
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="#wrapping-up"
-              className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Wrapping up
-            </Link>
-          </li>
-        </ol>
-      </div>
-
-      <h2 id="prerequisites" className="font-bold text-lg w-full max-w-3xl">
-        Prerequisites
-      </h2>
-
-      <p className="mx-auto max-w-3xl text-lg">
+      <p>
         This post assumes that you already have setup a Next.js 13 App Router
         project and Cloudflare account.
       </p>
 
-      <h2
-        id="preparing-the-database"
-        className="font-bold text-lg w-full max-w-3xl"
-      >
-        Preparing the database
-      </h2>
-
-      <h2
-        id="preparing-cloudflare-r2"
-        className="font-bold text-lg w-full max-w-3xl"
-      >
-        Preparing Cloudflare R2
-      </h2>
-
-      <h2 id="testing-our-work" className="font-bold text-lg w-full max-w-3xl">
-        Testing our work
-      </h2>
-
-      <h2 id="wrapping-up" className="font-bold text-lg w-full max-w-3xl">
-        Wrapping up
-      </h2>
-
-      {/* TODO: Add GitHub repository with full example */}
-
-      <p className="w-full max-w-3xl text-lg">
-        You can find the full example on GitHub:{" "}
-        <Link
-          href="https://github.com/simonknittel/???"
-          className="hover:opacity-50 inline-block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-        >
-          simonknittel/???
-        </Link>
+      <p>
+        If you haven&apos;t setup a project yet, take a look at the official
+        documentation on{" "}
+        <InlineLink href="https://nextjs.org/docs/getting-started/installation">
+          nextjs.org
+        </InlineLink>
         .
       </p>
 
-      <p className="w-full max-w-3xl italic text-lg">The End.</p>
+      <h2 id="preparing-the-database">Preparing the database</h2>
+
+      <h2 id="preparing-cloudflare-r2">Preparing Cloudflare R2</h2>
+
+      <h2 id="integration">Integration</h2>
+
+      <p>
+        Since we are just using the S3 protocol here, you could also use Amazon
+        S3 or any other S3-compatible service instead of Cloudflare R2.
+      </p>
+
+      <h2 id="testing-our-work">Testing our work</h2>
+
+      <h2 id="wrapping-up">Wrapping up</h2>
+
+      {/* TODO: Add GitHub repository with full example */}
+
+      <p>
+        You can find the full example on GitHub:{" "}
+        <InlineLink href="https://github.com/simonknittel/???">
+          simonknittel/???
+        </InlineLink>
+        .
+      </p>
+
+      <p>
+        <em>The End.</em>
+      </p>
 
       {/* TODO: Show mentions from Twitter */}
 

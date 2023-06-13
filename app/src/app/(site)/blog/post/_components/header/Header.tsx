@@ -32,7 +32,7 @@ const Header = ({ children, date, tags, imageSrc }: Props) => {
 
         <h1
           className={clsx(
-            "text-3xl lg:text-5xl font-extrabold relative z-10",
+            "text-3xl lg:text-5xl font-extrabold relative z-10 text-white",
             styles.Header
           )}
         >
