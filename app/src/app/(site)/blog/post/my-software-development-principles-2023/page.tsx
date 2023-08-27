@@ -25,58 +25,33 @@ export default async function Page() {
 
       <p>
         <strong>
-          Over the year I developed some ways of working which define how I
-          write or review code. Probably none of them are revolutionary in the
-          world of software development. However, I wanted to write them down in
-          order to reference them later if necessary.
+          Over the years I developed some principles which define how I write or
+          review code. Probably none of them are revolutionary in the world of
+          software development. However, I wanted to write them down in order to
+          reference them later if necessary.
         </strong>
       </p>
 
       <TableOfContents
         className="max-w-3xl w-full"
         links={{
+          "#keep-it-simple-stupid-kiss": "Keep it simple, stupid! (KISS)",
           "#keep-the-defaults": "Keep the defaults",
-          "#no-rollbacks": "No rollbacks",
-          "#keep-it-simple-as-long-as-possible":
-            "Keep it simple as long as possible",
+          "#keep-abstractions-low": "Keep abstractions low",
+          "#deploy-and-collect-feedback-as-soon-and-often-as-possible":
+            "Deploy and collect feedback as soon and often as possible",
           "#own-your-failures": "Own your failures",
           "#developer-experience-is-crucial-to-user-experience":
             "Developer Experience is crucial to User Experience",
-          "#deploy-and-collect-feedback-as-soon-and-often-as-possible":
-            "Deploy and collect feedback as soon and often as possible",
-          "#keep-abstractions-low": "Keep abstractions low",
+          "#no-rollbacks": "No rollbacks",
           "#just-do-your-job": "Just do your job",
         }}
       />
 
-      <h2 id="">Keep the defaults</h2>
+      <h2 id="">Keep it simple, stupid! (KISS)</h2>
 
       <p>
-        Stay as close as possible to the defaults of a framework, library or
-        similar.
-      </p>
-
-      <h2 id="">No rollbacks</h2>
-
-      <p>
-        You deployed your new feature and now something is broken? You probably
-        want to initiate a rollback now. However, does everything rollback
-        nicely? Can your database rollback as well? What about other developers
-        already kept developing further?
-      </p>
-
-      <p>Rollbacks are often a mess and hard to execute properly.</p>
-
-      <p>
-        Most of the time you can just repair your application by just fixing
-        what is actually broken. This may result in a longer downtime for your
-        users but keeps the whole much cleaner and easier to manage.
-      </p>
-
-      <h2 id="">Keep it simple as long as possible</h2>
-
-      <p>
-        Build the basics/
+        Build the basics and the{" "}
         <InlineLink href="https://en.wikipedia.org/wiki/Minimum_viable_product">
           Minimum viable product (MVP)
         </InlineLink>{" "}
@@ -95,26 +70,11 @@ export default async function Page() {
         <i>Drive-by Refactoring™</i>
       </p>
 
-      <h2 id="">Own your failures</h2>
+      <h2 id="">Keep the defaults</h2>
 
       <p>
-        Don&apos;t get discouraged, just fix it and do it better next time.
-        Nobody will die (depending on your field).
-      </p>
-
-      <h2 id="">Developer Experience is crucial to User Experience</h2>
-
-      <p>
-        Maybe native JavaScript could be the more elegant solution, but if your
-        are more confident with Next.js or similar, just use it.
-      </p>
-
-      <h2 id="">Deploy and collect feedback as soon and often as possible</h2>
-
-      <p>
-        From my experience you&apos;ll get much more valuable feedback from
-        users which actually used your product in comparison to theorizing a
-        long time about it.
+        Stay as close as possible to the defaults of a framework, library or
+        similar.
       </p>
 
       <h2 id="">Keep abstractions low</h2>
@@ -140,6 +100,45 @@ export default async function Page() {
         .
       </p>
 
+      <h2 id="">Deploy and collect feedback as soon and often as possible</h2>
+
+      <p>
+        From my experience you&apos;ll get much more valuable feedback from
+        users which actually used your product in comparison to theorizing a
+        long time about it.
+      </p>
+
+      <h2 id="">Own your failures</h2>
+
+      <p>
+        Don&apos;t get discouraged, just fix it and do it better next time.
+        Nobody will die (depending on your field).
+      </p>
+
+      <h2 id="">Developer Experience is crucial to User Experience</h2>
+
+      <p>
+        Maybe native JavaScript could be the more elegant solution, but if your
+        are more confident with Next.js or similar, just use it.
+      </p>
+
+      <h2 id="">No rollbacks</h2>
+
+      <p>
+        You deployed your new feature and now something is broken? You probably
+        want to initiate a rollback now. However, does everything rollback
+        nicely? Can your database rollback as well? What about other developers
+        already kept developing further?
+      </p>
+
+      <p>Rollbacks are often a mess and hard to execute properly.</p>
+
+      <p>
+        Most of the time you can just repair your application by just fixing
+        what is actually broken. This may result in a longer downtime for your
+        users but keeps the whole much cleaner and easier to manage.
+      </p>
+
       <h2 id="">Just do your job</h2>
 
       <p>
@@ -162,7 +161,9 @@ export default async function Page() {
         do your job.
       </p>
 
-      {/* TODO: Show mentions from Twitter */}
+      {/* TODO: Show Twitter thread */}
+
+      {/* TODO: Show Mastodon thread */}
 
       <ShareButton
         title="My software development principles 2023"
