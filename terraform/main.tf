@@ -34,7 +34,7 @@ resource "cloudflare_record" "root_cname" {
   value   = "76.76.21.21"
   type    = "A"
   proxied = false
-  comment = "Managed by Terraform"
+  comment = "terraform; repository:simonknittel/simonknittel.de"
 }
 
 resource "cloudflare_record" "www_cname" {
@@ -43,5 +43,5 @@ resource "cloudflare_record" "www_cname" {
   value   = "cname.vercel-dns.com"
   type    = "CNAME"
   proxied = false
-  comment = "Managed by Terraform"
+  comment = "terraform; repository:simonknittel/simonknittel.de"
 }
