@@ -6,7 +6,7 @@ import InlineLink from "../_components/InlineLink";
 import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
 import Header from "../_components/header/Header";
-import imageSrc from "./image.jpg";
+import coverSrc from "./cover.jpg";
 
 // TODO: Add open graph image
 
@@ -34,7 +34,7 @@ export default async function Page() {
             <SiPrisma /> Prisma
           </>,
         ]}
-        imageSrc={imageSrc}
+        imageSrc={coverSrc}
       >
         Image upload to Cloudflare R2 with Next.js 13 App Router
       </Header>
