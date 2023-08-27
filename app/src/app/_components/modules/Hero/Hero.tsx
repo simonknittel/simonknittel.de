@@ -31,7 +31,12 @@ const Hero = ({ disableBlog = false }: Props) => {
           </h1>
 
           <h2 className="text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100">
-            Full-Stack Developer @ <Link href="https://www.hmmh.de/">hmmh</Link>
+            Full-Stack Developer @{" "}
+            <Link href="https://www.hmmh.de/" className="inline-block">
+              <span className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500">
+                hmmh
+              </span>
+            </Link>
           </h2>
 
           <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-xl mt-4 max-w-xs md:max-w-none mx-auto">
