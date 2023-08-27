@@ -7,7 +7,6 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/)
 - [Terraform](https://www.terraform.io/)
-- [Contentful](https://www.contentful.com/)
 - [Zod](https://github.com/colinhacks/zod)
 
 ## Usage

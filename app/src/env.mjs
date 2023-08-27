@@ -8,10 +8,8 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    CONTENTFUL_SPACE_ID: z.string().min(1),
-    CONTENTFUL_ACCESS_TOKEN: z.string().min(1),
-    CONTENTFUL_PREVIEW_ACCESS_TOKEN: z.string().min(1).optional(),
-    CONTENTFUL_WEBHOOK_SECRET: z.string().min(1).optional(),
+    UNLEASH_SERVER_API_URL: z.string(),
+    UNLEASH_SERVER_API_TOKEN: z.string(),
   },
 
   /**
@@ -27,10 +25,8 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
-    CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-    CONTENTFUL_WEBHOOK_SECRET: process.env.CONTENTFUL_WEBHOOK_SECRET,
+    UNLEASH_SERVER_API_URL: process.env.UNLEASH_SERVER_API_URL,
+    UNLEASH_SERVER_API_TOKEN: process.env.UNLEASH_SERVER_API_TOKEN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

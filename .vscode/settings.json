@@ -1,8 +1,9 @@
 {
   "cSpell.words": [
-    "contentful",
+    "clsx",
     "hmmh",
+    "Nextdotjs",
     "nvmrc"
   ],
-  "dotenv.enableAutocloaking": true
+  "dotenv.enableAutocloaking": false
 }

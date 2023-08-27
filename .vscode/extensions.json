@@ -2,6 +2,7 @@
 	"recommendations": [
 		"codezombiech.gitignore",
 		"hashicorp.terraform",
-		"github.vscode-github-actions"
+		"github.vscode-github-actions",
+		"dotenv.dotenv-vscode"
 	]
 }

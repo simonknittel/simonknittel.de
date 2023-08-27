@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import "../styles/globals.css";
+import AnalyticsContainer from "./_components/AnalyticsContainer";
 
 interface Props {
   children: ReactNode;
@@ -8,7 +9,10 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <AnalyticsContainer />
+      </body>
     </html>
   );
 }

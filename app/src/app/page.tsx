@@ -1,28 +1,12 @@
 import { type Metadata } from "next";
-import { notFound } from "next/navigation";
-import ModulesRenderer from "./_components/ModulesRenderer";
-import {
-  getContentfulPage,
-  transformContentfulPageModulesToModuleRenderer,
-} from "./_lib/contentful";
+import Hero from "./_components/modules/Hero/Hero";
+import { getUnleashFlag } from "./_lib/getUnleashFlag";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getContentfulPage("/");
-  if (!pageData) return {};
-
-  return {
-    title: pageData.title,
-    description: pageData.description || null,
-  };
-}
+export const metadata: Metadata = {
+  title: "Simon Knittel — Full-Stack Developer",
+  description: null,
+};
 
 export default async function Page() {
-  const pageData = await getContentfulPage("/");
-  if (!pageData) notFound();
-
-  const modulesData = transformContentfulPageModulesToModuleRenderer(
-    pageData.modules
-  );
-
-  return <ModulesRenderer data={modulesData} />;
+  return <Hero disableBlog={await getUnleashFlag("DisableBlog")} />;
 }
