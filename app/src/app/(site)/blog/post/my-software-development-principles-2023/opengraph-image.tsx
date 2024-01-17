@@ -17,10 +17,22 @@ export default async function Image() {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col p-8 justify-between bg-neutral-800 text-white h-full w-full font-900">
-        <p tw="text-9xl text-balance">My software development practices 2023</p>
+      <div tw="flex flex-col bg-neutral-800 text-white h-full w-full font-900">
+        <div tw="flex flex-col justify-between flex-1 py-16 px-24">
+          <p tw="text-8xl" style={{ textWrap: "balance" }}>
+            My software development practices 2023
+          </p>
 
-        <p tw="text-6xl font-400 text-neutral-500">Blog | Simon Knittel</p>
+          <p tw="text-4xl text-neutral-700">Blog | Simon Knittel</p>
+        </div>
+
+        <div
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgb(20, 184, 166), rgb(168, 85, 247), rgb(249, 115, 22))",
+          }}
+          tw="h-2"
+        />
       </div>
     ),
     {

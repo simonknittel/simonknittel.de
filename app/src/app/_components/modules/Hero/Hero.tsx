@@ -27,7 +27,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
         )}
       >
         <div className="p-4">
-          <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 items-center">
+          <div className="flex flex-col gap-2 items-center">
             <Photo />
 
             <h1 className="text-6xl lg:text-8xl font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
