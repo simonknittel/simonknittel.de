@@ -10,25 +10,30 @@ import {
 } from "react-icons/si";
 import Globe from "./Globe";
 import styles from "./Hero.module.css";
+import { Photo } from "./Photo";
 import Technology from "./Technology";
 
 interface Props {
   disableBlog?: boolean;
 }
 
-const Hero = ({ disableBlog = false }: Props) => {
+const Hero = ({ disableBlog = false }: Readonly<Props>) => {
   return (
     <div className="h-[100dvh] bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
       <div
         className={clsx(
           styles.container,
-          "h-[100dvh] flex items-center justify-center text-center bg-center bg-no-repeat relative z-10"
+          "h-[100dvh] flex items-center justify-center text-center bg-center bg-no-repeat relative z-10",
         )}
       >
         <div className="p-4">
-          <h1 className="text-6xl lg:text-8xl font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
-            Simon Knittel
-          </h1>
+          <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 items-center">
+            <Photo />
+
+            <h1 className="text-6xl lg:text-8xl font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+              Simon Knittel
+            </h1>
+          </div>
 
           <h2 className="text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100">
             Full-Stack Developer @{" "}

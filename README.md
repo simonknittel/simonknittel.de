@@ -18,8 +18,8 @@
 ### Setup
 
 1. Configure environment variables by duplicating `app/.env.example` to `app/.env` and filling in the blanks.
-2. Install required Node.js version: `nvm use`
-3. Install dependencies: `cd app && npm ci`
+2. Install required Node.js version: `cd && nvm use`
+3. Install dependencies: `npm ci`
 4. Run the app: `npm run dev`
 5. Access the app at: <http://localhost:3000>
 

@@ -6,80 +6,47 @@ interface Props {
   disableBlog?: boolean;
 }
 
-const Footer = ({ className, disableBlog = false }: Props) => {
+export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
   return (
-    <footer className={clsx(className, "px-2")}>
-      <div className="max-w-3xl mx-auto border-t-4 border-t-neutral-500 py-4">
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-xl max-w-xs md:max-w-none mx-auto">
-          {!disableBlog && (
-            <li>
-              <Link
-                href="/blog"
-                className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-              >
-                Blog
-              </Link>
-            </li>
-          )}
+    <footer className={clsx(className, "px-2 max-w-3xl mx-auto py-4")}>
+      <div className="h-[2px] bg-neutral-700 max-w-32 mx-auto" />
 
-          <li>
-            <Link
-              href="https://github.com/simonknittel"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              GitHub
-            </Link>
-          </li>
+      <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center max-w-xs md:max-w-none mx-auto mt-4">
+        {!disableBlog && <FooterLink href="/blog">Blog</FooterLink>}
 
-          <li>
-            <Link
-              href="https://mastodon.social/@simonknittel"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-              rel="me"
-            >
-              Mastodon
-            </Link>
-          </li>
+        <FooterLink href="https://github.com/simonknittel">GitHub</FooterLink>
 
-          <li>
-            <Link
-              href="https://twitter.com/simknittel"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Twitter
-            </Link>
-          </li>
+        <FooterLink href="https://mastodon.social/@simonknittel">
+          Mastodon
+        </FooterLink>
 
-          <li>
-            <Link
-              href="https://www.linkedin.com/in/simonknittel/"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              LinkedIn
-            </Link>
-          </li>
+        <FooterLink href="https://twitter.com/simknittel">Twitter</FooterLink>
 
-          <li>
-            <Link
-              href="https://www.xing.com/profile/Simon_Knittel/"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Xing
-            </Link>
-          </li>
+        <FooterLink href="https://www.linkedin.com/in/simonknittel/">
+          LinkedIn
+        </FooterLink>
 
-          <li>
-            <Link
-              href="https://www.instagram.com/simonknittel/"
-              className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-            >
-              Instagram
-            </Link>
-          </li>
-        </ul>
-      </div>
+        <FooterLink href="https://www.xing.com/profile/Simon_Knittel/">
+          Xing
+        </FooterLink>
+
+        <FooterLink href="https://www.instagram.com/simonknittel/">
+          Instagram
+        </FooterLink>
+      </ul>
     </footer>
   );
 };
 
-export default Footer;
+const FooterLink = ({ href, children }: { href: string; children: string }) => {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="text-neutral-500 hover:text-neutral-300 transition-colors"
+      >
+        {children}
+      </Link>
+    </li>
+  );
+};

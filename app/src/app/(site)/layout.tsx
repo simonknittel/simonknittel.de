@@ -1,13 +1,13 @@
 import { type ReactNode } from "react";
-import { getUnleashFlag } from "../_lib/getUnleashFlag";
-import Footer from "./_components/Footer";
+import { getUnleashFlag } from "../../lib/getUnleashFlag";
+import { Footer } from "./_components/Footer";
 import Header from "./_components/Header";
 
 interface Props {
   children: ReactNode;
 }
 
-export default async function Layout({ children }: Props) {
+export default async function Layout({ children }: Readonly<Props>) {
   const disableBlog = await getUnleashFlag("DisableBlog");
 
   return (

@@ -1,6 +1,4 @@
-import { ImageResponse } from "next/server";
-
-export const runtime = "edge";
+import { ImageResponse } from "next/og";
 
 export const alt =
   "My software development practices 2023 - Blog | Simon Knittel";
@@ -10,6 +8,7 @@ export const size = {
 };
 
 export const contentType = "image/png";
+export const runtime = "edge";
 
 export default async function Image() {
   const interRegular = fetch(
@@ -22,17 +21,12 @@ export default async function Image() {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col p-8 justify-end bg-neutral-800 text-white h-full w-full">
-        <p tw="text-6xl font-400 text-neutral-500">Blog | Simon Knittel</p>
-
-        <p
-          tw="text-9xl font-900"
-          style={{
-            textWrap: "balance",
-          }}
-        >
+      <div tw="flex flex-col p-8 justify-between bg-neutral-800 text-white h-full w-full">
+        <p tw="text-9xl font-900 text-balance">
           My software development practices 2023
         </p>
+
+        <p tw="text-6xl font-400 text-neutral-500">Blog | Simon Knittel</p>
       </div>
     ),
     {

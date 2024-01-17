@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
+import { getUnleashFlag } from "../lib/getUnleashFlag";
 import Hero from "./_components/modules/Hero/Hero";
-import { getUnleashFlag } from "./_lib/getUnleashFlag";
 
 export const metadata: Metadata = {
   title: "Simon Knittel — Full-Stack Developer",

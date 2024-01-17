@@ -1,5 +1,10 @@
 import { type Metadata } from "next";
-import AnalyticsCheckbox from "./_components/AnalyticsCheckbox";
+import dynamic from "next/dynamic";
+
+const AnalyticsCheckbox = dynamic(
+  () => import("./_components/AnalyticsCheckbox"),
+  { ssr: false },
+);
 
 export const metadata: Metadata = {
   title: "Settings | Simon Knittel",

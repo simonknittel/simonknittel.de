@@ -1,10 +1,10 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getUnleashFlag } from "~/app/_lib/getUnleashFlag";
+import { getUnleashFlag } from "~/lib/getUnleashFlag";
+import Header from "../_components/Header";
 import InlineLink from "../_components/InlineLink";
 import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
-import Header from "../_components/header/Header";
 import coverSrc from "./cover.jpg";
 
 // TODO: Add open graph image

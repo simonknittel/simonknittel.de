@@ -1,5 +1,5 @@
 import { type MetadataRoute } from "next";
-import { getUnleashFlag } from "./_lib/getUnleashFlag";
+import { getUnleashFlag } from "../lib/getUnleashFlag";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const disableBlog = await getUnleashFlag("DisableBlog");
@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const map = [
     {
       url: "https://simonknittel.de",
-      lastModified: new Date("2023-06-30"),
+      lastModified: new Date("2024-01-17"),
     },
   ];
 

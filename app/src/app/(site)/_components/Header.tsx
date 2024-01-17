@@ -1,16 +1,21 @@
 import Link from "next/link";
+import { Photo } from "~/app/_components/modules/Hero/Photo";
 
 interface Props {
   disableBlog?: boolean;
 }
 
-const Header = ({ disableBlog = false }: Props) => {
+const Header = ({ disableBlog = false }: Readonly<Props>) => {
   return (
     <header className="px-2 text-lg">
       <div className="flex justify-between max-w-3xl mx-auto">
-        <p className="py-4 font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
-          Simon Knittel
-        </p>
+        <div className="flex gap-2 items-center">
+          <Photo size="small" />
+
+          <p className="py-4 font-extrabold drop-shadow-xl animate-rgb bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+            Simon Knittel
+          </p>
+        </div>
 
         <nav>
           <ul className="flex gap-2">

@@ -10,6 +10,11 @@ export const env = createEnv({
 
   client: {},
 
-  // Client-side variables need to be destructured from `process.env`
-  // experimental__runtimeEnv: {}
+  runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+    UNLEASH_SERVER_API_URL: process.env.UNLEASH_SERVER_API_URL,
+    UNLEASH_SERVER_API_TOKEN: process.env.UNLEASH_SERVER_API_TOKEN,
+  },
+
+  emptyStringAsUndefined: true,
 });

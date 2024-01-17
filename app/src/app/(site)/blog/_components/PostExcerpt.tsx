@@ -2,7 +2,6 @@ import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
-import styles from "./PostExcerpt.module.css";
 
 interface Props {
   className?: string;
@@ -10,7 +9,7 @@ interface Props {
   title: ReactNode;
   date: Date;
   tags?: ReactNode[];
-  imageSrc: StaticImageData;
+  imageSrc?: StaticImageData;
 }
 
 const PostExcerpt = ({
@@ -20,31 +19,28 @@ const PostExcerpt = ({
   date,
   tags,
   imageSrc,
-}: Props) => {
+}: Readonly<Props>) => {
   return (
     <article className={clsx(className)}>
       <Link
         href={href}
-        className="relative overflow-hidden rounded lg:rounded-3xl p-2 lg:p-8 hover:opacity-50 block"
+        className="group relative overflow-hidden rounded lg:rounded-3xl p-4 lg:p-8 block bg-neutral-900 hover:scale-[1.02] transition-transform"
       >
-        <Image
-          src={imageSrc}
-          alt=""
-          width={768}
-          className="absolute inset-0 z-0"
-        />
+        {imageSrc && (
+          <Image
+            src={imageSrc}
+            alt=""
+            width={768}
+            className="absolute inset-0 z-0"
+          />
+        )}
 
-        <h2
-          className={clsx(
-            "text-3xl font-extrabold relative z-10",
-            styles.PostExcerpt
-          )}
-        >
+        <h2 className="text-xl lg:text-3xl font-extrabold relative z-10 text-balance">
           {title}
         </h2>
       </Link>
 
-      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap">
+      <div className="text-neutral-500 mt-2 flex justify-between flex-wrap px-4 lg:px-8">
         <time dateTime={date.toISOString()}>
           {date.toLocaleDateString("en", {
             dateStyle: "long",

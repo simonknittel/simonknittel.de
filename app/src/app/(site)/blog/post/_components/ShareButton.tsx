@@ -7,7 +7,7 @@ interface Props {
   text: string;
 }
 
-const ShareButton = ({ title, text }: Props) => {
+const ShareButton = ({ title, text }: Readonly<Props>) => {
   const [canShare, setCanShare] = useState(false);
 
   useEffect(() => {

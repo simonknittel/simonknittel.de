@@ -12,7 +12,7 @@ interface Props {
   height?: number;
 }
 
-const Globe = ({ className, width = 0, height = 0 }: Props) => {
+const Globe = ({ className, width = 0, height = 0 }: Readonly<Props>) => {
   const ref = useRef<HTMLDivElement>(null);
   const animationIsRunning = useRef(false);
 

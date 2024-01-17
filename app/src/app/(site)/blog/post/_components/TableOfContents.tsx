@@ -6,12 +6,12 @@ interface Props {
   links: Record<string, string>;
 }
 
-const TableOfContents = ({ className, links }: Props) => {
+const TableOfContents = ({ className, links }: Readonly<Props>) => {
   return (
     <div
       className={clsx(
         className,
-        "rounded bg-neutral-900 text-white p-4 lg:p-8 mx-auto text-lg"
+        "rounded bg-neutral-900 text-white p-4 lg:p-8 mx-auto text-lg",
       )}
     >
       <p className="font-bold">Table of contents</p>

@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const Author = ({ className }: Props) => {
+const Author = ({ className }: Readonly<Props>) => {
   return (
     <section
       className={clsx(className, "flex gap-4 lg:gap-8 lg:text-lg items-start")}
