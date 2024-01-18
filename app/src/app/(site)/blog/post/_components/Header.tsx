@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
 import { type ReactNode } from "react";
 import { FaChevronLeft } from "react-icons/fa";
+import InlineLink from "./InlineLink";
 
 interface Props {
   children?: ReactNode;
@@ -13,12 +13,13 @@ interface Props {
 const Header = ({ children, date, tags, imageSrc }: Readonly<Props>) => {
   return (
     <div className="w-full max-w-3xl">
-      <Link
+      <InlineLink
         href="/blog"
-        className="inline-flex gap-1 text-neutral-500 hover:text-neutral-300 transition-colors items-center py-2"
+        className="inline-flex gap-1 items-center py-2"
+        theme="neutral"
       >
         <FaChevronLeft /> All blog posts
-      </Link>
+      </InlineLink>
 
       <div className="relative overflow-hidden lg:rounded-3xl px-2 pb-2 lg:px-8 lg:pb-8 pt-16 lg:pt-32 -mx-2 lg:-mx-8">
         <Image
@@ -33,7 +34,7 @@ const Header = ({ children, date, tags, imageSrc }: Readonly<Props>) => {
         </h1>
       </div>
 
-      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap">
+      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap justify-between">
         <time dateTime={date.toISOString()}>
           {date.toLocaleDateString("en", {
             dateStyle: "long",

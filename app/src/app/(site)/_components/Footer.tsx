@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Link from "next/link";
+import InlineLink from "../blog/post/_components/InlineLink";
 
 interface Props {
   className?: string;
@@ -9,7 +9,7 @@ interface Props {
 export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
   return (
     <footer className={clsx(className, "px-2 max-w-3xl mx-auto py-4")}>
-      <div className="h-[2px] bg-neutral-700 max-w-32 mx-auto" />
+      <div className="h-[2px] bg-neutral-300 dark:bg-neutral-700 max-w-32 mx-auto" />
 
       <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center max-w-xs md:max-w-none mx-auto mt-4">
         {!disableBlog && <FooterLink href="/blog">Blog</FooterLink>}
@@ -41,12 +41,9 @@ export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
 const FooterLink = ({ href, children }: { href: string; children: string }) => {
   return (
     <li>
-      <Link
-        href={href}
-        className="text-neutral-500 hover:text-neutral-300 transition-colors"
-      >
+      <InlineLink href={href} theme="neutral">
         {children}
-      </Link>
+      </InlineLink>
     </li>
   );
 };

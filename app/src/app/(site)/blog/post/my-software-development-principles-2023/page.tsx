@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import Header from "../_components/Header";
 import InlineLink from "../_components/InlineLink";
+import { SectionHeading } from "../_components/SectionHeading";
 import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
 import coverSrc from "./cover.jpg";
@@ -19,7 +20,11 @@ export default async function Page() {
 
   return (
     <>
-      <Header date={new Date("2023-12-31")} imageSrc={coverSrc}>
+      <Header
+        date={new Date("2023-12-31")}
+        imageSrc={coverSrc}
+        tags={["Opinion"]}
+      >
         My software development principles 2023
       </Header>
 
@@ -48,7 +53,7 @@ export default async function Page() {
         }}
       />
 
-      <h2 id="">Keep it simple, stupid! (KISS)</h2>
+      <SectionHeading text="Keep it simple, stupid! (KISS)" level={2} />
 
       <p>
         Build the basics and the{" "}
@@ -70,14 +75,14 @@ export default async function Page() {
         <i>Drive-by Refactoring™</i>
       </p>
 
-      <h2 id="">Keep the defaults</h2>
+      <SectionHeading text="Keep the defaults" level={2} />
 
       <p>
         Stay as close as possible to the defaults of a framework, library or
         similar.
       </p>
 
-      <h2 id="">Keep abstractions low</h2>
+      <SectionHeading text="Keep abstractions low" level={2} />
 
       <p>
         Every abstraction can fail and cause annoying issues. Abstractions can
@@ -100,7 +105,10 @@ export default async function Page() {
         .
       </p>
 
-      <h2 id="">Deploy and collect feedback as soon and often as possible</h2>
+      <SectionHeading
+        text="Deploy and collect feedback as soon and often as possible"
+        level={2}
+      />
 
       <p>
         From my experience you&apos;ll get much more valuable feedback from
@@ -108,21 +116,24 @@ export default async function Page() {
         long time about it.
       </p>
 
-      <h2 id="">Own your failures</h2>
+      <SectionHeading text="Own your failures" level={2} />
 
       <p>
         Don&apos;t get discouraged, just fix it and do it better next time.
         Nobody will die (depending on your field).
       </p>
 
-      <h2 id="">Developer Experience is crucial to User Experience</h2>
+      <SectionHeading
+        text="Developer Experience is crucial to User Experience"
+        level={2}
+      />
 
       <p>
         Maybe native JavaScript could be the more elegant solution, but if your
         are more confident with Next.js or similar, just use it.
       </p>
 
-      <h2 id="">No rollbacks</h2>
+      <SectionHeading text="No rollbacks" level={2} />
 
       <p>
         You deployed your new feature and now something is broken? You probably
@@ -139,7 +150,7 @@ export default async function Page() {
         users but keeps the whole much cleaner and easier to manage.
       </p>
 
-      <h2 id="">Just do your job</h2>
+      <SectionHeading text="Just do your job" level={2} />
 
       <p>
         <i>

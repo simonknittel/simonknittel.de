@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Photo } from "~/app/_components/modules/Hero/Photo";
+import InlineLink from "../blog/post/_components/InlineLink";
 
 interface Props {
   disableBlog?: boolean;
@@ -20,22 +20,16 @@ const Header = ({ disableBlog = false }: Readonly<Props>) => {
         <nav>
           <ul className="flex gap-2">
             <li>
-              <Link
-                href="/"
-                className="hover:opacity-50 py-4 block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100"
-              >
+              <InlineLink href="/" className="py-4" theme="neutral">
                 Home
-              </Link>
+              </InlineLink>
             </li>
 
             {!disableBlog && (
               <li>
-                <Link
-                  href="/blog"
-                  className="hover:opacity-50 py-4 block bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-                >
+                <InlineLink href="/blog" className="py-4">
                   Blog
-                </Link>
+                </InlineLink>
               </li>
             )}
           </ul>
