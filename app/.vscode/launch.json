@@ -8,7 +8,8 @@
       "runtimeExecutable": "bun",
       "runtimeArgs": ["dev"],
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
-      "runtimeVersion": "20.11.0"
+      "runtimeVersion": "20.11.0",
+      "outputCapture": "std"
     }
   ]
 }
