@@ -8,8 +8,6 @@ import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
 import coverSrc from "./cover.jpg";
 
-// TODO: Add open graph image
-
 export const metadata: Metadata = {
   title:
     "Image upload to Cloudflare R2 with Next.js 13 App Router - Blog | Simon Knittel",
