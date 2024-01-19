@@ -12,7 +12,7 @@ export const runtime = "edge";
 
 export default async function Image() {
   const interBlack = fetch(
-    new URL("../../../../../Inter/Inter-Black.ttf", import.meta.url),
+    new URL("../../../../../assets/Inter/Inter-Black.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

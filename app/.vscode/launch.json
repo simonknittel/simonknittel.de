@@ -5,10 +5,10 @@
       "name": "Next.js: debug server-side",
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["dev"],
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
-      "runtimeVersion": "18.19.0"
+      "runtimeVersion": "20.11.0"
     }
   ]
 }
