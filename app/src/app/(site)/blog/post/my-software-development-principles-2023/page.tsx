@@ -6,7 +6,6 @@ import InlineLink from "../_components/InlineLink";
 import { SectionHeading } from "../_components/SectionHeading";
 import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
-import coverSrc from "./cover.jpg";
 
 export const metadata: Metadata = {
   title: "My software development principles 2023 - Blog | Simon Knittel",
@@ -18,15 +17,11 @@ export default async function Page() {
 
   return (
     <>
-      <Header
-        date={new Date("2023-12-31")}
-        imageSrc={coverSrc}
-        tags={["Opinion"]}
-      >
+      <Header date={new Date("2023-12-31")} tags={["Opinion"]}>
         My software development principles 2023
       </Header>
 
-      <p>
+      <p className="py-6 lg:py-12">
         <strong>
           Over the years I developed some principles which define how I write or
           review code. Probably none of them are revolutionary in the world of
@@ -36,7 +31,7 @@ export default async function Page() {
       </p>
 
       <TableOfContents
-        className="max-w-3xl w-full"
+        className="max-w-lg w-full"
         links={{
           "#keep-it-simple-stupid-kiss": "Keep it simple, stupid! (KISS)",
           "#keep-the-defaults": "Keep the defaults",
@@ -51,7 +46,7 @@ export default async function Page() {
         }}
       />
 
-      <SectionHeading text="Keep it simple, stupid! (KISS)" level={2} />
+      <SectionHeading text="Keep it simple, stupid! (KISS)" />
 
       <p>
         Build the basics and the{" "}
@@ -73,14 +68,14 @@ export default async function Page() {
         <i>Drive-by Refactoring™</i>
       </p>
 
-      <SectionHeading text="Keep the defaults" level={2} />
+      <SectionHeading text="Keep the defaults" />
 
       <p>
         Stay as close as possible to the defaults of a framework, library or
         similar.
       </p>
 
-      <SectionHeading text="Keep abstractions low" level={2} />
+      <SectionHeading text="Keep abstractions low" />
 
       <p>
         Every abstraction can fail and cause annoying issues. Abstractions can
@@ -103,10 +98,7 @@ export default async function Page() {
         .
       </p>
 
-      <SectionHeading
-        text="Deploy and collect feedback as soon and often as possible"
-        level={2}
-      />
+      <SectionHeading text="Deploy and collect feedback as soon and often as possible" />
 
       <p>
         From my experience you&apos;ll get much more valuable feedback from
@@ -114,24 +106,21 @@ export default async function Page() {
         long time about it.
       </p>
 
-      <SectionHeading text="Own your failures" level={2} />
+      <SectionHeading text="Own your failures" />
 
       <p>
         Don&apos;t get discouraged, just fix it and do it better next time.
         Nobody will die (depending on your field).
       </p>
 
-      <SectionHeading
-        text="Developer Experience is crucial to User Experience"
-        level={2}
-      />
+      <SectionHeading text="Developer Experience is crucial to User Experience" />
 
       <p>
         Maybe native JavaScript could be the more elegant solution, but if your
         are more confident with Next.js or similar, just use it.
       </p>
 
-      <SectionHeading text="No rollbacks" level={2} />
+      <SectionHeading text="No rollbacks" />
 
       <p>
         You deployed your new feature and now something is broken? You probably
@@ -148,7 +137,7 @@ export default async function Page() {
         users but keeps the whole much cleaner and easier to manage.
       </p>
 
-      <SectionHeading text="Just do your job" level={2} />
+      <SectionHeading text="Just do your job" />
 
       <p>
         <i>

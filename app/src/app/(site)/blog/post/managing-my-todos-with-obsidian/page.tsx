@@ -30,7 +30,7 @@ export default async function Page() {
       </p>
 
       <TableOfContents
-        className="max-w-3xl w-full"
+        className="max-w-xl w-full"
         links={{
           "#why-you-would-manage-your-todos-with-obsidian":
             "Why you would manage your TODOs with Obsidian",
@@ -40,10 +40,7 @@ export default async function Page() {
         }}
       />
 
-      <SectionHeading
-        text="Why you would manage your TODOs with Obsidian"
-        level={2}
-      />
+      <SectionHeading text="Why you would manage your TODOs with Obsidian" />
 
       <p>
         According to the <em>Second Brain</em> concept, I want to put everything
@@ -52,10 +49,7 @@ export default async function Page() {
         them right next to my knowledge base makes sense.
       </p>
 
-      <SectionHeading
-        text="Why you would not manage your TODOs with Obsidian"
-        level={2}
-      />
+      <SectionHeading text="Why you would not manage your TODOs with Obsidian" />
 
       <p>
         While Obsidian does support checkboxes in Markdown, that&pos;s about it
@@ -64,7 +58,7 @@ export default async function Page() {
         of more involved TODO management, you&pos;ll have to use plugins.
       </p>
 
-      <SectionHeading text="Conclusion" level={2} />
+      <SectionHeading text="Conclusion" />
 
       <p>
         There are probably better or easier ways to do some parts. If you know

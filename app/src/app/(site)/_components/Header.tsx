@@ -20,14 +20,14 @@ const Header = ({ disableBlog = false }: Readonly<Props>) => {
         <nav>
           <ul className="flex gap-2">
             <li>
-              <InlineLink href="/" className="py-4" theme="neutral">
+              <InlineLink href="/" className="block py-4" theme="neutral">
                 Home
               </InlineLink>
             </li>
 
             {!disableBlog && (
               <li>
-                <InlineLink href="/blog" className="py-4">
+                <InlineLink href="/blog" className="block py-4">
                   Blog
                 </InlineLink>
               </li>

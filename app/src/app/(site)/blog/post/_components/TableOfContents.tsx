@@ -11,15 +11,19 @@ const TableOfContents = ({ className, links }: Readonly<Props>) => {
     <div
       className={clsx(
         className,
-        "rounded bg-neutral-300 dark:bg-neutral-900 text-neutral-700 dark:text-white p-4 lg:p-8 mx-auto text-lg",
+        "rounded bg-neutral-300 dark:bg-neutral-900 text-neutral-700 dark:text-white p-4 lg:p-8 text-lg",
       )}
     >
       <p className="font-bold">Table of contents</p>
 
-      <ol className="list-decimal list-inside mt-2">
+      <ol className="list-decimal list-outside mt-2 pl-5 ">
         {Object.entries(links).map(([href, title], index) => (
-          <li key={index}>
-            <InlineLink href={href} theme="neutralUnderlined">
+          <li key={index} className="[&+li]:mt-2">
+            <InlineLink
+              href={href}
+              theme="neutralUnderlined"
+              className="inline"
+            >
               {title}
             </InlineLink>
           </li>

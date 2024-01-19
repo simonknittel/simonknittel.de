@@ -4,10 +4,9 @@ import slugify from "slugify";
 interface Props {
   className?: string;
   text: string;
-  level: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-export const SectionHeading = ({ className, text, level }: Readonly<Props>) => {
+export const SectionHeading = ({ className, text }: Readonly<Props>) => {
   const slug = slugify(text, { lower: true, strict: true });
 
   return (
@@ -15,7 +14,7 @@ export const SectionHeading = ({ className, text, level }: Readonly<Props>) => {
       {text}
 
       <a
-        className="text-black dark:text-neutral-300 opacity-50 hover:opacity-100 transition-opacity relative bottom-[-2px] px-2"
+        className="text-black dark:text-neutral-300 opacity-30 hover:opacity-100 transition-opacity relative bottom-[-1px] px-2 inline-block"
         href={`#${slug}`}
       >
         #
