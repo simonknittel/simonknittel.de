@@ -5,7 +5,6 @@ import Header from "../_components/Header";
 import { SectionHeading } from "../_components/SectionHeading";
 import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
-import coverSrc from "./cover.jpg";
 
 export const metadata: Metadata = {
   title: "Managing my TODOs with Obsidian - Blog | Simon Knittel",
@@ -17,11 +16,7 @@ export default async function Page() {
 
   return (
     <>
-      <Header
-        date={new Date("2023-12-31")}
-        imageSrc={coverSrc}
-        tags={["Obsidian"]}
-      >
+      <Header date={new Date("2023-12-31")} tags={["Obsidian"]}>
         Managing my TODOs with Obsidian
       </Header>
 
