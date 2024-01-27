@@ -22,12 +22,7 @@ export default async function Page() {
         Managing my TODOs with Obsidian
       </PostHeader>
 
-      <p>
-        <strong></strong>
-      </p>
-
       <TableOfContents
-        className="max-w-xl w-full"
         links={{
           "#why-you-would-manage-your-todos-with-obsidian":
             "Why you would manage your TODOs with Obsidian",

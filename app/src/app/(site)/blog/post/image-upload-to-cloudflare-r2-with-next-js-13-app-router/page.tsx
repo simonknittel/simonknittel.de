@@ -40,7 +40,7 @@ export default async function Page() {
         Image upload to Cloudflare R2 with Next.js 13 App Router
       </PostHeader>
 
-      <p className="py-6 lg:py-12">
+      <p className="mt-6 lg:mt-12">
         <strong>
           In this post we are implementing the ability to upload images from a
           Next.js 13 App Router application to Cloudflare&apos;s R2 object
@@ -49,7 +49,6 @@ export default async function Page() {
       </p>
 
       <TableOfContents
-        className="max-w-xl w-full"
         links={{
           "#prerequisites": "Prerequisites",
           "#preparing-the-database": "Preparing the database",

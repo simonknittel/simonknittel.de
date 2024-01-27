@@ -23,7 +23,7 @@ export default async function Page() {
         My software development principles 2023
       </PostHeader>
 
-      <p className="py-6 lg:py-12">
+      <p className="mt-6 lg:mt-12">
         <strong>
           Over the years I developed some principles which define how I write or
           review code. Probably none of them are revolutionary in the world of
@@ -33,7 +33,6 @@ export default async function Page() {
       </p>
 
       <TableOfContents
-        className="max-w-lg w-full"
         links={{
           "#keep-it-simple-stupid-kiss": "Keep it simple, stupid! (KISS)",
           "#keep-the-defaults": "Keep the defaults",

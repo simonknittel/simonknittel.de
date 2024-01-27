@@ -11,7 +11,7 @@ const TableOfContents = ({ className, links }: Readonly<Props>) => {
     <div
       className={clsx(
         className,
-        "rounded border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-white p-4 lg:p-8 text-lg",
+        "max-w-lg w-full rounded border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-white p-4 lg:p-8 text-lg mt-6 lg:mt-12",
       )}
     >
       <p className="font-bold">Table of contents</p>
