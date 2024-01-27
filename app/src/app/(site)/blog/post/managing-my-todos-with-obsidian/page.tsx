@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
-import Header from "../_components/Header";
+import { PostFooter } from "../_components/PostFooter";
+import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
-import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
 
 export const metadata: Metadata = {
@@ -16,9 +16,9 @@ export default async function Page() {
 
   return (
     <>
-      <Header date={new Date("2023-12-31")} tags={["Obsidian"]}>
+      <PostHeader date={new Date("2023-12-31")} tags={["Obsidian"]}>
         Managing my TODOs with Obsidian
-      </Header>
+      </PostHeader>
 
       <p>
         <strong></strong>
@@ -60,13 +60,7 @@ export default async function Page() {
         some, please let me know!
       </p>
 
-      {/* TODO: Show Twitter thread */}
-
-      {/* TODO: Show Mastodon thread */}
-
-      {/* TODO: Show Bluesky thread */}
-
-      <ShareButton title="Managing my TODOs with Obsidian" text="" />
+      <PostFooter />
     </>
   );
 }

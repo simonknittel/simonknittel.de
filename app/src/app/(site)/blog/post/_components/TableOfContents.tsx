@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import InlineLink from "./InlineLink";
+import { InlineLink } from "./InlineLink";
 
 interface Props {
   className?: string;
@@ -11,7 +11,7 @@ const TableOfContents = ({ className, links }: Readonly<Props>) => {
     <div
       className={clsx(
         className,
-        "rounded bg-neutral-300 dark:bg-neutral-900 text-neutral-700 dark:text-white p-4 lg:p-8 text-lg",
+        "rounded border border-neutral-200 dark:bg-neutral-900 text-neutral-700 dark:text-white p-4 lg:p-8 text-lg",
       )}
     >
       <p className="font-bold">Table of contents</p>

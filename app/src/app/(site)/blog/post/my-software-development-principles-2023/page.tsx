@@ -1,10 +1,10 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
-import Header from "../_components/Header";
-import InlineLink from "../_components/InlineLink";
+import { InlineLink } from "../_components/InlineLink";
+import { PostFooter } from "../_components/PostFooter";
+import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
-import ShareButton from "../_components/ShareButton";
 import TableOfContents from "../_components/TableOfContents";
 
 export const metadata: Metadata = {
@@ -17,9 +17,9 @@ export default async function Page() {
 
   return (
     <>
-      <Header date={new Date("2023-12-31")} tags={["Opinion"]}>
+      <PostHeader date={new Date("2023-12-31")} tags={["Opinion"]}>
         My software development principles 2023
-      </Header>
+      </PostHeader>
 
       <p className="py-6 lg:py-12">
         <strong>
@@ -159,13 +159,11 @@ export default async function Page() {
         do your job.
       </p>
 
-      {/* TODO: Show Twitter thread */}
-
-      {/* TODO: Show Mastodon thread */}
-
-      <ShareButton
-        title="My software development principles 2023"
-        text="Over the year I developed some ways of working which define how I write or review code. Probably none of them are revolutionary in the world of software development. However, I wanted to write them down in order to reference them later if necessary."
+      <PostFooter
+        socialLinks={[
+          ["Twitter", "https://twitter.com"],
+          ["Twitter", "https://twitter.com"],
+        ]}
       />
     </>
   );

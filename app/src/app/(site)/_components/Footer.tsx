@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import InlineLink from "../blog/post/_components/InlineLink";
+import { InlineLink } from "../blog/post/_components/InlineLink";
 
 interface Props {
   className?: string;
@@ -26,13 +26,13 @@ export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
           LinkedIn
         </FooterLink>
 
-        <FooterLink href="https://www.xing.com/profile/Simon_Knittel/">
+        {/* <FooterLink href="https://www.xing.com/profile/Simon_Knittel/">
           Xing
-        </FooterLink>
+        </FooterLink> */}
 
-        <FooterLink href="https://www.instagram.com/simonknittel/">
+        {/* <FooterLink href="https://www.instagram.com/simonknittel/">
           Instagram
-        </FooterLink>
+        </FooterLink> */}
       </ul>
     </footer>
   );

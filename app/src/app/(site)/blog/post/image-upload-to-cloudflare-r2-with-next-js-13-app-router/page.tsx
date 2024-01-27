@@ -2,9 +2,9 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
-import Header from "../_components/Header";
-import InlineLink from "../_components/InlineLink";
-import ShareButton from "../_components/ShareButton";
+import { InlineLink } from "../_components/InlineLink";
+import { PostFooter } from "../_components/PostFooter";
+import { PostHeader } from "../_components/PostHeader";
 import TableOfContents from "../_components/TableOfContents";
 import coverSrc from "./cover.jpg";
 
@@ -19,7 +19,7 @@ export default async function Page() {
 
   return (
     <>
-      <Header
+      <PostHeader
         date={new Date("2023-06-30")}
         tags={[
           <>
@@ -35,7 +35,7 @@ export default async function Page() {
         imageSrc={coverSrc}
       >
         Image upload to Cloudflare R2 with Next.js 13 App Router
-      </Header>
+      </PostHeader>
 
       <p className="py-6 lg:py-12">
         <strong>
@@ -102,12 +102,7 @@ export default async function Page() {
         <em>The End.</em>
       </p>
 
-      {/* TODO: Show mentions from Twitter */}
-
-      <ShareButton
-        title="Image upload to Cloudflare R2 with Next.js 13 App Router"
-        text="In this post we are implementing the ability to upload images from a Next.js 13 App Router application to Cloudflare's R2 object storage service."
-      />
+      <PostFooter />
     </>
   );
 }

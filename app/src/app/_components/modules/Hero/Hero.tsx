@@ -93,23 +93,23 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               </Link>
             </li>
 
-            <li>
+            {/* <li>
               <Link
                 href="https://www.xing.com/profile/Simon_Knittel/"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
               >
                 Xing
               </Link>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <Link
                 href="https://www.instagram.com/simonknittel/"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
               >
                 Instagram
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 

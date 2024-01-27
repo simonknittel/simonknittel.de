@@ -12,13 +12,13 @@ interface Props extends ComponentPropsWithoutRef<typeof Link> {
   theme?: "neutral" | "neutralUnderlined" | "tasteTheRainbow";
 }
 
-const InlineLink = forwardRef<typeof Link, Props>(
+export const InlineLink = forwardRef<typeof Link, Props>(
   function InlineLink(props, ref) {
     const { className, children, theme = "tasteTheRainbow", ...other } = props;
 
     return (
       <Link
-        className={clsx(className, {
+        className={clsx(className, "[&>svg]:text-[.8em]", {
           "text-black dark:text-neutral-300 opacity-50 hover:opacity-100 transition-opacity":
             ["neutral", "neutralUnderlined"].includes(theme),
           "underline underline-offset-[7px]": theme === "neutralUnderlined",
@@ -34,5 +34,3 @@ const InlineLink = forwardRef<typeof Link, Props>(
     );
   },
 );
-
-export default InlineLink;

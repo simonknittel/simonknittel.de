@@ -24,7 +24,7 @@ const PostExcerpt = ({
     <article className={clsx(className)}>
       <Link
         href={href}
-        className="group relative overflow-hidden rounded lg:rounded-3xl p-4 lg:p-8 block bg-neutral-300 dark:bg-neutral-900 hover:scale-[1.02] transition-transform"
+        className="group relative overflow-hidden rounded lg:rounded-3xl p-4 lg:p-8 block bg-neutral-200 dark:bg-neutral-900 hover:scale-[1.02] transition-transform"
       >
         {imageSrc && (
           <Image

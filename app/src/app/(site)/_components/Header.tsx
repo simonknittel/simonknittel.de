@@ -1,5 +1,5 @@
 import { Photo } from "~/app/_components/modules/Hero/Photo";
-import InlineLink from "../blog/post/_components/InlineLink";
+import { InlineLink } from "../blog/post/_components/InlineLink";
 
 interface Props {
   disableBlog?: boolean;

@@ -11,7 +11,7 @@ export default async function Layout({ children }: Readonly<Props>) {
   const disableBlog = await getUnleashFlag("DisableBlog");
 
   return (
-    <div className="min-h-[100dvh] bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-white">
+    <div className="min-h-[100dvh] bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-white">
       <Header disableBlog={disableBlog} />
       {children}
       <Footer disableBlog={disableBlog} />

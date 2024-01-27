@@ -1,28 +1,25 @@
 import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import { type ReactNode } from "react";
-import { FaChevronLeft } from "react-icons/fa";
-import InlineLink from "./InlineLink";
 
-interface Props {
+type Props = Readonly<{
   children?: ReactNode;
   date: Date;
   tags?: ReactNode[];
   imageSrc?: StaticImageData;
-}
+}>;
 
-const Header = ({ children, date, tags, imageSrc }: Readonly<Props>) => {
+export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
   return (
     <div className="w-full max-w-3xl">
-      <InlineLink
-        href="/blog"
-        className="inline-flex gap-1 items-center py-2"
-        theme="neutral"
+      <div
+        className={clsx(
+          "relative overflow-hidden lg:rounded-3xl p-4 lg:p-8 -mx-4 lg:-mx-8 bg-neutral-200 dark:bg-neutral-900",
+          {
+            "pt-16 lg:pt-32": imageSrc,
+          },
+        )}
       >
-        <FaChevronLeft /> All blog posts
-      </InlineLink>
-
-      <div className="relative overflow-hidden lg:rounded-3xl px-2 pb-2 lg:px-8 lg:pb-8 pt-16 lg:pt-32 -mx-2 lg:-mx-8 bg-neutral-300 dark:bg-neutral-900">
         {imageSrc && (
           <Image
             src={imageSrc}
@@ -60,5 +57,3 @@ const Header = ({ children, date, tags, imageSrc }: Readonly<Props>) => {
     </div>
   );
 };
-
-export default Header;
