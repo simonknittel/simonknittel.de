@@ -11,7 +11,7 @@ import coverSrc from "./post/image-upload-to-cloudflare-r2-with-next-js-13-app-r
 // TODO: Add open graph image
 
 export const metadata: Metadata = {
-  title: "Blog | Simon Knittel",
+  title: "All posts - Blog | Simon Knittel",
 };
 
 export default async function Page() {
