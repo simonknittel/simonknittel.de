@@ -16,6 +16,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "5.0.1",
+    "react-timeago": "7.2.0",
     "slugify": "1.6.6",
     "three": "0.160.0",
     "zod": "3.22.4"
@@ -26,6 +27,7 @@
     "@types/prettier": "3.0.0",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
+    "@types/react-timeago": "4.1.7",
     "@types/three": "0.160.0",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",

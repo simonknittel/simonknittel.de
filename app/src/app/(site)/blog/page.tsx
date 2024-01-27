@@ -1,5 +1,7 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
+import { env } from "~/env.mjs";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import PostExcerpt from "./_components/PostExcerpt";
 
@@ -21,13 +23,45 @@ export default async function Page() {
         Blog
       </h1>
 
-      <PostExcerpt
-        href="/blog/post/my-software-development-principles-2023"
-        title="My software development principles 2023"
-        date={new Date("2023-12-31")}
-        className="max-w-3xl mx-auto mt-8"
-        tags={["Opinion"]}
-      />
+      {env.VERCEL_ENV !== "production" && (
+        <PostExcerpt
+          href="/blog/post/my-software-development-principles-2023"
+          title="My software development principles 2023"
+          date={new Date("2024-01-27T10:00:00Z")}
+          className="max-w-3xl mx-auto mt-8"
+          tags={["Opinion"]}
+        />
+      )}
+
+      {env.VERCEL_ENV !== "production" && (
+        <PostExcerpt
+          href="/blog/post/managing-my-todos-with-obsidian"
+          title="Managing my TODOs with Obsidian"
+          date={new Date("2024-01-26")}
+          className="max-w-3xl mx-auto mt-8"
+          tags={["Obsidian"]}
+        />
+      )}
+
+      {env.VERCEL_ENV !== "production" && (
+        <PostExcerpt
+          href="/blog/post/image-upload-to-cloudflare-r2-with-next-js-13-app-router"
+          title="Image upload to Cloudflare R2 with Next.js 13 App Router"
+          date={new Date("2023-06-30")}
+          className="max-w-3xl mx-auto mt-8"
+          tags={[
+            <>
+              <SiNextdotjs /> Next.js
+            </>,
+            <>
+              <SiCloudflare /> Cloudflare
+            </>,
+            <>
+              <SiPrisma /> Prisma
+            </>,
+          ]}
+        />
+      )}
     </main>
   );
 }

@@ -11,6 +11,7 @@ export const env = createEnv({
       (str) => str || `https://${process.env.VERCEL_URL}`,
       z.string().url(),
     ),
+    VERCEL_ENV: z.enum(["production", "preview", "development"]).optional(),
   },
 
   client: {},
@@ -20,6 +21,7 @@ export const env = createEnv({
     UNLEASH_SERVER_API_URL: process.env.UNLEASH_SERVER_API_URL,
     UNLEASH_SERVER_API_TOKEN: process.env.UNLEASH_SERVER_API_TOKEN,
     BASE_URL: process.env.BASE_URL,
+    VERCEL_ENV: process.env.VERCEL_ENV,
   },
 
   emptyStringAsUndefined: true,

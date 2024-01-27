@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import { type ReactNode } from "react";
+import { TimeAgoLoader } from "../../_components/TimeAgoLoader";
 
 type Props = Readonly<{
   children?: ReactNode;
@@ -42,17 +43,17 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
       </div>
 
       <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap justify-between">
-        <time dateTime={date.toISOString()}>
-          {date.toLocaleDateString("en", {
-            dateStyle: "long",
-          })}
-        </time>
+        <TimeAgoLoader date={date} />
 
-        {tags?.map((tag, index) => (
-          <span key={index} className="flex gap-1 items-center">
-            {tag}
-          </span>
-        ))}
+        {tags && tags.length > 0 && (
+          <div className="flex gap-2 flex-wrap">
+            {tags.map((tag, index) => (
+              <span key={index} className="flex gap-1 items-center">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
