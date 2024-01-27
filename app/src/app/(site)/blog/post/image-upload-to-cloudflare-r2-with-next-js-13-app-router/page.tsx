@@ -5,8 +5,11 @@ import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import { InlineLink } from "../_components/InlineLink";
 import { PostFooter } from "../_components/PostFooter";
 import { PostHeader } from "../_components/PostHeader";
+import { SectionHeading } from "../_components/SectionHeading";
 import TableOfContents from "../_components/TableOfContents";
 import coverSrc from "./cover.jpg";
+
+const slug = "image-upload-to-cloudflare-r2-with-next-js-13-app-router";
 
 export const metadata: Metadata = {
   title:
@@ -57,7 +60,7 @@ export default async function Page() {
         }}
       />
 
-      <h2 id="prerequisites">Prerequisites</h2>
+      <SectionHeading sectionHeading="Prerequisites" postSlug={slug} />
 
       <p>
         This post assumes that you already have setup a Next.js 13 App Router
@@ -73,20 +76,23 @@ export default async function Page() {
         .
       </p>
 
-      <h2 id="preparing-the-database">Preparing the database</h2>
+      <SectionHeading sectionHeading="Preparing the database" postSlug={slug} />
 
-      <h2 id="preparing-cloudflare-r2">Preparing Cloudflare R2</h2>
+      <SectionHeading
+        sectionHeading="Preparing Cloudflare R2"
+        postSlug={slug}
+      />
 
-      <h2 id="integration">Integration</h2>
+      <SectionHeading sectionHeading="Integration" postSlug={slug} />
 
       <p>
         Since we are just using the S3 protocol here, you could also use Amazon
         S3 or any other S3-compatible service instead of Cloudflare R2.
       </p>
 
-      <h2 id="testing-our-work">Testing our work</h2>
+      <SectionHeading sectionHeading="Uploading images" postSlug={slug} />
 
-      <h2 id="wrapping-up">Wrapping up</h2>
+      <SectionHeading sectionHeading="Deleting images" postSlug={slug} />
 
       {/* TODO: Add GitHub repository with full example */}
 

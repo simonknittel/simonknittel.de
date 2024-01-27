@@ -6,6 +6,8 @@ import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
 import TableOfContents from "../_components/TableOfContents";
 
+const slug = "managing-my-todos-with-obsidian";
+
 export const metadata: Metadata = {
   title: "Managing my TODOs with Obsidian - Blog | Simon Knittel",
 };
@@ -35,7 +37,10 @@ export default async function Page() {
         }}
       />
 
-      <SectionHeading text="Why you would manage your TODOs with Obsidian" />
+      <SectionHeading
+        sectionHeading="Why you would manage your TODOs with Obsidian"
+        postSlug={slug}
+      />
 
       <p>
         According to the <em>Second Brain</em> concept, I want to put everything
@@ -44,7 +49,10 @@ export default async function Page() {
         them right next to my knowledge base makes sense.
       </p>
 
-      <SectionHeading text="Why you would not manage your TODOs with Obsidian" />
+      <SectionHeading
+        sectionHeading="Why you would not manage your TODOs with Obsidian"
+        postSlug={slug}
+      />
 
       <p>
         While Obsidian does support checkboxes in Markdown, that&pos;s about it
@@ -53,7 +61,7 @@ export default async function Page() {
         of more involved TODO management, you&pos;ll have to use plugins.
       </p>
 
-      <SectionHeading text="Conclusion" />
+      <SectionHeading sectionHeading="Conclusion" postSlug={slug} />
 
       <p>
         There are probably better or easier ways to do some parts. If you know

@@ -1,24 +1,27 @@
 import clsx from "clsx";
 import slugify from "slugify";
+import { env } from "~/env.mjs";
+import { SectionLink } from "./SectionLink";
 
 interface Props {
   className?: string;
-  text: string;
+  sectionHeading: string;
+  postSlug: string;
 }
 
-export const SectionHeading = ({ className, text }: Readonly<Props>) => {
-  const slug = slugify(text, { lower: true, strict: true });
+export const SectionHeading = ({
+  className,
+  sectionHeading,
+  postSlug,
+}: Readonly<Props>) => {
+  const sectionSlug = slugify(sectionHeading, { lower: true, strict: true });
+  const url = `${env.BASE_URL}/blog/post/${postSlug}#${sectionSlug}`;
 
   return (
-    <h2 className={clsx(className)} id={slug}>
-      {text}
+    <h2 className={clsx(className)} id={sectionSlug}>
+      {sectionHeading}
 
-      <a
-        className="text-black dark:text-neutral-300 opacity-30 hover:opacity-100 transition-opacity relative bottom-[-1px] px-2 inline-block"
-        href={`#${slug}`}
-      >
-        #
-      </a>
+      <SectionLink url={url}>#</SectionLink>
     </h2>
   );
 };

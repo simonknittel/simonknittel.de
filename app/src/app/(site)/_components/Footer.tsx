@@ -33,6 +33,10 @@ export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
         {/* <FooterLink href="https://www.instagram.com/simonknittel/">
           Instagram
         </FooterLink> */}
+
+        <FooterLink href="https://www.buymeacoffee.com/simonknittel">
+          Buy Me A Coffee
+        </FooterLink>
       </ul>
     </footer>
   );
