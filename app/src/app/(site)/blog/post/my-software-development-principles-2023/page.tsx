@@ -50,7 +50,10 @@ export default async function Page() {
 
       <p>
         Build the basics and the{" "}
-        <InlineLink href="https://en.wikipedia.org/wiki/Minimum_viable_product">
+        <InlineLink
+          href="https://en.wikipedia.org/wiki/Minimum_viable_product"
+          theme="neutralUnderlined"
+        >
           Minimum viable product (MVP)
         </InlineLink>{" "}
         first. Expand and refactor when necessary. Avoid premature optimization.
@@ -58,7 +61,10 @@ export default async function Page() {
 
       <p>
         This is pretty much according the to the{" "}
-        <InlineLink href="https://en.wikipedia.org/wiki/KISS_principle">
+        <InlineLink
+          href="https://en.wikipedia.org/wiki/KISS_principle"
+          theme="neutralUnderlined"
+        >
           Keep it simple stupid (KISS) principle
         </InlineLink>
         .
@@ -91,8 +97,11 @@ export default async function Page() {
         Jira issue into your IDE. However, that extension will always lag behind
         in features in comparison to Jira&apos;s website. In addition that, it
         can easily brake. Another example would be package managers for Node.js.
-        GitHub Dependabot had support for npm since the beginning. However,
-        <InlineLink href="https://github.blog/changelog/2023-08-02-pnpm-support-for-dependency-graph-dependabot-alerts-and-dependabot-security-updates/">
+        GitHub Dependabot had support for npm since the beginning. However,{" "}
+        <InlineLink
+          href="https://github.blog/changelog/2023-08-02-pnpm-support-for-dependency-graph-dependabot-alerts-and-dependabot-security-updates/"
+          theme="neutralUnderlined"
+        >
           support for pnpm has only been added many months later
         </InlineLink>
         .
@@ -159,12 +168,7 @@ export default async function Page() {
         do your job.
       </p>
 
-      <PostFooter
-        socialLinks={[
-          ["Twitter", "https://twitter.com"],
-          ["Twitter", "https://twitter.com"],
-        ]}
-      />
+      <PostFooter socialLinks={[["Twitter", "https://twitter.com"]]} />
     </>
   );
 }

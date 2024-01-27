@@ -8,7 +8,7 @@ interface Props {
 
 export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
   return (
-    <footer className={clsx(className, "px-2 max-w-3xl mx-auto py-4")}>
+    <footer className={clsx(className, "px-4 max-w-3xl mx-auto py-4")}>
       <div className="h-[2px] bg-neutral-300 dark:bg-neutral-700 max-w-32 mx-auto" />
 
       <ul className="flex flex-wrap gap-x-6 gap-y-2 justify-center max-w-xs md:max-w-none mx-auto mt-4">

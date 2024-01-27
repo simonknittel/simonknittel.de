@@ -4,6 +4,7 @@ import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
 import { env } from "~/env.mjs";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import PostExcerpt from "./_components/PostExcerpt";
+import coverSrc from "./post/image-upload-to-cloudflare-r2-with-next-js-13-app-router/cover.jpg";
 
 // TODO: Add RSS feed
 
@@ -18,10 +19,8 @@ export default async function Page() {
   if (disableBlog) notFound();
 
   return (
-    <main className="pt-6 pb-8 px-2">
-      <h1 className="max-w-3xl mx-auto text-3xl lg:text-5xl font-extrabold text-center">
-        Blog
-      </h1>
+    <main className="lg:pt-6 pb-8 px-4">
+      <h1 className="sr-only">Blog</h1>
 
       {env.VERCEL_ENV !== "production" && (
         <PostExcerpt
@@ -49,6 +48,7 @@ export default async function Page() {
           title="Image upload to Cloudflare R2 with Next.js 13 App Router"
           date={new Date("2023-06-30")}
           className="max-w-3xl mx-auto mt-8"
+          imageSrc={coverSrc}
           tags={[
             <>
               <SiNextdotjs /> Next.js

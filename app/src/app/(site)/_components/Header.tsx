@@ -7,7 +7,7 @@ interface Props {
 
 const Header = ({ disableBlog = false }: Readonly<Props>) => {
   return (
-    <header className="px-2 text-lg">
+    <header className="px-4 text-lg">
       <div className="flex justify-between max-w-3xl mx-auto">
         <div className="flex gap-2 items-center">
           <Photo size="small" />

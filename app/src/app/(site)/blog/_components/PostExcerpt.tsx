@@ -25,7 +25,12 @@ const PostExcerpt = ({
     <article className={clsx(className)}>
       <Link
         href={href}
-        className="group relative overflow-hidden rounded lg:rounded-3xl p-4 lg:p-8 block bg-neutral-200 dark:bg-neutral-900 hover:scale-[1.02] transition-transform"
+        className={clsx(
+          "group relative block hover:scale-[1.02] transition-transform",
+          {
+            "p-4 lg:p-8 overflow-hidden rounded lg:rounded-3xl": imageSrc,
+          },
+        )}
       >
         {imageSrc && (
           <Image
@@ -41,7 +46,14 @@ const PostExcerpt = ({
         </h2>
       </Link>
 
-      <div className="text-neutral-500 mt-2 flex justify-between flex-wrap px-4 lg:px-8">
+      <div
+        className={clsx(
+          "text-neutral-500 mt-2 flex justify-between flex-wrap",
+          {
+            "px-4 lg:px-8": imageSrc,
+          },
+        )}
+      >
         <TimeAgoLoader date={date} />
 
         {tags && tags.length > 0 && (
