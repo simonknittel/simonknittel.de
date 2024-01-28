@@ -1,19 +1,17 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import { InlineLink } from "../_components/InlineLink";
 import { PostFooter } from "../_components/PostFooter";
 import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
 import TableOfContents from "../_components/TableOfContents";
-import coverSrc from "./cover.jpg";
+import { posts } from "../posts";
 
-const slug = "image-upload-to-cloudflare-r2-with-next-js-13-app-router";
+const post = posts[2]!;
 
 export const metadata: Metadata = {
-  title:
-    "Image upload to Cloudflare R2 with Next.js 13 App Router - Blog | Simon Knittel",
+  title: `${post.title} - Blog | Simon Knittel`,
 };
 
 export default async function Page() {
@@ -23,21 +21,11 @@ export default async function Page() {
   return (
     <>
       <PostHeader
-        date={new Date("2023-06-30")}
-        tags={[
-          <>
-            <SiNextdotjs /> Next.js
-          </>,
-          <>
-            <SiCloudflare /> Cloudflare
-          </>,
-          <>
-            <SiPrisma /> Prisma
-          </>,
-        ]}
-        imageSrc={coverSrc}
+        date={post.publishedAt}
+        tags={post.tags}
+        imageSrc={post.coverSrc}
       >
-        Image upload to Cloudflare R2 with Next.js 13 App Router
+        {post.title}
       </PostHeader>
 
       <p className="mt-6 lg:mt-12">
@@ -59,7 +47,7 @@ export default async function Page() {
         }}
       />
 
-      <SectionHeading sectionHeading="Prerequisites" postSlug={slug} />
+      <SectionHeading sectionHeading="Prerequisites" postSlug={post.slug} />
 
       <p>
         This post assumes that you already have setup a Next.js 13 App Router
@@ -69,35 +57,44 @@ export default async function Page() {
       <p>
         If you haven&apos;t setup a project yet, take a look at the official
         documentation on{" "}
-        <InlineLink href="https://nextjs.org/docs/getting-started/installation">
+        <InlineLink
+          href="https://nextjs.org/docs/getting-started/installation"
+          theme="neutralUnderlined"
+        >
           nextjs.org
         </InlineLink>
         .
       </p>
 
-      <SectionHeading sectionHeading="Preparing the database" postSlug={slug} />
+      <SectionHeading
+        sectionHeading="Preparing the database"
+        postSlug={post.slug}
+      />
 
       <SectionHeading
         sectionHeading="Preparing Cloudflare R2"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
-      <SectionHeading sectionHeading="Integration" postSlug={slug} />
+      <SectionHeading sectionHeading="Integration" postSlug={post.slug} />
 
       <p>
         Since we are just using the S3 protocol here, you could also use Amazon
         S3 or any other S3-compatible service instead of Cloudflare R2.
       </p>
 
-      <SectionHeading sectionHeading="Uploading images" postSlug={slug} />
+      <SectionHeading sectionHeading="Uploading images" postSlug={post.slug} />
 
-      <SectionHeading sectionHeading="Deleting images" postSlug={slug} />
+      <SectionHeading sectionHeading="Deleting images" postSlug={post.slug} />
 
       {/* TODO: Add GitHub repository with full example */}
 
       <p>
         You can find the full example on GitHub:{" "}
-        <InlineLink href="https://github.com/simonknittel/???">
+        <InlineLink
+          href="https://github.com/simonknittel/???"
+          theme="neutralUnderlined"
+        >
           simonknittel/???
         </InlineLink>
         .
@@ -107,7 +104,7 @@ export default async function Page() {
         <em>The End.</em>
       </p>
 
-      <PostFooter />
+      <PostFooter socialLinks={post.socialLinks} />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { TimeAgoLoader } from "./TimeAgoLoader";
 
 interface Props {
   className?: string;
-  href: string;
+  slug: string;
   title: ReactNode;
   date: Date;
   tags?: ReactNode[];
@@ -15,16 +15,16 @@ interface Props {
 
 const PostExcerpt = ({
   className,
-  href,
+  slug,
   title,
   date,
   tags,
   imageSrc,
 }: Readonly<Props>) => {
   return (
-    <article className={clsx(className)}>
+    <article className={clsx(className, "max-w-3xl mx-auto mt-8")}>
       <Link
-        href={href}
+        href={`/blog/post/${slug}`}
         className={clsx(
           "group relative block hover:scale-[1.02] transition-transform",
           {

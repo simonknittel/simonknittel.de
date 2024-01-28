@@ -6,11 +6,12 @@ import { PostFooter } from "../_components/PostFooter";
 import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
 import TableOfContents from "../_components/TableOfContents";
+import { posts } from "../posts";
 
-const slug = "my-software-development-principles-2023";
+const post = posts[0]!;
 
 export const metadata: Metadata = {
-  title: "My software development principles 2023 - Blog | Simon Knittel",
+  title: `${post.title} - Blog | Simon Knittel`,
 };
 
 export default async function Page() {
@@ -19,8 +20,12 @@ export default async function Page() {
 
   return (
     <>
-      <PostHeader date={new Date("2023-12-31")} tags={["Opinion"]}>
-        My software development principles 2023
+      <PostHeader
+        date={post.publishedAt}
+        tags={post.tags}
+        imageSrc={post.coverSrc}
+      >
+        {post.title}
       </PostHeader>
 
       <p className="mt-6 lg:mt-12">
@@ -49,7 +54,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Keep it simple, stupid! (KISS)"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
       <p>
@@ -78,14 +83,17 @@ export default async function Page() {
         <i>Drive-by Refactoring™</i>
       </p>
 
-      <SectionHeading sectionHeading="Keep the defaults" postSlug={slug} />
+      <SectionHeading sectionHeading="Keep the defaults" postSlug={post.slug} />
 
       <p>
         Stay as close as possible to the defaults of a framework, library or
         similar.
       </p>
 
-      <SectionHeading sectionHeading="Keep abstractions low" postSlug={slug} />
+      <SectionHeading
+        sectionHeading="Keep abstractions low"
+        postSlug={post.slug}
+      />
 
       <p>
         Every abstraction can fail and cause annoying issues. Abstractions can
@@ -113,7 +121,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Deploy and collect feedback as soon and often as possible"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
       <p>
@@ -122,7 +130,7 @@ export default async function Page() {
         long time about it.
       </p>
 
-      <SectionHeading sectionHeading="Own your failures" postSlug={slug} />
+      <SectionHeading sectionHeading="Own your failures" postSlug={post.slug} />
 
       <p>
         Don&apos;t get discouraged, just fix it and do it better next time.
@@ -131,7 +139,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Developer Experience is crucial to User Experience"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
       <p>
@@ -139,7 +147,7 @@ export default async function Page() {
         are more confident with Next.js or similar, just use it.
       </p>
 
-      <SectionHeading sectionHeading="No rollbacks" postSlug={slug} />
+      <SectionHeading sectionHeading="No rollbacks" postSlug={post.slug} />
 
       <p>
         You deployed your new feature and now something is broken? You probably
@@ -156,7 +164,7 @@ export default async function Page() {
         users but keeps the whole much cleaner and easier to manage.
       </p>
 
-      <SectionHeading sectionHeading="Just do your job" postSlug={slug} />
+      <SectionHeading sectionHeading="Just do your job" postSlug={post.slug} />
 
       <p>
         <i>
@@ -178,7 +186,7 @@ export default async function Page() {
         do your job.
       </p>
 
-      <PostFooter socialLinks={[["Twitter", "https://twitter.com"]]} />
+      <PostFooter socialLinks={post.socialLinks} />
     </>
   );
 }

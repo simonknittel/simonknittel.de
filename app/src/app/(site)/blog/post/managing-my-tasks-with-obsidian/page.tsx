@@ -5,11 +5,12 @@ import { PostFooter } from "../_components/PostFooter";
 import { PostHeader } from "../_components/PostHeader";
 import { SectionHeading } from "../_components/SectionHeading";
 import TableOfContents from "../_components/TableOfContents";
+import { posts } from "../posts";
 
-const slug = "managing-my-todos-with-obsidian";
+const post = posts[1]!;
 
 export const metadata: Metadata = {
-  title: "Managing my TODOs with Obsidian - Blog | Simon Knittel",
+  title: `${post.title} - Blog | Simon Knittel`,
 };
 
 export default async function Page() {
@@ -18,8 +19,12 @@ export default async function Page() {
 
   return (
     <>
-      <PostHeader date={new Date("2023-12-31")} tags={["Obsidian"]}>
-        Managing my TODOs with Obsidian
+      <PostHeader
+        date={post.publishedAt}
+        tags={post.tags}
+        imageSrc={post.coverSrc}
+      >
+        {post.title}
       </PostHeader>
 
       <TableOfContents
@@ -34,7 +39,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Why you would manage your TODOs with Obsidian"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
       <p>
@@ -46,7 +51,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Why you would not manage your TODOs with Obsidian"
-        postSlug={slug}
+        postSlug={post.slug}
       />
 
       <p>
@@ -56,14 +61,14 @@ export default async function Page() {
         of more involved TODO management, you&pos;ll have to use plugins.
       </p>
 
-      <SectionHeading sectionHeading="Conclusion" postSlug={slug} />
+      <SectionHeading sectionHeading="Conclusion" postSlug={post.slug} />
 
       <p>
         There are probably better or easier ways to do some parts. If you know
         some, please let me know!
       </p>
 
-      <PostFooter />
+      <PostFooter socialLinks={post.socialLinks} />
     </>
   );
 }

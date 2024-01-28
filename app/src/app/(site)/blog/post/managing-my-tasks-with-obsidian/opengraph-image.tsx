@@ -1,6 +1,9 @@
 import { ImageResponse } from "next/og";
+import { posts } from "../posts";
 
-export const alt = "Managing my TODOs with Obsidian - Blog | Simon Knittel";
+const post = posts[1]!;
+
+export const alt = `${post.title} - Blog | Simon Knittel`;
 export const size = {
   width: 1200,
   height: 630,
@@ -19,7 +22,7 @@ export default async function Image() {
       <div tw="flex flex-col bg-neutral-800 text-white h-full w-full font-900">
         <div tw="flex flex-col justify-between flex-1 py-16 px-24">
           <p tw="text-8xl" style={{ textWrap: "balance" }}>
-            Managing my TODOs with Obsidian
+            {post.title}
           </p>
 
           <p tw="text-4xl text-neutral-700">Blog | Simon Knittel</p>
