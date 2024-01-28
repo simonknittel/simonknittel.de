@@ -1,33 +1,24 @@
-import { type Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getUnleashFlag } from "~/lib/getUnleashFlag";
-import { InlineLink } from "../_components/InlineLink";
-import { PostFooter } from "../_components/PostFooter";
-import { PostHeader } from "../_components/PostHeader";
-import { SectionHeading } from "../_components/SectionHeading";
-import TableOfContents from "../_components/TableOfContents";
-import { posts } from "../posts";
+import slugify from "slugify";
+import { type Post } from "..";
+import { InlineLink } from "../../_components/InlineLink";
+import { SectionHeading } from "../../_components/SectionHeading";
+import TableOfContents from "../../_components/TableOfContents";
 
-const post = posts[0]!;
+const title = "My software development principles 2023";
+const slug = slugify(title);
+const publishedAt = new Date("2023-12-31T00:00:00.000Z");
+const tags = ["Opinion"];
+const socialLinks = [["Twitter", "https://twitter.com/"]];
 
-export const metadata: Metadata = {
-  title: `${post.title} - Blog | Simon Knittel`,
-};
-
-export default async function Page() {
-  const disableBlog = await getUnleashFlag("DisableBlog");
-  if (disableBlog) notFound();
-
-  return (
+export const post: Post = {
+  public: false,
+  title,
+  slug,
+  publishedAt,
+  tags,
+  socialLinks,
+  body: (
     <>
-      <PostHeader
-        date={post.publishedAt}
-        tags={post.tags}
-        imageSrc={post.coverSrc}
-      >
-        {post.title}
-      </PostHeader>
-
       <p className="mt-6 lg:mt-12">
         <strong>
           Over the years I developed some principles which define how I write or
@@ -54,7 +45,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Keep it simple, stupid! (KISS)"
-        postSlug={post.slug}
+        postSlug={slug}
       />
 
       <p>
@@ -83,17 +74,14 @@ export default async function Page() {
         <i>Drive-by Refactoring™</i>
       </p>
 
-      <SectionHeading sectionHeading="Keep the defaults" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Keep the defaults" postSlug={slug} />
 
       <p>
         Stay as close as possible to the defaults of a framework, library or
         similar.
       </p>
 
-      <SectionHeading
-        sectionHeading="Keep abstractions low"
-        postSlug={post.slug}
-      />
+      <SectionHeading sectionHeading="Keep abstractions low" postSlug={slug} />
 
       <p>
         Every abstraction can fail and cause annoying issues. Abstractions can
@@ -121,7 +109,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Deploy and collect feedback as soon and often as possible"
-        postSlug={post.slug}
+        postSlug={slug}
       />
 
       <p>
@@ -130,7 +118,7 @@ export default async function Page() {
         long time about it.
       </p>
 
-      <SectionHeading sectionHeading="Own your failures" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Own your failures" postSlug={slug} />
 
       <p>
         Don&apos;t get discouraged, just fix it and do it better next time.
@@ -139,7 +127,7 @@ export default async function Page() {
 
       <SectionHeading
         sectionHeading="Developer Experience is crucial to User Experience"
-        postSlug={post.slug}
+        postSlug={slug}
       />
 
       <p>
@@ -147,7 +135,7 @@ export default async function Page() {
         are more confident with Next.js or similar, just use it.
       </p>
 
-      <SectionHeading sectionHeading="No rollbacks" postSlug={post.slug} />
+      <SectionHeading sectionHeading="No rollbacks" postSlug={slug} />
 
       <p>
         You deployed your new feature and now something is broken? You probably
@@ -164,7 +152,7 @@ export default async function Page() {
         users but keeps the whole much cleaner and easier to manage.
       </p>
 
-      <SectionHeading sectionHeading="Just do your job" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Just do your job" postSlug={slug} />
 
       <p>
         <i>
@@ -185,8 +173,6 @@ export default async function Page() {
         I&apos;m not asking to do overtime or similar. I&apos;m just asking to
         do your job.
       </p>
-
-      <PostFooter socialLinks={post.socialLinks} />
     </>
-  );
-}
+  ),
+};

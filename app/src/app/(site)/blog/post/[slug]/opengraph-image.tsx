@@ -1,9 +1,6 @@
 import { ImageResponse } from "next/og";
-import { posts } from "../posts";
+import { getPostBySlug } from "../_lib/getPostBySlug";
 
-const post = posts[1]!;
-
-export const alt = `${post.title} - Blog | Simon Knittel`;
 export const size = {
   width: 1200,
   height: 630,
@@ -12,7 +9,14 @@ export const size = {
 export const contentType = "image/png";
 export const runtime = "edge";
 
-export default async function Image() {
+type Props = Readonly<{
+  params: { slug: string };
+}>;
+
+export default async function Image({ params }: Props) {
+  const post = getPostBySlug(params.slug);
+  if (!post) return null;
+
   const interBlack = fetch(
     new URL("../../../../../assets/Inter/Inter-Black.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());

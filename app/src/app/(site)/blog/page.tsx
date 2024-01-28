@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { env } from "~/env.mjs";
 import { getUnleashFlag } from "~/lib/getUnleashFlag";
 import PostExcerpt from "./_components/PostExcerpt";
-import { posts } from "./post/posts";
+import { posts } from "./post/_posts";
 
 export const metadata: Metadata = {
   title: "All posts - Blog | Simon Knittel",

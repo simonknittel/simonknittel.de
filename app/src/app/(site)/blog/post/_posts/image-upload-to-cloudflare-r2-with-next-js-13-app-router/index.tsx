@@ -1,33 +1,35 @@
-import { type Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getUnleashFlag } from "~/lib/getUnleashFlag";
-import { InlineLink } from "../_components/InlineLink";
-import { PostFooter } from "../_components/PostFooter";
-import { PostHeader } from "../_components/PostHeader";
-import { SectionHeading } from "../_components/SectionHeading";
-import TableOfContents from "../_components/TableOfContents";
-import { posts } from "../posts";
+import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
+import slugify from "slugify";
+import { type Post } from "..";
+import { InlineLink } from "../../_components/InlineLink";
+import { SectionHeading } from "../../_components/SectionHeading";
+import TableOfContents from "../../_components/TableOfContents";
+import coverSrc from "./cover.jpg";
 
-const post = posts[2]!;
+const title = "Image upload to Cloudflare R2 with Next.js 13 App Router";
+const slug = slugify(title);
+const publishedAt = new Date("2023-12-31T00:00:00.000Z");
+const tags = [
+  <>
+    <SiNextdotjs /> Next.js
+  </>,
+  <>
+    <SiCloudflare /> Cloudflare
+  </>,
+  <>
+    <SiPrisma /> Prisma
+  </>,
+];
 
-export const metadata: Metadata = {
-  title: `${post.title} - Blog | Simon Knittel`,
-};
-
-export default async function Page() {
-  const disableBlog = await getUnleashFlag("DisableBlog");
-  if (disableBlog) notFound();
-
-  return (
+export const post: Post = {
+  public: false,
+  title,
+  slug,
+  publishedAt,
+  tags,
+  coverSrc,
+  body: (
     <>
-      <PostHeader
-        date={post.publishedAt}
-        tags={post.tags}
-        imageSrc={post.coverSrc}
-      >
-        {post.title}
-      </PostHeader>
-
       <p className="mt-6 lg:mt-12">
         <strong>
           In this post we are implementing the ability to upload images from a
@@ -47,7 +49,7 @@ export default async function Page() {
         }}
       />
 
-      <SectionHeading sectionHeading="Prerequisites" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Prerequisites" postSlug={slug} />
 
       <p>
         This post assumes that you already have setup a Next.js 13 App Router
@@ -66,26 +68,23 @@ export default async function Page() {
         .
       </p>
 
-      <SectionHeading
-        sectionHeading="Preparing the database"
-        postSlug={post.slug}
-      />
+      <SectionHeading sectionHeading="Preparing the database" postSlug={slug} />
 
       <SectionHeading
         sectionHeading="Preparing Cloudflare R2"
-        postSlug={post.slug}
+        postSlug={slug}
       />
 
-      <SectionHeading sectionHeading="Integration" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Integration" postSlug={slug} />
 
       <p>
         Since we are just using the S3 protocol here, you could also use Amazon
         S3 or any other S3-compatible service instead of Cloudflare R2.
       </p>
 
-      <SectionHeading sectionHeading="Uploading images" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Uploading images" postSlug={slug} />
 
-      <SectionHeading sectionHeading="Deleting images" postSlug={post.slug} />
+      <SectionHeading sectionHeading="Deleting images" postSlug={slug} />
 
       {/* TODO: Add GitHub repository with full example */}
 
@@ -103,8 +102,6 @@ export default async function Page() {
       <p>
         <em>The End.</em>
       </p>
-
-      <PostFooter socialLinks={post.socialLinks} />
     </>
-  );
-}
+  ),
+};

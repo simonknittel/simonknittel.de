@@ -1,7 +1,7 @@
 import { type MetadataRoute } from "next";
 import { env } from "~/env.mjs";
 import { getUnleashFlag } from "../lib/getUnleashFlag";
-import { posts } from "./(site)/blog/post/posts";
+import { posts } from "./(site)/blog/post/_posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const disableBlog = await getUnleashFlag("DisableBlog");
