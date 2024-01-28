@@ -2,7 +2,7 @@
 
 import { Analytics } from "@vercel/analytics/react";
 
-const AnalyticsContainer = () => {
+export const VercelAnalyticsContainer = () => {
   return (
     <Analytics
       beforeSend={(e) =>
@@ -11,5 +11,3 @@ const AnalyticsContainer = () => {
     />
   );
 };
-
-export default AnalyticsContainer;
