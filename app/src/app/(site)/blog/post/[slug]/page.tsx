@@ -1,9 +1,9 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getUnleashFlag } from "~/lib/getUnleashFlag";
+import { getUnleashFlag } from "~/services/unleash";
+import { getPostBySlug } from "../../../../../services/posts";
 import { PostFooter } from "../_components/PostFooter";
 import { PostHeader } from "../_components/PostHeader";
-import { getPostBySlug } from "../_lib/getPostBySlug";
 
 type Props = Readonly<{ params: { slug: string } }>;
 

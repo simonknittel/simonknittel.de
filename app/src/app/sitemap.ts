@@ -1,7 +1,7 @@
 import { type MetadataRoute } from "next";
 import { env } from "~/env.mjs";
-import { getUnleashFlag } from "../lib/getUnleashFlag";
-import { posts } from "./(site)/blog/post/_posts";
+import { getAllPosts } from "../services/posts";
+import { getUnleashFlag } from "../services/unleash";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const disableBlog = await getUnleashFlag("DisableBlog");
@@ -19,14 +19,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${env.BASE_URL}/blog`,
         lastModified: new Date("2023-12-31"),
       },
-      ...posts
-        .filter(
-          (post) => env.VERCEL_ENV !== "production" || post.public === true,
-        )
-        .map((post) => ({
-          url: `${env.BASE_URL}/blog/post/${post.slug}`,
-          lastModified: post.publishedAt,
-        })),
+      ...getAllPosts().map((post) => ({
+        url: `${env.BASE_URL}/blog/post/${post.slug}`,
+        lastModified: post.publishedAt,
+      })),
     );
   }
 

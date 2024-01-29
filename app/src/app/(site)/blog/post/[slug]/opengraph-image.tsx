@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getPostBySlug } from "../_lib/getPostBySlug";
+import { getPostBySlug } from "../../../../../services/posts";
 
 export const size = {
   width: 1200,

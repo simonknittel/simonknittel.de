@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { getUnleashFlag } from "../lib/getUnleashFlag";
+import { getUnleashFlag } from "../services/unleash";
 import Hero from "./_components/modules/Hero/Hero";
 
 export const metadata: Metadata = {

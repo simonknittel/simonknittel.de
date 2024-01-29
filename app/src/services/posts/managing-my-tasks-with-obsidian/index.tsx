@@ -1,7 +1,7 @@
-import slugify from "slugify";
+import { slugify } from "~/lib/slugify";
 import { type Post } from "..";
-import { SectionHeading } from "../../_components/SectionHeading";
-import TableOfContents from "../../_components/TableOfContents";
+import { SectionHeading } from "../../../app/(site)/blog/post/_components/SectionHeading";
+import TableOfContents from "../../../app/(site)/blog/post/_components/TableOfContents";
 
 const title = "Managing my tasks with Obsidian";
 const slug = slugify(title);

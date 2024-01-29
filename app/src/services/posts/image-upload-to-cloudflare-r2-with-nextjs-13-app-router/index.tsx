@@ -1,9 +1,9 @@
 import { SiCloudflare, SiNextdotjs, SiPrisma } from "react-icons/si";
-import slugify from "slugify";
+import { slugify } from "~/lib/slugify";
 import { type Post } from "..";
-import { InlineLink } from "../../_components/InlineLink";
-import { SectionHeading } from "../../_components/SectionHeading";
-import TableOfContents from "../../_components/TableOfContents";
+import { InlineLink } from "../../../app/(site)/blog/post/_components/InlineLink";
+import { SectionHeading } from "../../../app/(site)/blog/post/_components/SectionHeading";
+import TableOfContents from "../../../app/(site)/blog/post/_components/TableOfContents";
 import coverSrc from "./cover.jpg";
 
 const title = "Image upload to Cloudflare R2 with Next.js 13 App Router";

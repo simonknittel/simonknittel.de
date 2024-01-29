@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { getUnleashFlag } from "../../lib/getUnleashFlag";
+import { getUnleashFlag } from "../../services/unleash";
 import { Footer } from "./_components/Footer";
 import Header from "./_components/Header";
 
