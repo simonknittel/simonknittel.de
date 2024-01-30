@@ -22,9 +22,7 @@ const PostExcerpt = ({
   imageSrc,
 }: Readonly<Props>) => {
   return (
-    <article
-      className={clsx(className, "max-w-3xl mx-auto mt-8 first-of-type:mt-0")}
-    >
+    <article className={clsx(className, "max-w-3xl mx-auto mt-8")}>
       <Link
         href={`/blog/post/${slug}`}
         className={clsx(

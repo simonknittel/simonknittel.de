@@ -14,12 +14,11 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
   return (
     <div className="w-full max-w-3xl">
       <div
-        className={clsx(
-          "relative overflow-hidden lg:rounded-3xl p-4 lg:p-8 -mx-4 lg:-mx-8 bg-neutral-200 dark:bg-neutral-900",
-          {
-            "pt-16 lg:pt-32": imageSrc,
-          },
-        )}
+        className={clsx("text-center", {
+          "p-4 lg:p-8 pt-16 lg:pt-32 bg-neutral-200 dark:bg-neutral-900 overflow-hidden lg:rounded-3xl -mx-4 lg:-mx-8 relative":
+            imageSrc,
+          "pt-4 lg:pt-0": !imageSrc,
+        })}
       >
         {imageSrc && (
           <Image
@@ -42,7 +41,12 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
         </h1>
       </div>
 
-      <div className="text-neutral-500 mt-2 flex gap-x-4 flex-wrap justify-between">
+      <div
+        className={clsx("text-neutral-500 mt-2 flex gap-x-4 flex-wrap", {
+          "justify-between": imageSrc,
+          "justify-center": !imageSrc,
+        })}
+      >
         <TimeAgoLoader date={date} />
 
         {tags && tags.length > 0 && (
