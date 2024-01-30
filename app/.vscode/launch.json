@@ -2,14 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: debug server-side",
+      "name": "bun run dev (node)",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "bun",
-      "runtimeArgs": ["dev"],
+      "runtimeArgs": ["run", "dev"],
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
-      "runtimeVersion": "20.11.0",
       "outputCapture": "std"
+    },
+    {
+      "name": "bun run dev (extension)",
+      "type": "bun",
+      "request": "launch",
+      "runtime": "bun",
+      "runtimeArgs": ["run", "dev"]
     }
   ]
 }

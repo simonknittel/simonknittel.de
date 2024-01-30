@@ -27,3 +27,8 @@ export const getPostBySlug = cache((slug: string) =>
 );
 
 const isVisible = (post: Post) => post.public === true || draftMode().isEnabled;
+
+// Open Graph image generation doesn't support draft mode
+export const getPostBySlugOg = cache((slug: string) =>
+  allPosts.find((post) => post.slug === slug),
+);

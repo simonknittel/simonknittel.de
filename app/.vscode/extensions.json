@@ -5,6 +5,7 @@
 		"esbenp.prettier-vscode",
 		"bradlc.vscode-tailwindcss",
 		"dbaeumer.vscode-eslint",
-		"dotenv.dotenv-vscode"
+		"dotenv.dotenv-vscode",
+		"oven.bun-vscode"
 	]
 }

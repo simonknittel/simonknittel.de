@@ -1,5 +1,6 @@
+import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { getPostBySlug } from "../../../../../services/posts";
+import { getPostBySlugOg } from "../../../../../services/posts";
 
 export const size = {
   width: 1200,
@@ -14,8 +15,8 @@ type Props = Readonly<{
 }>;
 
 export default async function Image({ params }: Props) {
-  const post = getPostBySlug(params.slug);
-  if (!post) return null;
+  const post = getPostBySlugOg(params.slug);
+  if (!post) notFound();
 
   const interBlack = fetch(
     new URL("../../../../../assets/Inter/Inter-Black.ttf", import.meta.url),

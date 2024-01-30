@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
+    "dev-turbo": "next dev --turbo",
     "lint": "next lint",
     "start": "next start"
   },
