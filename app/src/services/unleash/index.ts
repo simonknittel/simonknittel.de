@@ -8,7 +8,8 @@ export const getUnleashFlag = cache(async (name: UnleashFlag) => {
   const result = await flag(
     name,
     {
-      environment: env.DEPLOYMENT_ENV,
+      environment:
+        env.DEPLOYMENT_ENV === "production" ? "production" : "development",
     },
     {
       fetchOptions: { next: { revalidate: 60 } },
