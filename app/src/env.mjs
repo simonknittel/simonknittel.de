@@ -8,10 +8,35 @@ export const env = createEnv({
     UNLEASH_SERVER_API_TOKEN: z.string(),
     BASE_URL: z.preprocess(
       // Uses VERCEL_URL if BASE_URL is not set, e.g. on Vercel's preview deployments
-      (str) => str || `https://${process.env.VERCEL_URL}`,
+      (str) => {
+        if (str) {
+          return str;
+        } else if (process.env.VERCEL_URL) {
+          return `https://${process.env.VERCEL_URL}`;
+        }
+        return "http://localhost:3000";
+      },
       z.string().url(),
     ),
-    VERCEL_ENV: z.enum(["production", "preview", "development"]).optional(),
+    DEPLOYMENT_ENV: z.preprocess(
+      // Uses VERCEL_ENV if DEPLOYMENT_ENV is not set, e.g. on Vercel's preview deployments
+      (str) => {
+        if (str) {
+          return str;
+        } else if (process.env.VERCEL_ENV) {
+          switch (process.env.VERCEL_ENV) {
+            case "production":
+              return "production";
+            case "preview":
+              return "stage";
+            case "development":
+              return "development";
+          }
+        }
+        return "development";
+      },
+      z.enum(["production", "stage", "development"]),
+    ),
   },
 
   client: {},
@@ -21,7 +46,7 @@ export const env = createEnv({
     UNLEASH_SERVER_API_URL: process.env.UNLEASH_SERVER_API_URL,
     UNLEASH_SERVER_API_TOKEN: process.env.UNLEASH_SERVER_API_TOKEN,
     BASE_URL: process.env.BASE_URL,
-    VERCEL_ENV: process.env.VERCEL_ENV,
+    DEPLOYMENT_ENV: process.env.DEPLOYMENT_ENV,
   },
 
   emptyStringAsUndefined: true,
