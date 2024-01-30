@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { env } from "~/env.mjs";
+import photoSrc from "../../../assets/photo_64x64.png";
 
 export const alt = "Blog | Simon Knittel";
 export const size = {
@@ -22,7 +24,27 @@ export default async function Image() {
             All posts
           </p>
 
-          <p tw="text-4xl text-neutral-700">Blog | Simon Knittel</p>
+          <div tw="text-4xl text-neutral-700 flex items-center">
+            <div tw="flex rounded-full overflow-hidden ml-2 mr-2">
+              <img
+                src={`${env.BASE_URL}${photoSrc.src}`}
+                alt=""
+                width={64}
+                height={64}
+              />
+            </div>
+
+            <p
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, rgb(20, 184, 166), rgb(168, 85, 247), rgb(249, 115, 22))",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Simon Knittel
+            </p>
+          </div>
         </div>
 
         <div
