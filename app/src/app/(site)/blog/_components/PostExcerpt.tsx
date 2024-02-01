@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
+import { merriweather } from "~/app/fonts";
 import { TimeAgoLoader } from "./TimeAgoLoader";
 
 interface Props {
@@ -41,7 +42,12 @@ const PostExcerpt = ({
           />
         )}
 
-        <h2 className="text-xl lg:text-3xl font-extrabold relative z-10 text-balance font-serif">
+        <h2
+          className={clsx(
+            merriweather.className,
+            "text-xl lg:text-3xl font-extrabold relative z-10 text-balance",
+          )}
+        >
           {title}
         </h2>
       </Link>

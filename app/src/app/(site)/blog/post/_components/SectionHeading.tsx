@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { merriweather } from "~/app/fonts";
 import { env } from "~/env.mjs";
 import { slugify } from "~/lib/slugify";
 import { SectionLink } from "./SectionLink";
@@ -18,7 +19,7 @@ export const SectionHeading = ({
   const url = `${env.BASE_URL}/blog/post/${postSlug}#${sectionSlug}`;
 
   return (
-    <h2 className={clsx(className, "font-serif")} id={sectionSlug}>
+    <h2 className={clsx(className, merriweather.className)} id={sectionSlug}>
       {sectionHeading}
 
       <SectionLink url={url}>#</SectionLink>

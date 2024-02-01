@@ -6,7 +6,7 @@ export const VercelAnalyticsContainer = () => {
   return (
     <Analytics
       beforeSend={(e) =>
-        localStorage.getItem("va-disable") === "true" ? null : e
+        document.cookie.includes("va-disable=true") ? null : e
       }
     />
   );

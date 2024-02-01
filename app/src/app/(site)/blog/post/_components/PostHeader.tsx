@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import { type ReactNode } from "react";
+import { merriweather } from "~/app/fonts";
 import { TimeAgoLoader } from "../../_components/TimeAgoLoader";
 
 type Props = Readonly<{
@@ -31,7 +32,8 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
 
         <h1
           className={clsx(
-            "text-3xl lg:text-5xl font-extrabold relative z-10 text-balance font-serif",
+            merriweather.className,
+            "text-3xl lg:text-5xl relative z-10 text-balance",
             {
               "text-white": imageSrc,
             },
