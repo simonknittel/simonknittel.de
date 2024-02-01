@@ -37,7 +37,8 @@ export const env = createEnv({
       },
       z.enum(["production", "stage", "development"]),
     ),
-    SECRET: z.string().optional(),
+    BASIC_AUTH_USER: z.string().optional(),
+    BASIC_AUTH_PASSWORD: z.string().optional(),
   },
 
   client: {},
@@ -48,7 +49,8 @@ export const env = createEnv({
     UNLEASH_SERVER_API_TOKEN: process.env.UNLEASH_SERVER_API_TOKEN,
     BASE_URL: process.env.BASE_URL,
     DEPLOYMENT_ENV: process.env.DEPLOYMENT_ENV,
-    SECRET: process.env.SECRET,
+    BASIC_AUTH_USER: process.env.BASIC_AUTH_USER,
+    BASIC_AUTH_PASSWORD: process.env.BASIC_AUTH_PASSWORD,
   },
 
   emptyStringAsUndefined: true,
