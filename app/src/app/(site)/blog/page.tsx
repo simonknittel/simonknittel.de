@@ -5,7 +5,8 @@ import { getAllPosts } from "../../../services/posts";
 import PostExcerpt from "./_components/PostExcerpt";
 
 export const metadata: Metadata = {
-  title: "All posts - Blog | Simon Knittel",
+  title: "All blog posts | Simon Knittel",
+  description: "Overview of all my blog posts",
 };
 
 export default async function Page() {

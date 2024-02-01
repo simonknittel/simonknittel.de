@@ -20,6 +20,8 @@ const tags = [
     <SiPrisma /> Prisma
   </>,
 ];
+const description =
+  "In this post we are implementing the ability to upload images from a Next.js 13 App Router application to Cloudflare's R2 object storage service.";
 
 export const post: Post = {
   public: false,
@@ -28,6 +30,7 @@ export const post: Post = {
   publishedAt,
   tags,
   coverSrc,
+  description,
   body: (
     <>
       <p className="mt-6 lg:mt-12">

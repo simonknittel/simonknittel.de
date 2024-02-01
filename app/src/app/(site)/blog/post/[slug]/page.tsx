@@ -9,11 +9,11 @@ type Props = Readonly<{ params: { slug: string } }>;
 
 export const generateMetadata = ({ params }: Readonly<Props>): Metadata => {
   const post = getPostBySlug(params.slug);
-
   if (!post) return {};
 
   return {
     title: `${post.title} - Blog | Simon Knittel`,
+    description: post.description,
   };
 };
 

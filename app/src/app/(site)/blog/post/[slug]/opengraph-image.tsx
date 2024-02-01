@@ -24,16 +24,26 @@ export default async function Image({ params }: Props) {
     new URL("../../../../../assets/Inter/Inter-Black.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
+  const merriweatherBlack = fetch(
+    new URL(
+      "../../../../../assets/Merriweather/Merriweather-Black.ttf",
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div tw="flex flex-col bg-neutral-800 text-white h-full w-full font-900">
         <div tw="flex flex-col justify-between flex-1 py-16 px-24">
-          <p tw="text-8xl" style={{ textWrap: "balance" }}>
+          <p
+            tw="text-8xl"
+            style={{ textWrap: "balance", fontFamily: "Merriweather" }}
+          >
             {post.title}
           </p>
 
           <div tw="text-4xl text-neutral-700 flex items-center">
-            <div tw="flex rounded-full overflow-hidden ml-2 mr-2">
+            <div tw="flex rounded-full overflow-hidden mr-4">
               <img
                 src={`${env.BASE_URL}${photoSrc.src}`}
                 alt=""
@@ -70,6 +80,12 @@ export default async function Image({ params }: Props) {
         {
           name: "Inter",
           data: await interBlack,
+          style: "normal",
+          weight: 900,
+        },
+        {
+          name: "Merriweather",
+          data: await merriweatherBlack,
           style: "normal",
           weight: 900,
         },

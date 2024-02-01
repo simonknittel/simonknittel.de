@@ -13,6 +13,7 @@ export type Post = {
   tags: React.ReactNode[];
   socialLinks?: [string, string][];
   coverSrc?: StaticImageData;
+  description?: string;
   body?: ReactNode;
 };
 
