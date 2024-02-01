@@ -41,7 +41,7 @@ const PostExcerpt = ({
           />
         )}
 
-        <h2 className="text-xl lg:text-3xl font-extrabold relative z-10 text-balance">
+        <h2 className="text-xl lg:text-3xl font-extrabold relative z-10 text-balance font-serif">
           {title}
         </h2>
       </Link>

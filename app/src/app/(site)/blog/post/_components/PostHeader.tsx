@@ -31,7 +31,7 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
 
         <h1
           className={clsx(
-            "text-3xl lg:text-5xl font-extrabold relative z-10 text-balance",
+            "text-3xl lg:text-5xl font-extrabold relative z-10 text-balance font-serif",
             {
               "text-white": imageSrc,
             },

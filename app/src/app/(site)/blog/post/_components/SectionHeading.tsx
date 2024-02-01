@@ -18,7 +18,7 @@ export const SectionHeading = ({
   const url = `${env.BASE_URL}/blog/post/${postSlug}#${sectionSlug}`;
 
   return (
-    <h2 className={clsx(className)} id={sectionSlug}>
+    <h2 className={clsx(className, "font-serif")} id={sectionSlug}>
       {sectionHeading}
 
       <SectionLink url={url}>#</SectionLink>
