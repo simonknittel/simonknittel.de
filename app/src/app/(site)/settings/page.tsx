@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
-import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import { notFound, redirect } from "next/navigation";
 import { env } from "~/env.mjs";
 import { DraftMode } from "./_components/DraftMode";
 import { VercelAnalytics } from "./_components/VercelAnalytics";
@@ -17,11 +18,15 @@ export default function Page({ searchParams }: Props) {
     const secret = searchParams.secret;
 
     if (
-      !secret ||
-      (typeof secret === "string" && secret !== env.SECRET) ||
-      (Array.isArray(secret) && secret[0] !== env.SECRET)
+      cookies().get("secret")?.value !== env.SECRET &&
+      (!secret ||
+        (typeof secret === "string" && secret !== env.SECRET) ||
+        (Array.isArray(secret) && secret[0] !== env.SECRET))
     )
       notFound();
+
+    cookies().set("secret", env.SECRET);
+    redirect("/settings");
   }
 
   return (
