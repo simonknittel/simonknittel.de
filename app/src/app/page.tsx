@@ -1,8 +1,26 @@
 import { type Metadata } from "next";
+import { type ProfilePage, type WithContext } from "schema-dts";
 import { env } from "~/env.mjs";
 import photo from "../assets/photo_512x512.png";
 import { getUnleashFlag } from "../services/unleash";
 import Hero from "./_components/modules/Hero/Hero";
+
+const jsonLd: WithContext<ProfilePage> = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Simon Knittel",
+    jobTitle: "Full-Stack Developer",
+    image: `${env.BASE_URL}${photo.src}`,
+    sameAs: [
+      "https://github.com/simonknittel",
+      "https://mastodon.social/@simonknittel",
+      "https://twitter.com/simknittel",
+      "https://www.linkedin.com/in/simonknittel/",
+    ],
+  },
+};
 
 export const metadata: Metadata = {
   title: "Simon Knittel — Full-Stack Developer",
@@ -15,26 +33,7 @@ export default async function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: `
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Simon Knittel",
-              "givenName": "Simon",
-              "familyName": "Knittel",
-              "image": "${env.BASE_URL}${photo.src}",
-              "jobTitle": "Full-Stack Developer",
-              "url": "${env.BASE_URL}",
-              "sameAs": [
-                "https://github.com/simonknittel",
-                "https://mastodon.social/@simonknittel",
-                "https://twitter.com/simknittel",
-                "https://www.linkedin.com/in/simonknittel/"
-              ]
-            }
-          `,
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <Hero disableBlog={await getUnleashFlag("DisableBlog")} />
