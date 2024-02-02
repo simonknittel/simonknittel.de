@@ -10,7 +10,8 @@ export type Post = {
   title: string;
   slug: string;
   publishedAt: Date;
-  tags: React.ReactNode[];
+  tags: Array<string>;
+  tagsWithIcons: ReactNode[];
   socialLinks?: [string, string][];
   coverSrc?: StaticImageData;
   description?: string;

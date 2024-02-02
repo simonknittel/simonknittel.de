@@ -9,7 +9,8 @@ import coverSrc from "./cover.jpg";
 const title = "Image upload to Cloudflare R2 with Next.js 13 App Router";
 const slug = slugify(title);
 const publishedAt = new Date("2023-12-31T00:00:00.000Z");
-const tags = [
+const tags = ["Next.js", "Cloudflare", "Prisma"];
+const tagsWithIcons = [
   <>
     <SiNextdotjs /> Next.js
   </>,
@@ -29,6 +30,7 @@ export const post: Post = {
   slug,
   publishedAt,
   tags,
+  tagsWithIcons,
   coverSrc,
   description,
   body: (

@@ -14,6 +14,7 @@ export const post: Post = {
   slug,
   publishedAt,
   tags,
+  tagsWithIcons: tags,
   body: (
     <>
       <TableOfContents

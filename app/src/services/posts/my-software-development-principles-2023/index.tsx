@@ -18,6 +18,7 @@ export const post: Post = {
   slug,
   publishedAt,
   tags,
+  tagsWithIcons: tags,
   socialLinks,
   description,
   body: (
