@@ -13,26 +13,29 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <>
-      <script type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Simon Knittel",
-            "givenName": "Simon",
-            "familyName": "Knittel",
-            "image": "${env.BASE_URL}${photo.src}",
-            "jobTitle": "Full-Stack Developer",
-            "url": "${env.BASE_URL}",
-            "sameAs": [
-              "https://github.com/simonknittel",
-              "https://mastodon.social/@simonknittel",
-              "https://twitter.com/simknittel",
-              "https://www.linkedin.com/in/simonknittel/"
-            ]
-          }
-        `}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: `
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Simon Knittel",
+              "givenName": "Simon",
+              "familyName": "Knittel",
+              "image": "${env.BASE_URL}${photo.src}",
+              "jobTitle": "Full-Stack Developer",
+              "url": "${env.BASE_URL}",
+              "sameAs": [
+                "https://github.com/simonknittel",
+                "https://mastodon.social/@simonknittel",
+                "https://twitter.com/simknittel",
+                "https://www.linkedin.com/in/simonknittel/"
+              ]
+            }
+          `,
+        }}
+      />
 
       <Hero disableBlog={await getUnleashFlag("DisableBlog")} />
     </>
