@@ -8,7 +8,6 @@ import {
   SiTypescript,
   SiUnity,
 } from "react-icons/si";
-import Globe from "./Globe";
 import styles from "./Hero.module.css";
 import { Photo } from "./Photo";
 import Technology from "./Technology";
@@ -141,11 +140,11 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
         </div>
       </div>
 
-      <Globe
+      {/* <Globe
         className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[512px] w-[3072px]"
         width={3072}
         height={512}
-      />
+      /> */}
     </div>
   );
 };
