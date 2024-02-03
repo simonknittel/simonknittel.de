@@ -1,3 +1,4 @@
+// @ts-check
 import { env } from "./src/env.mjs";
 
 /** @type string */
