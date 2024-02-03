@@ -39,7 +39,7 @@ export const SectionLink = ({ className, children, url }: Props) => {
       onClick={handleClick}
       title="Copy link to section"
     >
-      <span className="opacity-30 group-hover:opacity-100 transition-opacity">
+      <span className="opacity-30 group-hover:opacity-100 transition-opacity not-sr-only">
         {children}
       </span>
       {showTooltip && (
