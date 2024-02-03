@@ -1,8 +1,52 @@
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
- */
-await import("./src/env.mjs");
+import { env } from "./src/env.mjs";
+
+/** @type string */
+let csp;
+
+if (env.DEPLOYMENT_ENV === "production") {
+  csp = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+  `;
+} else if (env.DEPLOYMENT_ENV === "stage") {
+  csp = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de https://vercel.live;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+    connect-src 'self' https://plsbl.simonknittel.de;
+  `;
+} else {
+  csp = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self' https://fonts.gstatic.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+  `;
+}
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -46,19 +90,7 @@ const config = {
         },
         {
           key: "Content-Security-Policy",
-          value: `
-              default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de;
-              style-src 'self' 'unsafe-inline';
-              img-src 'self' blob: data:;
-              font-src 'self';
-              object-src 'none';
-              base-uri 'self';
-              form-action 'self';
-              frame-ancestors 'none';
-              block-all-mixed-content;
-              upgrade-insecure-requests;
-            `.replace(/\n/g, ""),
+          value: csp.replace(/\n/g, ""),
         },
       ],
     },
