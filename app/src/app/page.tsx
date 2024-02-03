@@ -18,6 +18,7 @@ const jsonLd: WithContext<ProfilePage> = {
       "https://mastodon.social/@simonknittel",
       "https://twitter.com/simknittel",
       "https://www.linkedin.com/in/simonknittel/",
+      "https://www.buymeacoffee.com/simonknittel",
     ],
   },
 };
