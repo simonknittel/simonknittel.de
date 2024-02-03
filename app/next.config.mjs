@@ -33,7 +33,7 @@ if (env.DEPLOYMENT_ENV === "production") {
     upgrade-insecure-requests;
     connect-src 'self' https://plsbl.simonknittel.de https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com;
     frame-src 'self' https://vercel.live;
-    style-src-elem 'self' https://vercel.live;
+    style-src-elem 'self' 'unsafe-inline' https://vercel.live;
   `;
 } else {
   csp = `
