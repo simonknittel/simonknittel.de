@@ -25,7 +25,13 @@ export const Photo = ({ className, size = "large" }: Readonly<Props>) => {
         "h-32 w-32": size === "large",
       })}
     >
-      <Image src={photoSrc} alt="Picture of me" width={width} height={height} />
+      <Image
+        src={photoSrc}
+        alt="Picture of me"
+        width={width}
+        height={height}
+        priority={true}
+      />
     </div>
   );
 };

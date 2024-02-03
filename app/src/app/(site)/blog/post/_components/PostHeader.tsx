@@ -27,6 +27,7 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
             alt=""
             width={832}
             className="absolute inset-0 z-0"
+            priority={true}
           />
         )}
 
