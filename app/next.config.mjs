@@ -24,7 +24,7 @@ if (env.DEPLOYMENT_ENV === "production") {
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de https://vercel.live;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://vercel.com;
-    font-src 'self' https://assets.vercel.com https://fonts.gstatic.com;
+    font-src 'self' https://assets.vercel.com https://fonts.gstatic.com https://vercel.live;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
