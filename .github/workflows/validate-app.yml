@@ -1,0 +1,66 @@
+name: Validate app
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - .github/workflows/validate-app.yml
+      - app/**
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4.1.1
+
+      - uses: oven-sh/setup-bun@v1.1.1
+        with:
+          bun-version: 1.0.25
+
+      - uses: actions/cache@v4.0.0
+        id: node-modules-cache
+        with:
+          path: app/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('app/bun.lockb') }}
+
+      - name: Install app dependencies
+        run: bun install
+        working-directory: app
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Lint
+        run: bun run lint
+        working-directory: app
+        continue-on-error: true
+        env:
+          UNLEASH_SERVER_API_URL: "https://foo"
+          UNLEASH_SERVER_API_TOKEN: "foo"
+
+  prettier:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4.1.1
+
+      - uses: oven-sh/setup-bun@v1.1.1
+        with:
+          bun-version: 1.0.25
+
+      - uses: actions/cache@v4.0.0
+        id: node-modules-cache
+        with:
+          path: app/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('app/bun.lockb') }}
+
+      - name: Install app dependencies
+        run: bun install
+        working-directory: app
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Prettier
+        run: bunx prettier --check .
+        working-directory: app
+        continue-on-error: true
