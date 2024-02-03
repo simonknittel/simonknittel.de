@@ -17,6 +17,7 @@ if (env.DEPLOYMENT_ENV === "production") {
     frame-ancestors 'none';
     block-all-mixed-content;
     upgrade-insecure-requests;
+    connect-src 'self' https://plsbl.simonknittel.de;
   `;
 } else if (env.DEPLOYMENT_ENV === "stage") {
   // https://vercel.com/docs/workflow-collaboration/comments/specialized-usage#using-a-content-security-policy
