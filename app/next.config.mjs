@@ -22,7 +22,7 @@ if (env.DEPLOYMENT_ENV === "production") {
   // https://vercel.com/docs/workflow-collaboration/comments/specialized-usage#using-a-content-security-policy
   csp = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de https://vercel.live;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://vercel.com;
     font-src 'self' https://assets.vercel.com https://fonts.gstatic.com https://vercel.live;
@@ -32,14 +32,14 @@ if (env.DEPLOYMENT_ENV === "production") {
     frame-ancestors 'none';
     block-all-mixed-content;
     upgrade-insecure-requests;
-    connect-src 'self' https://plsbl.simonknittel.de https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com;
+    connect-src 'self' https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com;
     frame-src 'self' https://vercel.live;
     style-src-elem 'self' 'unsafe-inline' https://vercel.live;
   `;
 } else {
   csp = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self' https://fonts.gstatic.com;
