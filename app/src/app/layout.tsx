@@ -17,10 +17,13 @@ export default function RootLayout({ children }: Readonly<Props>) {
     <html lang="en">
       <body>
         {children}
-        <Script
-          src="https://plsbl.simonknittel.de/js/script.outbound-links.tagged-events.js"
-          data-domain="simonknittel.de"
-        />
+
+        {env.DEPLOYMENT_ENV === "production" && (
+          <Script
+            src="https://plsbl.simonknittel.de/js/script.outbound-links.tagged-events.js"
+            data-domain="simonknittel.de"
+          />
+        )}
       </body>
     </html>
   );

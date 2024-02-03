@@ -57,7 +57,9 @@ export default async function Page() {
             />
           ))
         ) : (
-          <p className="block text-center italic">No posts available</p>
+          <p className="block text-center italic mt-6 lg:mt-0">
+            No posts available
+          </p>
         )}
       </main>
     </>
