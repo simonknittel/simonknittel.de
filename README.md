@@ -8,6 +8,7 @@
 - [Vercel](https://vercel.com/)
 - [Terraform](https://www.terraform.io/)
 - [Zod](https://github.com/colinhacks/zod)
+- [Bun](https://bun.sh/)
 
 ## Usage
 
