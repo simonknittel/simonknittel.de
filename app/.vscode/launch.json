@@ -2,6 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "bun run dev:turbo (node)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:turbo"],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "outputCapture": "std"
+    },
+    {
       "name": "bun run dev (node)",
       "type": "node",
       "request": "launch",
