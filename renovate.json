@@ -1,0 +1,33 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+      "config:recommended",
+      ":semanticCommits",
+      ":dependencyDashboard"
+    ],
+    "packageRules": [
+      {
+        "matchUpdateTypes": [
+          "minor",
+          "patch",
+          "pin",
+          "digest"
+        ],
+        "automerge": true,
+        "timezone": "Europe/Berlin",
+        "prCreation": "not-pending",
+        "minimumReleaseAge": "7 days",
+        "internalChecksFilter": "strict",
+        "platformAutomerge": false,
+        "automergeStrategy": "squash"
+      },
+      {
+        "matchPackageNames": [
+          "hashicorp/terraform"
+        ],
+        "automerge": false
+      }
+    ],
+    "configMigration": true
+  }
+  
