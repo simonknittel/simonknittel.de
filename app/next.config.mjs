@@ -30,7 +30,7 @@ if (env.DEPLOYMENT_ENV === "production") {
     frame-ancestors 'none';
     block-all-mixed-content;
     upgrade-insecure-requests;
-    connect-src 'self' https://plsbl.simonknittel.de https://vercel.live;
+    connect-src 'self' https://plsbl.simonknittel.de https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com;
     frame-src 'self' https://vercel.live;
   `;
 } else {
