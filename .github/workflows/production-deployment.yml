@@ -2,7 +2,7 @@ name: Production deployment
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -47,6 +47,7 @@ jobs:
                 head: "develop",
                 base: "main",
                 title: "Production deployment",
+                body: "**Only merge using a Merge Commit!**"
               })
 
               console.info(`Pull Request created (${createdPullRequest.html_url})`)

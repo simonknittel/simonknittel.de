@@ -5,6 +5,7 @@
 import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import earthPng from "./earth.png";
 
 interface Props {
   className?: string;
@@ -32,7 +33,7 @@ const Globe = ({ className, width = 0, height = 0 }: Readonly<Props>) => {
 
     const geometry = new THREE.SphereGeometry(5, 64, 64);
 
-    const texture = new THREE.TextureLoader().load("./assets/earth.png");
+    const texture = new THREE.TextureLoader().load(earthPng.src);
 
     // TODO: Add inner glow
 
