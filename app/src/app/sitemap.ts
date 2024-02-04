@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
       ...getAllPosts().map((post) => ({
         url: `${env.BASE_URL}/blog/post/${post.slug}`,
-        lastModified: post.publishedAt,
+        lastModified: post.publishedAt!,
       })),
     );
   }

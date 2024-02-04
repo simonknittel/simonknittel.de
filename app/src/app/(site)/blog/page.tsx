@@ -23,7 +23,6 @@ export default async function Page() {
     blogPost: posts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
-      datePublished: post.publishedAt.toISOString(),
       keywords: post.tags,
       description: post.description,
       author: {
@@ -32,6 +31,9 @@ export default async function Page() {
         url: env.BASE_URL,
       },
       url: `${process.env.BASE_URL}/blog/post/${post.slug}`,
+      ...(post.publishedAt && {
+        datePublished: post.publishedAt.toISOString(),
+      }),
     })),
   };
 

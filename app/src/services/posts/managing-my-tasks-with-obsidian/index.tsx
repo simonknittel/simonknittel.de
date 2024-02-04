@@ -5,14 +5,11 @@ import TableOfContents from "../../../app/(site)/blog/post/_components/TableOfCo
 
 const title = "Managing my tasks with Obsidian";
 const slug = slugify(title);
-const publishedAt = new Date("2023-12-31T00:00:00.000Z");
 const tags = ["Obsidian", "Productivity"];
 
 export const post: Post = {
-  public: false,
   title,
   slug,
-  publishedAt,
   tags,
   tagsWithIcons: tags,
   body: (

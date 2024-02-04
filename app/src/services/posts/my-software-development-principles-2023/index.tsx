@@ -6,14 +6,13 @@ import TableOfContents from "../../../app/(site)/blog/post/_components/TableOfCo
 
 const title = "My software development principles 2023";
 const slug = slugify(title);
-const publishedAt = new Date("2023-12-31T00:00:00.000Z");
+const publishedAt = new Date("2025-12-31T00:00:00.000Z");
 const tags = ["Opinion"];
 const socialLinks = [["Twitter", "https://twitter.com/"]];
 const description =
   "Over the years I developed some principles which define how I write or review code. Probably none of them are revolutionary in the world of software development. However, I wanted to write them down in order to reference them later if necessary.";
 
 export const post: Post = {
-  public: false,
   title,
   slug,
   publishedAt,
