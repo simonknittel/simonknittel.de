@@ -1,56 +1,46 @@
 // @ts-check
+import { generateCsp } from "./lib/generateCsp.mjs";
 import { env } from "./src/env.mjs";
 
-/** @type string */
-let csp;
+/** @type {import("./lib/generateCsp.mjs").CspSets} */
+const cspSets = [
+  {
+    "default-src": "'self'",
+    "script-src": "'self' 'unsafe-eval' 'unsafe-inline'",
+    "style-src": "'self' 'unsafe-inline'",
+    "img-src": "'self' blob: data:",
+    "font-src": "'self'",
+    "object-src": "'none'",
+    "base-uri": "'self'",
+    "form-action": "'self'",
+    "frame-ancestors": "'none'",
+    "block-all-mixed-content": "",
+    "upgrade-insecure-requests": "",
+    "connect-src": "'self'",
+  },
+];
 
 if (env.DEPLOYMENT_ENV === "production") {
-  csp = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://plsbl.simonknittel.de;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-    connect-src 'self' https://plsbl.simonknittel.de;
-  `;
+  cspSets.push({
+    "script-src": "https://plsbl.simonknittel.de",
+    "connect-src": "https://plsbl.simonknittel.de",
+  });
 } else if (env.DEPLOYMENT_ENV === "stage") {
   // https://vercel.com/docs/workflow-collaboration/comments/specialized-usage#using-a-content-security-policy
-  csp = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://vercel.com;
-    font-src 'self' https://assets.vercel.com https://fonts.gstatic.com https://vercel.live;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-    connect-src 'self' https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com;
-    frame-src 'self' https://vercel.live;
-    style-src-elem 'self' 'unsafe-inline' https://vercel.live;
-  `;
+  cspSets.push({
+    "script-src": "https://vercel.live",
+    "style-src": "https://vercel.live",
+    "img-src": "https://vercel.com",
+    "font-src":
+      "https://assets.vercel.com https://fonts.gstatic.com https://vercel.live",
+    "connect-src":
+      "https://vercel.live wss://ws-us3.pusher.com https://sockjs-us3.pusher.com",
+    "frame-src": "'self' https://vercel.live",
+  });
 } else {
-  csp = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self' https://fonts.gstatic.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-  `;
+  cspSets.push({
+    "font-src": "https://fonts.gstatic.com",
+  });
 }
 
 /** @type {import("next").NextConfig} */
@@ -95,7 +85,7 @@ const config = {
         },
         {
           key: "Content-Security-Policy",
-          value: csp.replace(/\n/g, ""),
+          value: generateCsp(cspSets),
         },
       ],
     },
@@ -107,4 +97,5 @@ const config = {
     },
   },
 };
+
 export default config;

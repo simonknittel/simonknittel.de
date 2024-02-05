@@ -6,7 +6,7 @@ import { TimeAgoLoader } from "../../_components/TimeAgoLoader";
 
 type Props = Readonly<{
   children?: ReactNode;
-  date: Date;
+  date?: Date;
   tags?: ReactNode[];
   imageSrc?: StaticImageData;
 }>;
@@ -50,7 +50,7 @@ export const PostHeader = ({ children, date, tags, imageSrc }: Props) => {
           "justify-center": !imageSrc,
         })}
       >
-        <TimeAgoLoader date={date} />
+        {date ? <TimeAgoLoader date={date} /> : <span />}
 
         {tags && tags.length > 0 && (
           <div className="flex gap-2 flex-wrap">

@@ -6,10 +6,9 @@ import { post as post2 } from "./managing-my-tasks-with-obsidian";
 import { post } from "./my-software-development-principles-2023";
 
 export type Post = {
-  public: boolean;
   title: string;
   slug: string;
-  publishedAt: Date;
+  publishedAt?: Date;
   tags: Array<string>;
   tagsWithIcons: ReactNode[];
   socialLinks?: [string, string][];
@@ -28,7 +27,10 @@ export const getPostBySlug = cache((slug: string) =>
   allPosts.find((post) => post.slug === slug && isVisible(post)),
 );
 
-const isVisible = (post: Post) => post.public === true || draftMode().isEnabled;
+const isVisible = (post: Post) => {
+  const now = new Date();
+  return (post.publishedAt && post.publishedAt <= now) || draftMode().isEnabled;
+};
 
 // Open Graph image generation doesn't support draft mode
 export const getPostBySlugOg = cache((slug: string) =>

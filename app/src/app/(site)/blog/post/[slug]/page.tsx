@@ -30,7 +30,6 @@ export default async function Page({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    datePublished: post.publishedAt.toISOString(),
     keywords: post.tags,
     description: post.description,
     author: {
@@ -38,6 +37,9 @@ export default async function Page({ params }: Props) {
       name: "Simon Knittel",
       url: env.BASE_URL,
     },
+    ...(post.publishedAt && {
+      datePublished: post.publishedAt.toISOString(),
+    }),
   };
 
   return (

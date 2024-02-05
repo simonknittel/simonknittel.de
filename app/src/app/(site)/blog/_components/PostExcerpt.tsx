@@ -9,7 +9,7 @@ interface Props {
   className?: string;
   slug: string;
   title: ReactNode;
-  date: Date;
+  date?: Date;
   tags?: ReactNode[];
   imageSrc?: StaticImageData;
 }
@@ -60,7 +60,7 @@ const PostExcerpt = ({
           },
         )}
       >
-        <TimeAgoLoader date={date} />
+        {date ? <TimeAgoLoader date={date} /> : <span />}
 
         {tags && tags.length > 0 && (
           <div className="flex gap-2 flex-wrap">

@@ -8,7 +8,6 @@ import coverSrc from "./cover.jpg";
 
 const title = "Image upload to Cloudflare R2 with Next.js 13 App Router";
 const slug = slugify(title);
-const publishedAt = new Date("2023-12-31T00:00:00.000Z");
 const tags = ["Next.js", "Cloudflare", "Prisma"];
 const tagsWithIcons = [
   <>
@@ -25,10 +24,8 @@ const description =
   "In this post we are implementing the ability to upload images from a Next.js 13 App Router application to Cloudflare's R2 object storage service.";
 
 export const post: Post = {
-  public: false,
   title,
   slug,
-  publishedAt,
   tags,
   tagsWithIcons,
   coverSrc,
