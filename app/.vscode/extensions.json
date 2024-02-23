@@ -1,11 +1,10 @@
 {
-	"recommendations": [
-		"codezombiech.gitignore",
-		"deque-systems.vscode-axe-linter",
-		"esbenp.prettier-vscode",
-		"bradlc.vscode-tailwindcss",
-		"dbaeumer.vscode-eslint",
-		"dotenv.dotenv-vscode",
-		"oven.bun-vscode"
-	]
+  "recommendations": [
+    "deque-systems.vscode-axe-linter",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "dotenv.dotenv-vscode",
+    "oven.bun-vscode"
+  ]
 }
