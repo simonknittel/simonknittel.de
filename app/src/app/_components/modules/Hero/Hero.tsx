@@ -18,7 +18,7 @@ interface Props {
 
 const Hero = ({ disableBlog = false }: Readonly<Props>) => {
   return (
-    <div className="h-[100dvh] bg-gradient-radial from-neutral-800 to-black text-white overflow-hidden relative">
+    <div className="h-[100dvh] bg-neutral-950 text-white overflow-hidden relative">
       <div
         className={clsx(
           styles.container,
