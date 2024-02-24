@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"codezombiech.gitignore",
 		"hashicorp.terraform",
 		"github.vscode-github-actions"
 	]
