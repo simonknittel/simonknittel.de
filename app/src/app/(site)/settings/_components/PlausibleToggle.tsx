@@ -41,3 +41,5 @@ export const PlausibleToggle = () => {
     </div>
   );
 };
+
+export default PlausibleToggle;

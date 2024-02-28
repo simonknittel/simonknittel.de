@@ -1,15 +1,12 @@
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 
-const PlausibleToggle = dynamic(
-  () => import("./PlausibleToggle").then((mod) => mod.PlausibleToggle),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="animate-pulse rounded bg-neutral-800 h-7 w-36" />
-    ),
-  },
-);
+const PlausibleToggle = dynamic(() => import("./PlausibleToggle"), {
+  ssr: false,
+  loading: () => (
+    <div className="animate-pulse rounded bg-neutral-800 h-7 w-36" />
+  ),
+});
 
 type Props = Readonly<{
   className?: string;

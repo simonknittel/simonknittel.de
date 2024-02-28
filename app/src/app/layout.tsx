@@ -5,10 +5,7 @@ import { env } from "~/env.mjs";
 import "../styles/globals.css";
 
 const PlausibleContainer = dynamic(
-  () =>
-    import("./_components/PlausibleContainer").then(
-      (mod) => mod.PlausibleContainer,
-    ),
+  () => import("./_components/PlausibleContainer"),
   { ssr: false },
 );
 

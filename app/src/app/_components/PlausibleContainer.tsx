@@ -14,3 +14,5 @@ export const PlausibleContainer = () => {
     />
   );
 };
+
+export default PlausibleContainer;
