@@ -32,6 +32,7 @@ const PostExcerpt = ({
             "p-4 lg:p-8 overflow-hidden rounded lg:rounded-3xl": imageSrc,
           },
         )}
+        prefetch={false}
       >
         {imageSrc && (
           <Image
