@@ -36,7 +36,11 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
 
           <h2 className="text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100">
             Full-Stack Developer @{" "}
-            <Link href="https://www.hmmh.de/" className="inline-block">
+            <Link
+              href="https://www.hmmh.de/"
+              className="inline-block"
+              prefetch={false}
+            >
               <span className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500">
                 hmmh
               </span>
@@ -49,6 +53,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
                 <Link
                   href="/blog"
                   className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                  prefetch={false}
                 >
                   Blog
                 </Link>
@@ -59,6 +64,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               <Link
                 href="https://github.com/simonknittel"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                prefetch={false}
               >
                 GitHub
               </Link>
@@ -69,6 +75,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
                 href="https://mastodon.social/@simonknittel"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
                 rel="me"
+                prefetch={false}
               >
                 Mastodon
               </Link>
@@ -78,6 +85,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               <Link
                 href="https://twitter.com/simknittel"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                prefetch={false}
               >
                 Twitter
               </Link>
@@ -87,6 +95,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               <Link
                 href="https://www.linkedin.com/in/simonknittel/"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                prefetch={false}
               >
                 LinkedIn
               </Link>
@@ -96,6 +105,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               <Link
                 href="https://www.xing.com/profile/Simon_Knittel/"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                prefetch={false}
               >
                 Xing
               </Link>
@@ -105,6 +115,7 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
               <Link
                 href="https://www.instagram.com/simonknittel/"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
+                prefetch={false}
               >
                 Instagram
               </Link>

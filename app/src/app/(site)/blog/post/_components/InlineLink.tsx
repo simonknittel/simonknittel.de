@@ -28,6 +28,7 @@ export const InlineLink = forwardRef<typeof Link, Props>(
         })}
         {...other}
         ref={ref}
+        prefetch={false}
       >
         {children}
       </Link>
