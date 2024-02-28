@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { type Metadata } from "next";
 import { merriweather } from "~/app/fonts";
 import { DraftMode } from "./_components/DraftMode";
+import { Plausible } from "./_components/Plausible";
 
 export const metadata: Metadata = {
   title: "Settings | Simon Knittel",
@@ -20,6 +21,8 @@ export default function Page() {
       </h1>
 
       {/* <VercelAnalytics /> */}
+
+      <Plausible />
 
       <DraftMode />
     </main>
