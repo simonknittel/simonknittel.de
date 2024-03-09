@@ -9,15 +9,19 @@ export const size = {
 };
 
 export const contentType = "image/png";
+export const runtime = "edge";
 
 export default async function Image() {
   const interBlack = fetch(
-    new URL("../../../assets/Inter/Inter-Black.ttf", import.meta.url),
+    new URL(
+      "../../../assets/webfontkit-20240309-023449/inter-black-webfont.ttf",
+      import.meta.url,
+    ),
   ).then((res) => res.arrayBuffer());
 
   const merriweatherBlack = fetch(
     new URL(
-      "../../../assets/Merriweather/Merriweather-Black.ttf",
+      "../../../assets/webfontkit-20240309-022110/merriweather-black-webfont.ttf",
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
