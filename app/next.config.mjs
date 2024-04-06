@@ -2,6 +2,8 @@
 import { generateCsp } from "./lib/generateCsp.mjs";
 import { env } from "./src/env.mjs";
 
+await import("./src/env.mjs");
+
 /** @type {import("./lib/generateCsp.mjs").CspSets} */
 const cspSets = [
   {

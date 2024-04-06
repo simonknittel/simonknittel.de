@@ -5,6 +5,7 @@
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "dotenv.dotenv-vscode",
-    "oven.bun-vscode"
+    "oven.bun-vscode",
+    "clinyong.vscode-css-modules"
   ]
 }
