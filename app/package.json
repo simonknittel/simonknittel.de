@@ -28,7 +28,7 @@
     "@types/node": "20.12.4",
     "@types/prettier": "3.0.0",
     "@types/react": "18.2.74",
-    "@types/react-dom": "18.2.23",
+    "@types/react-dom": "18.2.24",
     "@types/react-timeago": "4.1.7",
     "@types/three": "0.163.0",
     "@typescript-eslint/eslint-plugin": "7.5.0",
