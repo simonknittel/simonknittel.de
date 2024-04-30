@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@t3-oss/env-nextjs": "0.9.2",
+    "@t3-oss/env-nextjs": "0.10.0",
     "@unleash/nextjs": "1.4.2",
     "@vercel/analytics": "1.2.2",
     "clsx": "2.1.0",
@@ -21,7 +21,7 @@
     "schema-dts": "1.1.2",
     "slugify": "1.6.6",
     "three": "0.163.0",
-    "zod": "3.22.5"
+    "zod": "3.23.0"
   },
   "devDependencies": {
     "@types/eslint": "8.56.10",
