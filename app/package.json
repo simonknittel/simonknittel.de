@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "0.10.1",
-    "@unleash/nextjs": "1.4.2",
+    "@unleash/nextjs": "1.4.3",
     "@vercel/analytics": "1.2.2",
     "clsx": "2.1.1",
     "next": "14.2.3",
@@ -30,7 +30,7 @@
     "@types/react": "18.3.2",
     "@types/react-dom": "18.3.0",
     "@types/react-timeago": "4.1.7",
-    "@types/three": "0.164.0",
+    "@types/three": "0.164.1",
     "@typescript-eslint/eslint-plugin": "7.10.0",
     "@typescript-eslint/parser": "7.10.0",
     "autoprefixer": "10.4.19",
