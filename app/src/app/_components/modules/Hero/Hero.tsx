@@ -83,11 +83,11 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
 
             <li>
               <Link
-                href="https://twitter.com/simknittel"
+                href="https://bsky.app/profile/simonknittel.de"
                 className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
                 prefetch={false}
               >
-                Twitter
+                Bluesky
               </Link>
             </li>
 
@@ -100,26 +100,6 @@ const Hero = ({ disableBlog = false }: Readonly<Props>) => {
                 LinkedIn
               </Link>
             </li>
-
-            {/* <li>
-              <Link
-                href="https://www.xing.com/profile/Simon_Knittel/"
-                className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-                prefetch={false}
-              >
-                Xing
-              </Link>
-            </li> */}
-
-            {/* <li>
-              <Link
-                href="https://www.instagram.com/simonknittel/"
-                className="hover:opacity-50 bg-clip-text text-transparent bg-gradient-to-t from-neutral-400 to-neutral-100 after:content-[''] after:h-[1px] after:block after:animate-rgb after:bg-gradient-to-r after:from-teal-500 after:via-purple-500 after:to-orange-500"
-                prefetch={false}
-              >
-                Instagram
-              </Link>
-            </li> */}
           </ul>
         </div>
 
