@@ -20,19 +20,11 @@ export const Footer = ({ className, disableBlog = false }: Readonly<Props>) => {
           Mastodon
         </FooterLink>
 
-        <FooterLink href="https://twitter.com/simknittel">Twitter</FooterLink>
+        <FooterLink href="https://bsky.app/profile/simonknittel.de">Blueksy</FooterLink>
 
         <FooterLink href="https://www.linkedin.com/in/simonknittel/">
           LinkedIn
         </FooterLink>
-
-        {/* <FooterLink href="https://www.xing.com/profile/Simon_Knittel/">
-          Xing
-        </FooterLink> */}
-
-        {/* <FooterLink href="https://www.instagram.com/simonknittel/">
-          Instagram
-        </FooterLink> */}
 
         <FooterLink href="https://www.buymeacoffee.com/simonknittel">
           Buy Me A Coffee
