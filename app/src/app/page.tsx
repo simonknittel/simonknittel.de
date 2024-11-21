@@ -37,7 +37,9 @@ export default async function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Hero disableBlog={await getUnleashFlag("DisableBlog")} />
+      <main>
+        <Hero disableBlog={await getUnleashFlag("DisableBlog")} />
+      </main>
     </>
   );
 }
