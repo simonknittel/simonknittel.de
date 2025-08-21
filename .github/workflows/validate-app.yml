@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v4.1.6
+      - uses: actions/checkout@v5.0.0
 
-      - uses: oven-sh/setup-bun@v1.2.2
+      - uses: oven-sh/setup-bun@v2.0.2
         with:
           bun-version: 1.0.25
 
-      - uses: actions/cache@v4.0.2
+      - uses: actions/cache@v4.2.4
         id: node-modules-cache
         with:
           path: app/node_modules
@@ -43,13 +43,13 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v4.1.6
+      - uses: actions/checkout@v5.0.0
 
-      - uses: oven-sh/setup-bun@v1.2.2
+      - uses: oven-sh/setup-bun@v2.0.2
         with:
           bun-version: 1.0.25
 
-      - uses: actions/cache@v4.0.2
+      - uses: actions/cache@v4.2.4
         id: node-modules-cache
         with:
           path: app/node_modules
