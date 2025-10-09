@@ -18,7 +18,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2.0.2
         with:
-          bun-version: 1.0.25
+          bun-version: 1.1.40
 
       - uses: actions/cache@v4.2.4
         id: node-modules-cache
@@ -47,7 +47,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2.0.2
         with:
-          bun-version: 1.0.25
+          bun-version: 1.1.40
 
       - uses: actions/cache@v4.2.4
         id: node-modules-cache
