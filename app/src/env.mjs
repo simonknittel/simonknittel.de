@@ -4,8 +4,8 @@ import { z } from "zod";
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    UNLEASH_SERVER_API_URL: z.string().url(),
-    UNLEASH_SERVER_API_TOKEN: z.string(),
+    UNLEASH_SERVER_API_URL: z.string().url().optional(),
+    UNLEASH_SERVER_API_TOKEN: z.string().optional(),
     BASE_URL: z.preprocess(
       // Uses VERCEL_URL if BASE_URL is not set, e.g. on Vercel's preview deployments
       (str) => {

@@ -1,16 +1,21 @@
 "use client";
 
-import { init } from "@plausible-analytics/tracker";
-import { useEffect } from "react";
+import Script from "next/script";
 
 export const PlausibleContainer = () => {
-  useEffect(() => {
-    init({
-      domain: "simonknittel.de",
-      endpoint: "https://plsbl.simonknittel.de/api/event",
-      outboundLinks: true,
-    });
-  }, []);
+  const handleLoad = () => {
+    // prettier-ignore
+    // @ts-expect-error
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    // @ts-expect-error
+    plausible.init();
+  };
 
-  return null;
+  return (
+    <Script
+      src="https://plsbl.simonknittel.de/js/pa-M2cIZdjvDyx7AgYWIpTEC.js"
+      defer
+      onLoad={handleLoad}
+    />
+  );
 };
