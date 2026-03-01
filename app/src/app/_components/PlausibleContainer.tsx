@@ -1,18 +1,16 @@
 "use client";
 
-import Script from "next/script";
+import { init } from "@plausible-analytics/tracker";
+import { useEffect } from "react";
 
 export const PlausibleContainer = () => {
-  // https://plausible.io/docs/excluding-localstorage
-  const isDisabled = window.localStorage.getItem("plausible_ignore") === "true";
-  if (isDisabled) return null;
+  useEffect(() => {
+    init({
+      domain: "simonknittel.de",
+      endpoint: "https://plsbl.simonknittel.de/api/event",
+      outboundLinks: true,
+    });
+  }, []);
 
-  return (
-    <Script
-      src="https://plsbl.simonknittel.de/js/script.outbound-links.tagged-events.js"
-      data-domain="simonknittel.de"
-    />
-  );
+  return null;
 };
-
-export default PlausibleContainer;
