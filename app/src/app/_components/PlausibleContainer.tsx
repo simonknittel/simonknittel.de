@@ -3,16 +3,19 @@
 import Script from "next/script";
 
 export const PlausibleContainer = () => {
-  // https://plausible.io/docs/excluding-localstorage
-  const isDisabled = window.localStorage.getItem("plausible_ignore") === "true";
-  if (isDisabled) return null;
+  const handleLoad = () => {
+    // prettier-ignore
+    // @ts-expect-error
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    // @ts-expect-error
+    plausible.init();
+  };
 
   return (
     <Script
-      src="https://plsbl.simonknittel.de/js/script.outbound-links.tagged-events.js"
-      data-domain="simonknittel.de"
+      src="https://plsbl.simonknittel.de/js/pa-M2cIZdjvDyx7AgYWIpTEC.js"
+      defer
+      onLoad={handleLoad}
     />
   );
 };
-
-export default PlausibleContainer;

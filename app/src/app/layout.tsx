@@ -5,7 +5,7 @@ import { env } from "~/env.mjs";
 import "../styles/globals.css";
 
 const PlausibleContainer = dynamic(
-  () => import("./_components/PlausibleContainer"),
+  () => import("./_components/PlausibleContainer").then(mod => mod.PlausibleContainer),
   { ssr: false },
 );
 
@@ -21,9 +21,8 @@ export default function RootLayout({ children }: Readonly<Props>) {
   return (
     <html lang="en">
       <body>
+        <PlausibleContainer />
         {children}
-
-        {env.DEPLOYMENT_ENV === "production" && <PlausibleContainer />}
       </body>
     </html>
   );
