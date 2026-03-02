@@ -31,7 +31,7 @@ data "cloudflare_zones" "main" {
 resource "cloudflare_record" "root_cname" {
   zone_id = data.cloudflare_zones.main.zones[0].id
   name    = "@"
-  value   = "76.76.21.21"
+  value   = "216.198.79.1"
   type    = "A"
   proxied = false
   comment = "terraform; repository:simonknittel/simonknittel.de"
@@ -40,7 +40,7 @@ resource "cloudflare_record" "root_cname" {
 resource "cloudflare_record" "www_cname" {
   zone_id = data.cloudflare_zones.main.zones[0].id
   name    = "www"
-  value   = "cname.vercel-dns.com"
+  value   = "f2705ad081ddc4a3.vercel-dns-017.com."
   type    = "CNAME"
   proxied = false
   comment = "terraform; repository:simonknittel/simonknittel.de"
