@@ -33,7 +33,7 @@ resource "cloudflare_record" "root_cname" {
   name    = "@"
   value   = "216.198.79.1"
   type    = "A"
-  proxied = true
+  proxied = false
   comment = "terraform; repository:simonknittel/simonknittel.de"
 }
 
@@ -42,6 +42,6 @@ resource "cloudflare_record" "www_cname" {
   name    = "www"
   value   = "f2705ad081ddc4a3.vercel-dns-017.com."
   type    = "CNAME"
-  proxied = true
+  proxied = false
   comment = "terraform; repository:simonknittel/simonknittel.de"
 }
